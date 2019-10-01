@@ -114,7 +114,7 @@ A Red Hat OpenShift cluster administrator must complete this step.
   - If you are not an administrator, use the Share link to share the script with your cluster administrator.
   - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
 
-## Step 4. Set the deployment values
+## Step 3. Set the deployment values
 {: #set-deploy-values}
 
 Override the default deployment values:
@@ -130,7 +130,7 @@ Override the default deployment values:
 | `storageClass`  |  Configure storage class. | `ibmc-block-bronze` |
 {: caption="Table 1. Deployment values" caption-side="top"}
 
-## Step 5. Install IBM Cloud Pak for Multicloud Management
+## Step 4. Install IBM Cloud Pak for Multicloud Management
 {: #install-cp4mcm}
 
 1. Ensure that you have assigned a license for the IBM Cloud Pak for Multicloud Management to the deployment.

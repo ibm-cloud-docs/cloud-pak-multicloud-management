@@ -60,21 +60,21 @@ Example: -->
 
 The {{site.data.keyword.cp4mcm_full_notm}} includes the following products:
 
-### IBM Multicloud Manager
+### {{site.data.keyword.IBM_notm}} Multicloud Manager
 
-IBM Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.mcm_notm}}, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/kc_welcome_mcm.html).
+{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/kc_welcome_mcm.html).
 
-### IBM Cloud App Management
+### {{site.data.keyword.IBM_notm}} Cloud App Management
 
-Monitor cloud and on-premises application environments with IBM Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about IBM Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.1.0).
+Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.1.0).
 
 ### Cloud Event Management
 
-You can visualize and manage multiple clusters when you install Event Management. By using Event Management, you can consolidate information from your monitoring systems and address problems. Events indicate that something happened on an application, service, or another monitored object. All events that are related to a single application, or to a particular cluster, are correlated with an incident. Event Management can receive events from various monitoring sources, either on-premises or in the cloud. Event Management is installed along with IBM Cloud App Management. For more details about Event Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSURRN/com.ibm.cem.doc/index.html?cp=SSFC4F_1.1.0).
+You can visualize and manage multiple clusters when you install Event Management. By using Event Management, you can consolidate information from your monitoring systems and address problems. Events indicate that something happened on an application, service, or another monitored object. All events that are related to a single application, or to a particular cluster, are correlated with an incident. Event Management can receive events from various monitoring sources, either on-premises or in the cloud. Event Management is installed along with {{site.data.keyword.IBM_notm}} Cloud App Management. For more details about Event Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSURRN/com.ibm.cem.doc/index.html?cp=SSFC4F_1.1.0).
 
-### IBM Cloud Automation Manager
+### {{site.data.keyword.IBM_notm}}Cloud Automation Manager
 
-IBM Cloud Automation Manager is a cloud management solution in IBM Cloud Private that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about IBM Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/kc_welcome.html?cp=SSFC4F_1.1.0).
+{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/kc_welcome.html?cp=SSFC4F_1.1.0).
 
 <!-- Task section: REQUIRED
 The task section includes steps to get the Cloud Pak installed through IBM Cloud and next initial steps to get up and running.
@@ -86,7 +86,7 @@ The task section includes steps to get the Cloud Pak installed through IBM Cloud
 ## Before you begin
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/cp/getting_started/part_numbers.html).
 
-- You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using IBM Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
+- You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
 
 * You must have a pre-configured StorageClass in O{{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 
@@ -96,7 +96,7 @@ The task section includes steps to get the Cloud Pak installed through IBM Cloud
 |----|---|----|
 | 1 | 32 GB | 8 cores |
 
-**Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cloud_pak_mcm}}, you need another two nodes.
+**Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
 
 ### Minimum storage requirements
 
@@ -105,7 +105,7 @@ Mandatory: 2 PV
 | Component | PV |
 |-----|-----|
 | MongoDB | 1 |
-| IBM Multicloud Manager etcd | 1 |
+| {{site.data.keyword.IBM_notm}} Multicloud Manager etcd | 1 |
 
 Optional: 4 PV
 
@@ -125,7 +125,7 @@ Specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 ## Step 2. Configure your workspace
 {: #config-workspace}
 
-Specify how you will track and manage your installation from your IBM Cloud Schematics workspace:
+Specify how to track and manage your installation from your {{site.data.keyword.IBM_notm}} Cloud Schematics workspace:
 
   1. In the _Configure your workspace_ section, update the name and tag of the installation workspace.
   2. Specify any tags that you want to use for the installation. Specify multiple tags as a comma-separated list.
@@ -141,9 +141,7 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 ## Step 4. Set the deployment values
 {: #set-deploy-values}
 
-Override the default deployment values:
-
-Configure the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you have installed:
+Override the default values by configuring the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you have installed:
 
 | Parameter | Description | Default |
 | -------- | -------- | -------- |

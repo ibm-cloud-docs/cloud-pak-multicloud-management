@@ -37,7 +37,7 @@ subcollection: writing
 
 <!-- Please delete content examples and coding that you are not using for your service. -->
 
-# Getting started with IBM Cloud Pak for Multicloud Management
+# Getting started with {{site.data.keyword.cp4mcm_full_notm}}
 {: #getting-started}
 
 <!-- The title of your H1 should be Getting started with _cloud-pak_, where _cloud-pak_ is the non-trademarked short version conref. Include getting started and variations of your cloud pak name and function in the `meta keywords` values. See the example keywords above. -->
@@ -48,7 +48,7 @@ Briefly mention what the user's learning goal is and include the following SEO k
 
 Example: -->
 
-The IBM Cloud Pak for Multicloud Management, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management and infrastructure management. Enterprises can use this IBM Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management.
+The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management and infrastructure management. Enterprises can use this Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management.
 {:shortdesc}
 
 <!-- Component section: REQUIRED
@@ -58,7 +58,7 @@ Example: -->
 
 ## What's inside this Cloud Pak
 
-IBM Cloud Pak for Multicloud Management includes the following products:
+The {{site.data.keyword.cp4mcm_full_notm}} includes the following products:
 
 ### IBM Multicloud Manager
 
@@ -86,17 +86,41 @@ The task section includes steps to get the Cloud Pak installed through IBM Cloud
 ## Before you begin
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/cp/getting_started/part_numbers.html).
 
-- You must have OpenShift Container Platform version 3.11 installed by using IBM Cloud Kubernetes Service so that the managed OpenShift service is supported.
+- You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using IBM Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
 
-* You must have a pre-configured StorageClass in OpenShift that can be used for installing the IBM Cloud Pak for Multicloud Management.
+* You must have a pre-configured StorageClass in O{{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
+
+### Minimum hardware requirements
+
+| Nodes | Memory  | CPU  |
+|----|---|----|
+| 1 | 32 GB | 8 cores |
+
+**Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cloud_pak_mcm}}, you need another two nodes.
+
+### Minimum storage requirements
+
+Mandatory: 2 PV
+
+| Component | PV |
+|-----|-----|
+| MongoDB | 1 |
+| IBM Multicloud Manager etcd | 1 |
+
+Optional: 4 PV
+
+| Component | PV  |
+|------|------|
+| Logging   |  1  |
+| VA  |    3  |
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
-Specify where you want to install the IBM Cloud Pak for Multicloud Management:
+Specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
-  1. Select the Red Hat OpenShift cluster where you want to deploy the IBM Cloud Pak for Multicloud Management.
-  2. Enter or select the project where you want to deploy IBM Cloud Pak for Multicloud Management.
+  1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
+  2. Enter or select the project where you want to deploy {{site.data.keyword.cp4mcm_full_notm}}.
 
 ## Step 2. Configure your workspace
 {: #config-workspace}
@@ -109,7 +133,7 @@ Specify how you will track and manage your installation from your IBM Cloud Sche
 ## Step 3. Complete the pre-installation check
 {: #pre-install-check}
 
-A Red Hat OpenShift cluster administrator must complete this step.
+A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
 
   - If you are not an administrator, use the Share link to share the script with your cluster administrator.
   - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
@@ -119,7 +143,7 @@ A Red Hat OpenShift cluster administrator must complete this step.
 
 Override the default deployment values:
 
-  1. Configure the required deployment values for the OpenShift cluster that you have installed:
+Configure the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you have installed:
 
 | Parameter | Description | Default |
 | -------- | -------- | -------- |
@@ -130,27 +154,21 @@ Override the default deployment values:
 | `storageClass`  |  Configure storage class. | `ibmc-block-bronze` |
 {: caption="Table 1. Deployment values" caption-side="top"}
 
-## Step 5. Install IBM Cloud Pak for Multicloud Management
+## Step 5. Install the {{site.data.keyword.cp4mcm_full_notm}}
 {: #install-cp4mcm}
 
-1. Ensure that you have assigned a license for the IBM Cloud Pak for Multicloud Management to the deployment.
+1. Ensure that you have assigned a license for the {{site.data.keyword.cp4mcm_full_notm}} to the deployment.
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
-<!-- For code examples:
-- use three backticks ahead of and after the example (```)
-- For copyable code snippet, multi-line, include {: codeblock} following the last set of backticks. A copy button will display in framework in output.
-- For copyable command, single line, include {: pre} following the last set of backticks. When displayed, it will show "$" at the beginning of the command example and a copy button, but the copy button will include just the command example.
-- For non-copyable output snippet, include {: screen} following the last set of backticks.
- -->
 
 ## Next steps
 
-When the installation completes, you can access your IBM Cloud Pak for Multicloud Management deployment with the provided URL.
+When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
-  1. Log in the IBM Cloud Pak for Multicloud Management management console by using the admin user name and password that you configured during the installation.
-  2. Optional: Install the optional components in the IBM Cloud Pak for Multicloud Management.
-    - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.1.0)
-    - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.1.0)
+  1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin user name and password that you configured during the installation.
+  2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
+       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.1.0)
+       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.1.0)
 
 <!-- Add the topic to your `toc` file:
 

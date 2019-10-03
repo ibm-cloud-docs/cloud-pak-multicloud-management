@@ -1,0 +1,9 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="cloud-pak-data" audience="cloud-pak" category="analytics" href="/docs/cloud-pak-multicloud_management?topic=cloud-pak-multicloud_management-getting-started" path="cloud-pak-multicloud_management"}
+IBM Cloud Pak for Data
+
+    {: .navgroup id="learn"}
+    getting-started.md
+    {: .navgroup-end}

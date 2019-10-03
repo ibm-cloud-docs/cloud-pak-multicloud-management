@@ -58,7 +58,7 @@ Example: -->
 
 ## What's inside this Cloud Pak
 
-The {{site.data.keyword.cp4mcm_full_notm}} includes the following products:
+The {{site.data.keyword.cp4mcm_full_notm}} includes the following components:
 
 ### {{site.data.keyword.IBM_notm}} Multicloud Manager
 

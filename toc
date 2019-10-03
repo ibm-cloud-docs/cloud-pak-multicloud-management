@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloud-pak-multicloud_management" audience="cloud-pak" category="analytics" href="/docs/cloud-pak-multicloud_management?topic=cloud-pak-multicloud_management-getting-started" path="cloud-pak-multicloud_management"}
+{: .toc subcollection="cloud-pak-multicloud-management" audience="cloud-pak" category="devops" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started" path="cloud-pak-multicloud-management"}
 IBM Cloud Pak for Multicloud Management
 
     {: .navgroup id="learn"}

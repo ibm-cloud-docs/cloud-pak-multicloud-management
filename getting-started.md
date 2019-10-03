@@ -6,7 +6,7 @@ copyright:
   years: 2019
 lastupdated: "2019-09-29"
 
-keywords: getting started tutorial, getting started, _cloud-pak-multicloud_manager, data
+keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
 subcollection: writing
 

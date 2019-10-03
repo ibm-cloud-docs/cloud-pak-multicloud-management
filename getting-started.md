@@ -30,7 +30,7 @@ The {{site.data.keyword.cp4mcm_full_notm}} includes the following components:
 
 ### {{site.data.keyword.IBM_notm}} Multicloud Manager
 
-{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/kc_welcome_mcm.html).
+{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/kc_welcome_mcm.html).
 
 ### {{site.data.keyword.IBM_notm}} Cloud App Management
 

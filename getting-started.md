@@ -1,5 +1,3 @@
-<!-- Name your file `getting-started.md` and include it in the Learn navigation group in your toc file. -->
-
 ---
 
 copyright:
@@ -11,17 +9,7 @@ keywords: getting started tutorial, getting started, cloud-pak-multicloud_manage
 subcollection: writing
 
 ---
-<!-- Copyright info and last updated date at top of file: REQUIRED
-    The copyright and lastupdated info is YAML content that must occur at the top of each MD file, before attributes are listed.
-    It must be --- surrounded by 3 dashes ---
-    The value "years" can contain just one year or two years (the initial publishing year of the content, then the current year) separated by a comma. (years: 2014, 2019)
-    The value for "years" must be indented 2 spaces under "copyright", followed by "lastupdated" which should start on its own non-indented         line.
-    The value "lastupdated" must be followed by a machine date in quotes in the following format: "YYYY-MM-DD"
-    Remember to delete this comment after you add your copyright info and last updated date, because the example dashes will cause CHKPII errors during translation packaging.
 
--->
-
-<!-- Common attributes used in the template are defined as follows: -->
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -30,31 +18,11 @@ subcollection: writing
 {:note: .note}
 {:external: target="_blank" .external}
 
-<!-- This template is for getting started with IBM Cloud Paks. It is a task template intended to document productive use of the offering.  -->
-
-
-
-
-<!-- Please delete content examples and coding that you are not using for your service. -->
-
 # Getting started with {{site.data.keyword.cp4mcm_full_notm}}
 {: #getting-started}
 
-<!-- The title of your H1 should be Getting started with _cloud-pak_, where _cloud-pak_ is the non-trademarked short version conref. Include getting started and variations of your cloud pak name and function in the `meta keywords` values. See the example keywords above. -->
-
-<!-- Short description: REQUIRED
-The short description section should include one to two sentences describing why a user would want to use this Cloud Pak.
-Briefly mention what the user's learning goal is and include the following SEO keywords in the title and/or the short description: IBM Cloud, CloudPakName. Be sure to use conversational style. For more details, see the guidance on conversational style in the Carbon Design System at http://www.carbondesignsystem.com/guidelines/content/general. Use the trademarked long version conref of your Cloud Pak name on first mention.
-
-Example: -->
-
 The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on-premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management and infrastructure management. Enterprises can use this Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management. For more details, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
 {:shortdesc}
-
-<!-- Component section: REQUIRED
-The component section includes a list of the offerings included in the Cloud Pak. Also include where a user can find more information on each offering.
-
-Example: -->
 
 ## What's inside this Cloud Pak
 
@@ -76,13 +44,6 @@ You can visualize and manage multiple clusters when you install Event Management
 
 {{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/kc_welcome.html?cp=SSFC4F_1.1.0).
 
-<!-- Task section: REQUIRED
-The task section includes steps to get the Cloud Pak installed through IBM Cloud and next initial steps to get up and running.
-- DO include the basic, most-common-use scenario steps to use the Cloud Pak.
-- DO NOT repeat the UI from IBM Cloud catalog details page; instead, reference the pages or sections.
--->
-
-<!-- Include a prerequisites paragraph for any prerequisites to be met. For example: REQUIRED -->
 ## Before you begin
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/cp/getting_started/part_numbers.html).
 
@@ -167,26 +128,3 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
   2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
        - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.1.0)
        - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.1.0)
-
-<!-- Add the topic to your `toc` file:
-
-
-{:navgroup: .navgroup}
-{:topicgroup: .topicgroup}
-
-{: .toc subcollection="<Folder_name>" audience="oss" category="<category>" href="/docs/<folder_name>?topic=<subcollection>getting-started"}
-<Cloud Pak Name>
-
-    {: .navgroup id="learn"}
-    getting-started.md
-
-    {: .topicgroup}
-    Related links
-        [Link text](link URL)
-    {: .navgroup-end}
-
-    {: .navgroup id="reference"}
-    Reference
-    [Link text](link URL)
-    {: .navgroup-end}
--->

@@ -48,7 +48,7 @@ Briefly mention what the user's learning goal is and include the following SEO k
 
 Example: -->
 
-The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management and infrastructure management. Enterprises can use this Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management.
+The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management and infrastructure management. Enterprises can use this Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management. For more details, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
 {:shortdesc}
 
 <!-- Component section: REQUIRED

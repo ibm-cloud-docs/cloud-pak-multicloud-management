@@ -128,3 +128,52 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
   2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
        - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.1.0)
        - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.1.0)
+
+## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
+{: #uninstalling}
+
+To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}. 
+
+If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal. 
+
+When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
+
+1. Delete the resources for the custom resource definition (CRD):
+    ```
+    oc -n <project_name> delete isp default
+    ```
+    {: pre}
+
+2. Delete the `deployment`:
+    ```
+    oc -n <project_name> delete deployment ibmservice-operator
+    ```
+    {: pre}
+
+3. Delete the custom resource definition:
+    ```
+    oc -n <project_name> delete CustomResourceDefinition ibmservicesplatforms.operator.ibm.com
+    ```
+    {: pre}
+
+4. Delete the `ClusterRoleBinding`:
+    ```
+    oc -n <project_name> delete clusterrolebinding ibmservice-operator
+    ```
+    {: pre}
+
+5. Delete the pull `secret`:
+    ```
+    oc -n <project_name> delete secret infra-registry-key
+    ```
+    {: pre}
+
+6. Delete the `admin-credential`:
+    ```
+    oc -n <project_name> delete secret admin-credential
+    ```
+    {: pre}
+
+7. Verify that the Cloud Pack is uninstalled. 
+
+    Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

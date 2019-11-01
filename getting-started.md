@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-01"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -55,7 +55,7 @@ You can visualize and manage multiple clusters when you install Event Management
 
 | Nodes | Memory  | CPU  |
 |----|---|----|
-| 1 | 32 GB | Sixteen cores |
+| 1 | 32 GB | 16 cores |
 
 **Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
 
@@ -73,7 +73,7 @@ Optional: 4 PV
 | Component | PV  |
 |------|------|
 | Logging   |  1  |
-| IBM Informix Virtual Appliance  |    3  |
+| VA  |    3  |
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}

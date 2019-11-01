@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-29"
+lastupdated: "2019-10-31"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 

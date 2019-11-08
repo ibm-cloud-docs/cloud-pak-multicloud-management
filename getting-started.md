@@ -120,6 +120,40 @@ Override the default values by configuring the required deployment values for th
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
 
+## Postinstallation
+
+To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the management console from your local machine, perform the following steps:
+
+1. Run `kubectl cluster-info` to get the Kubernetes API server address and port. Example output:
+   ```
+   [ec2-user@honest-gryphon-master ~]$ kubectl cluster-info
+   Kubernetes master is running at https://honest-gryphon-master.purple-chesterfield.com:7443
+   ```
+   {: pre}
+
+2. Run `kubectl edit cm ibmcloud-cluster-info -n kube-public`. Example output:
+   ```
+   apiVersion: v1
+   data:
+     cluster_address: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
+     cluster_ca_domain: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
+     cluster_endpoint: https://icp-management-ingress.kube-system.svc:443
+     cluster_kube_apiserver_host: 172.21.0.1
+     cluster_kube_apiserver_port: "443"
+     cluster_name: mycluster
+     cluster_router_http_port: "8080"
+     cluster_router_https_port: "443"
+     edition: Enterprise Edition
+     openshift_router_base_domain: chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
+     proxy_address: icp-proxy.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
+     proxy_ingress_http_port: "80"
+     proxy_ingress_https_port: "443"
+     version: 3.2.1
+   ```
+   {: pre}
+
+3. Edit `cluster_kube_apiserver_host` and `cluster_kube_apiserver_port` with the address from step one and then save the file.
+
 ## Next steps
 
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.

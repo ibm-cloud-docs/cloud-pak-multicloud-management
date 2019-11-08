@@ -120,7 +120,7 @@ Override the default values by configuring the required deployment values for th
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
 
-## Postinstallation
+## Post-installation
 
 To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the management console from your local machine, perform the following steps:
 

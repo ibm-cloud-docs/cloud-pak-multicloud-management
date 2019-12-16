@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-12-12"
+lastupdated: "2019-12-16"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -34,7 +34,7 @@ The {{site.data.keyword.cp4mcm_full_notm}} includes the following components:
 
 ### {{site.data.keyword.IBM_notm}} Cloud App Management
 
-Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.2.0).
+Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.2.0).
 
 ### Cloud Event Management
 
@@ -42,7 +42,7 @@ You can visualize and manage multiple clusters when you install Event Management
 
 ### {{site.data.keyword.IBM_notm}} Cloud Automation Manager
 
-{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/kc_welcome.html?cp=SSFC4F_1.2.0).
+{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/kc_welcome.html?cp=SSFC4F_1.2.0).
 
 ## Before you begin
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.2.0/cp/getting_started/part_numbers.html).
@@ -106,10 +106,8 @@ Override the default values by configuring the required deployment values for th
 
 | Parameter | Description | Default |
 | -------- | -------- | -------- |
-| `defaultAdminUser`  |  Configure default admin user name.  |  |
+| `defaultAdminUser`  |  Configure default admin user name.  | `admin` |
 | `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens.|  |
-| `isEnableMonitoringServices` | Configure if you enable monitoring services.  |  `enabled` |
-|  `isEnableMeteringServices`  |  Configure if you enable metering services.  |  `disabled`  |
 | `storageClass`  |  Configure storage class. | `ibmc-block-bronze` |
 {: caption="Table 1. Deployment values" caption-side="top"}
 
@@ -148,7 +146,7 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
      proxy_address: icp-proxy.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
      proxy_ingress_http_port: "80"
      proxy_ingress_https_port: "443"
-     version: 3.2.1
+     version: 1.2.0
    ```
    {: pre}
 
@@ -160,8 +158,8 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin user name and password that you configured during the installation.
   2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
-       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.2.0)
-       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.2.0)
+       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.2.0)
+       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/cam_install_EE_main.html?cp=SSFC4F_1.2.0)
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
@@ -180,25 +178,25 @@ When you are running the commands to remove the associated resources, use the pr
 
 2. Delete the `deployment`:
     ```
-    oc -n <project_name> delete deployment ibmservice-operator
+    oc -n <project_name> delete deployment ibmservices-operator
     ```
     {: pre}
 
 3. Delete the custom resource definition:
     ```
-    oc -n <project_name> delete CustomResourceDefinition ibmservicesplatforms.operator.ibm.com
+    oc -n <project_name> delete CustomResourceDefinition IbmServicesPlatforms.operator.ibm.com
     ```
     {: pre}
 
 4. Delete the `ClusterRoleBinding`:
     ```
-    oc -n <project_name> delete clusterrolebinding ibmservice-operator
+    oc -n <project_name> delete clusterrolebinding ibmservices-operator
     ```
     {: pre}
 
 5. Delete the pull `secret`:
     ```
-    oc -n <project_name> delete secret infra-registry-key
+    oc -n <project_name> delete secret ibmplatform-image-pull-secret
     ```
     {: pre}
 

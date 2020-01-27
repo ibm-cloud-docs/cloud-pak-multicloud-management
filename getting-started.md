@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-08"
+  years: 2019,2020
+lastupdated: "2020-01-27"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -180,7 +180,7 @@ When you are running the commands to remove the associated resources, use the pr
 
 2. Delete the `deployment`:
     ```
-    oc -n <project_name> delete deployment ibmservice-operator
+    oc -n <project_name> delete deployment ibmservices-operator
     ```
     {: pre}
 
@@ -192,7 +192,7 @@ When you are running the commands to remove the associated resources, use the pr
 
 4. Delete the `ClusterRoleBinding`:
     ```
-    oc -n <project_name> delete clusterrolebinding ibmservice-operator
+    oc -n <project_name> delete clusterrolebinding ibmservices-operator
     ```
     {: pre}
 

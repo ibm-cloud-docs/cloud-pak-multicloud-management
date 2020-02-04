@@ -52,10 +52,10 @@ You can visualize and manage multiple clusters when you install Event Management
 
 - You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 
-- You must have the required user and resource group permissions to install the IBM Cloud Pak for Multicloud Management:
+- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
-  - You must have permission as an admin user on the cluster where you are installing the IBM Cloud Pak for Multicloud Management.
-  - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the IBM Cloud Pak for Multicloud Management. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
+  - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
+  - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 
 ### Minimum hardware requirements
 

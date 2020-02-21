@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-16"
+  years: 2020
+lastupdated: "2020-02-04"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -45,15 +45,21 @@ You can visualize and manage multiple clusters when you install Event Management
 {{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/kc_welcome.html?cp=SSFC4F_1.2.0).
 
 ## Before you begin
+
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.2.0/about/part_numbers.html).
 
 - You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
 
-* You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
+- You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
+
+- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
+
+  - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
+  - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 
 ### Minimum hardware requirements
 
-| Nodes | Memory  | CPU  |
+| Nodes | Memory | CPU |
 |----|---|----|
 | 1 | 32 GB | 16 cores |
 
@@ -70,10 +76,10 @@ Mandatory: 2 PV
 
 Optional: 4 PV
 
-| Component | PV  |
+| Component | PV |
 |------|------|
-| Logging   |  1  |
-| VA  |    3  |
+| Logging | 1 |
+| VA | 3 |
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}
@@ -96,8 +102,8 @@ Specify how to track and manage your installation from your {{site.data.keyword.
 
 A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
 
-  - If you are not an administrator, use the Share link to share the script with your cluster administrator.
-  - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
+- If you are not an administrator, use the Share link to share the script with your cluster administrator.
+- If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
 
 ## Step 4. Set the deployment values
 {: #set-deploy-values}
@@ -164,9 +170,9 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
 
-To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}. 
+To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
 
-If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal. 
+If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal.
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
@@ -206,6 +212,6 @@ When you are running the commands to remove the associated resources, use the pr
     ```
     {: pre}
 
-7. Verify that the Cloud Pack is uninstalled. 
+7. Verify that the Cloud Pack is uninstalled.
 
     Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

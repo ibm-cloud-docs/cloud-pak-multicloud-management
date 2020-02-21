@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-08"
+  years: 2020
+lastupdated: "2020-02-04"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -30,30 +30,36 @@ The {{site.data.keyword.cp4mcm_full_notm}} includes the following components:
 
 ### {{site.data.keyword.IBM_notm}} Multicloud Manager
 
-{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/kc_welcome_mcm.html).
+{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
 
 ### {{site.data.keyword.IBM_notm}} Cloud App Management
 
-Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.1.0).
+Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.2.0).
 
 ### Cloud Event Management
 
-You can visualize and manage multiple clusters when you install Event Management. By using Event Management, you can consolidate information from your monitoring systems and address problems. Events indicate that something happened on an application, service, or another monitored object. All events that are related to a single application, or to a particular cluster, are correlated with an incident. Event Management can receive events from various monitoring sources, either on-premises or in the cloud. Event Management is installed along with {{site.data.keyword.IBM_notm}} Cloud App Management. For more details about Event Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSURRN/com.ibm.cem.doc/index.html?cp=SSFC4F_1.1.0).
+You can visualize and manage multiple clusters when you install Event Management. By using Event Management, you can consolidate information from your monitoring systems and address problems. Events indicate that something happened on an application, service, or another monitored object. All events that are related to a single application, or to a particular cluster, are correlated with an incident. Event Management can receive events from various monitoring sources, either on-premises or in the cloud. Event Management is installed along with {{site.data.keyword.IBM_notm}} Cloud App Management. For more details about Event Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSURRN/com.ibm.cem.doc/index.html?cp=SSFC4F_1.2.0).
 
 ### {{site.data.keyword.IBM_notm}} Cloud Automation Manager
 
-{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/kc_welcome.html?cp=SSFC4F_1.1.0).
+{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/kc_welcome.html?cp=SSFC4F_1.2.0).
 
 ## Before you begin
-- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.1.0/cp/getting_started/part_numbers.html).
+
+- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.2.0/about/part_numbers.html).
 
 - You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
 
-* You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
+- You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
+
+- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
+
+  - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
+  - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 
 ### Minimum hardware requirements
 
-| Nodes | Memory  | CPU  |
+| Nodes | Memory | CPU |
 |----|---|----|
 | 1 | 32 GB | 16 cores |
 
@@ -70,10 +76,10 @@ Mandatory: 2 PV
 
 Optional: 4 PV
 
-| Component | PV  |
+| Component | PV |
 |------|------|
-| Logging   |  1  |
-| VA  |    3  |
+| Logging | 1 |
+| VA | 3 |
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}
@@ -96,8 +102,8 @@ Specify how to track and manage your installation from your {{site.data.keyword.
 
 A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
 
-  - If you are not an administrator, use the Share link to share the script with your cluster administrator.
-  - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
+- If you are not an administrator, use the Share link to share the script with your cluster administrator.
+- If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
 
 ## Step 4. Set the deployment values
 {: #set-deploy-values}
@@ -106,10 +112,8 @@ Override the default values by configuring the required deployment values for th
 
 | Parameter | Description | Default |
 | -------- | -------- | -------- |
-| `defaultAdminUser`  |  Configure default admin user name.  |  |
+| `defaultAdminUser`  |  Configure default admin user name.  | `admin` |
 | `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens.|  |
-| `isEnableMonitoringServices` | Configure if you enable monitoring services.  |  `enabled` |
-|  `isEnableMeteringServices`  |  Configure if you enable metering services.  |  `disabled`  |
 | `storageClass`  |  Configure storage class. | `ibmc-block-bronze` |
 {: caption="Table 1. Deployment values" caption-side="top"}
 
@@ -148,7 +152,7 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
      proxy_address: icp-proxy.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
      proxy_ingress_http_port: "80"
      proxy_ingress_https_port: "443"
-     version: 3.2.1
+     version: 1.2.0
    ```
    {: pre}
 
@@ -160,15 +164,15 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin user name and password that you configured during the installation.
   2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
-       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.3.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.1.0)
-       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_3.2.1.0/cam_install_EE_main.html?cp=SSFC4F_1.1.0)
+       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.2.0)
+       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/cam_install_EE_main.html?cp=SSFC4F_1.2.0)
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
 
-To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}. 
+To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
 
-If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal. 
+If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal.
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
@@ -180,25 +184,25 @@ When you are running the commands to remove the associated resources, use the pr
 
 2. Delete the `deployment`:
     ```
-    oc -n <project_name> delete deployment ibmservice-operator
+    oc -n <project_name> delete deployment ibmservices-operator
     ```
     {: pre}
 
 3. Delete the custom resource definition:
     ```
-    oc -n <project_name> delete CustomResourceDefinition ibmservicesplatforms.operator.ibm.com
+    oc -n <project_name> delete CustomResourceDefinition IbmServicesPlatforms.operator.ibm.com
     ```
     {: pre}
 
 4. Delete the `ClusterRoleBinding`:
     ```
-    oc -n <project_name> delete clusterrolebinding ibmservice-operator
+    oc -n <project_name> delete clusterrolebinding ibmservices-operator
     ```
     {: pre}
 
 5. Delete the pull `secret`:
     ```
-    oc -n <project_name> delete secret infra-registry-key
+    oc -n <project_name> delete secret ibmplatform-image-pull-secret
     ```
     {: pre}
 
@@ -208,6 +212,6 @@ When you are running the commands to remove the associated resources, use the pr
     ```
     {: pre}
 
-7. Verify that the Cloud Pack is uninstalled. 
+7. Verify that the Cloud Pack is uninstalled.
 
     Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

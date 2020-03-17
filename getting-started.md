@@ -178,7 +178,7 @@ When you are running the commands to remove the associated resources, use the pr
 
 1. Delete the resources for the custom resource definition (CRD):
     ```
-    oc -n <project_name> delete isp default
+    oc -n <project_name> delete IBMServicesPlatform default
     ```
     {: pre}
 

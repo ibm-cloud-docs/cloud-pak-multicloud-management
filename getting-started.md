@@ -104,7 +104,7 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
-- For any certificate signing requests (CSRs) that are generated on you cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
+- For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
 
    1. Find all CSRs for your cluster nodes:
 

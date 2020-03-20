@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-04"
+lastupdated: "2020-03-17"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -104,6 +104,23 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
+- For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
+
+   1. Find all CSRs for your cluster nodes:
+
+      ```
+      oc get csr
+      ```
+      {: pre}
+
+   2. Approve the CSRs for the cluster nodes:
+
+      ```
+      oc adm certificate approve <CSR name>
+      ```
+      {: pre}
+
+   For more information, see the [Approving the CSRs for your machines](https://docs.openshift.com/container-platform/4.2/machine_management/more-rhel-compute.html#installation-approve-csrs_more-rhel-compute) topic in the OpenShift documentation.
 
 ## Step 4. Set the deployment values
 {: #set-deploy-values}
@@ -113,7 +130,7 @@ Override the default values by configuring the required deployment values for th
 | Parameter | Description | Default |
 | -------- | -------- | -------- |
 | `defaultAdminUser`  |  Configure default admin user name.  | `admin` |
-| `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens.|  |
+| `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens. <p> **Note:** The password that you set during installation might be available as plain text in some pods and logs. You must change the `default_admin_password` after you successfully install {{site.data.keyword.cp4mcm_full_notm}}. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/iam/3.4.0/change_admin_passwd.html).</p>|  |
 | `storageClass`  |  Configure storage class. | `ibmc-block-bronze` |
 {: caption="Table 1. Deployment values" caption-side="top"}
 
@@ -170,7 +187,26 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
 
-To uninstall the {{site.data.keyword.cp4mcm_full_notm}}, you need to use the {{site.data.keyword.openshiftshort}} command-line interface (CLI) to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
+To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data.keyword.cp4mcm_full_notm}} console or the command-line interface (CLI).
+
+### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} from the console
+
+1. Enter the workspace of your installed {{site.data.keyword.cp4mcm_full_notm}}.
+
+2. Click the Actions button in the upper right corner. Then, click the delete button to trigger a delete.
+
+3. Choose Delete workspace and Delete all associated resources and input the name of the workspace to confirm.
+Click the delete to delete the workspace.
+
+4. Waiting for the uninstall finish.
+
+5. Verify that the Cloud Pak is uninstalled:
+
+   Access the {{site.data.keyword.open_s}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.
+
+### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} on with command-line
+
+If the delete operation failed from the console or you want to use command-line, you can use the `oc` command-line interface to complete the steps to uninstall. When you use the command-line, you need to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
 
 If you do not have the {{site.data.keyword.openshiftshort}} CLI installed, download and install the CLI from the Red Hat Customer Portal.
 
@@ -178,7 +214,7 @@ When you are running the commands to remove the associated resources, use the pr
 
 1. Delete the resources for the custom resource definition (CRD):
     ```
-    oc -n <project_name> delete isp default
+    oc -n <project_name> delete IBMServicesPlatform default
     ```
     {: pre}
 
@@ -212,6 +248,12 @@ When you are running the commands to remove the associated resources, use the pr
     ```
     {: pre}
 
-7. Verify that the Cloud Pack is uninstalled.
+7. Delete comfigmap `cloudpak-foundation`:
+    ```
+    oc -n kube-system delete configmap cloudpak-foundation
+    ```
+    {: pre}
+
+8. Verify that the Cloud Pack is uninstalled.
 
     Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

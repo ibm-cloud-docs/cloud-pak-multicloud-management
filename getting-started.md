@@ -104,6 +104,23 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
+- For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
+
+   1. Find all CSRs for your cluster nodes:
+
+      ```
+      oc get csr
+      ```
+      {: pre}
+
+   2. Approve the CSRs for the cluster nodes:
+
+      ```
+      oc adm certificate approve <CSR name>
+      ```
+      {: pre}
+
+   For more information, see the [Approving the CSRs for your machines](https://docs.openshift.com/container-platform/4.2/machine_management/more-rhel-compute.html#installation-approve-csrs_more-rhel-compute) topic in the OpenShift documentation.
 
 ## Step 4. Set the deployment values
 {: #set-deploy-values}

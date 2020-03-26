@@ -37,7 +37,7 @@ In addition to the default features for managing multicloud environments, the IB
 
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www-03preprod.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
 
-- You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see Supported {{site.data.keyword.openshiftshort}} versions and platforms.
+- You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see [Supported {{site.data.keyword.openshiftshort}} versions and platforms](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/supported_os.html).
 
 - You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 

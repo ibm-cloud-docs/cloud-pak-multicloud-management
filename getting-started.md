@@ -235,7 +235,7 @@ When you are running the commands to remove the associated resources, use the pr
     ```
     {: pre}
 
-7. Delete comfigmap `cloudpak-foundation`:
+7. Delete configmap `cloudpak-foundation`:
     ```
     oc -n kube-system delete configmap cloudpak-foundation
     ```

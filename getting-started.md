@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-17"
+lastupdated: "2020-03-26"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
 
@@ -26,29 +26,18 @@ The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provid
 
 ## What's inside this Cloud Pak
 
-The {{site.data.keyword.cp4mcm_full_notm}} includes the following components:
+In addition to the default features for managing multicloud environments, the IBM Cloud Pak for Multicloud Management includes the following installable modules that you can add to your cluster to manage applications and infrastructure, and to automate tasks:
 
-### {{site.data.keyword.IBM_notm}} Multicloud Manager
-
-{{site.data.keyword.IBM_notm}} Multicloud Manager provides user visibility, application-centric management (governance, deployments, health, operations), and policy-based compliance across clouds and clusters. With {{site.data.keyword.IBM_notm}} Multicloud Manager, you have control of your Kubernetes clusters. You can ensure that your clusters are secure, operating efficiently, and delivering the service levels that applications expect. For more details about IBM Multicloud Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
-
-### {{site.data.keyword.IBM_notm}} Cloud App Management
-
-Monitor cloud and on-premises application environments with {{site.data.keyword.IBM_notm}} Cloud App Management. Bridge your existing infrastructure into the cloud. For more details about {{site.data.keyword.IBM_notm}} Cloud App Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/welcome.html?cp=SSFC4F_1.2.0).
-
-### Cloud Event Management
-
-You can visualize and manage multiple clusters when you install Event Management. By using Event Management, you can consolidate information from your monitoring systems and address problems. Events indicate that something happened on an application, service, or another monitored object. All events that are related to a single application, or to a particular cluster, are correlated with an incident. Event Management can receive events from various monitoring sources, either on-premises or in the cloud. Event Management is installed along with {{site.data.keyword.IBM_notm}} Cloud App Management. For more details about Event Management, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSURRN/com.ibm.cem.doc/index.html?cp=SSFC4F_1.2.0).
-
-### {{site.data.keyword.IBM_notm}} Cloud Automation Manager
-
-{{site.data.keyword.IBM_notm}} Cloud Automation Manager is a cloud management solution that automates provisioning of infrastructure and virtual machine applications across multiple cloud environments with optional workflow orchestration. For more details about {{site.data.keyword.IBM_notm}} Cloud Automation Manager, see the [documentation](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/kc_welcome.html?cp=SSFC4F_1.2.0).
+- Monitoring Module for monitoring the performance and availability of cloud applications in hybrid cloud environments.
+- Terraform & Service Automation Module for cluster security, operating efficiency, and appropriate service level delivery.
+- CloudForms for controlling and managing cloud infrastructures.
+- Red Hat Ansible Tower for running your automation tasks.
 
 ## Before you begin
 
-- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.2.0/about/part_numbers.html).
+- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www-03preprod.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
 
-- You must have {{site.data.keyword.openshiftshort}} Container Platform version 3.11 installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported.
+- You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see [Supported {{site.data.keyword.openshiftshort}} versions and platforms](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/supported_os.html).
 
 - You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 
@@ -63,7 +52,7 @@ You can visualize and manage multiple clusters when you install Event Management
 |----|---|----|
 | 1 | 32 GB | 16 cores |
 
-**Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
+**Notes:** If you are going to install the Monitoring Module and Terraform & Service Automation Module with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
 
 ### Minimum storage requirements
 
@@ -180,9 +169,7 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin user name and password that you configured during the installation.
-  2. Optional: Install the optional components in the {{site.data.keyword.cp4mcm_full_notm}}.
-       - [Installing IBM Cloud App Management](https://www.ibm.com/support/knowledgecenter/SS8G7U_19.4.0/com.ibm.app.mgmt.doc/content/install_mcm.html?cp=SSFC4F_1.2.0)
-       - [Installing IBM Cloud Automation Manager](https://www.ibm.com/support/knowledgecenter/SS2L37_4.1.0.0/cam_install_EE_main.html?cp=SSFC4F_1.2.0)
+  2. Optional: Install any optional installable modules for the {{site.data.keyword.cp4mcm_full_notm}}. For instructions, see [Installing, configuring, and upgrading the modules](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/install_modules.html).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
@@ -248,7 +235,7 @@ When you are running the commands to remove the associated resources, use the pr
     ```
     {: pre}
 
-7. Delete comfigmap `cloudpak-foundation`:
+7. Delete configmap `cloudpak-foundation`:
     ```
     oc -n kube-system delete configmap cloudpak-foundation
     ```

@@ -52,7 +52,7 @@ In addition to the default features for managing multicloud environments, the IB
 |----|---|----|
 | 1 | 32 GB | 16 cores |
 
-**Notes:** If you are going to install {{site.data.keyword.IBM_notm}} Cloud App Management and {{site.data.keyword.IBM_notm}} Cloud Automation Manager with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
+**Notes:** If you are going to install the Monitoring Module and Terraform & Service Automation Module with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
 
 ### Minimum storage requirements
 

@@ -143,7 +143,8 @@ Final result:
 ![image](images/floating_ip_vpc.png)
 
 
-## Step B. Setting up the CloudForms appliance:
+## Step B. Setting up the CloudForms appliance
+{: #config-cloudforms-appliance}
 
 1. ssh into your virtual server instance (appliance) by using the floating IP address.
   
@@ -165,6 +166,7 @@ Final result:
 
 
 ## Step C. Integrating CloudForms with {{site.data.keyword.cloud_pak}} {{site.data.keyword.gui}}
+{: #integrate-cloudforms-cp4mcm}
 
 Enable navigation to CloudForms with {{site.data.keyword.cloud_pak}} {{site.data.keyword.gui}}.
 

@@ -33,7 +33,6 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
 | Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2 |   CC5W9EN  |
 | Automation navigation for {{site.data.keyword.cloud_pak_mcm}} 1.3 | automation-navigation-updates.sh | CC66KEN  |
-|
 
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).  
 - You must have an IBM Cloud user account with the following roles: 

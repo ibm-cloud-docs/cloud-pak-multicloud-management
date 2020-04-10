@@ -131,7 +131,7 @@ Example by using Aspera uploaded file to bucket:
  
 8. Update the security group that allows inbound and outbound traffic. (Need to harden this -ie 443, 5341...)
 
-  Example:
+    Example:
   ![image](images/security_inbound_outbound.png)
 
 9. Assign the floating IP address:
@@ -139,7 +139,7 @@ Example by using Aspera uploaded file to bucket:
     Example 
 
 
-Final result: 
+    Final result: 
 ![image](images/floating_ip_vpc.png)
 
 

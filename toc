@@ -6,11 +6,6 @@ IBM Cloud Pak for Multicloud Management
 
     {: .navgroup id="learn"}
     getting-started.md
-    {: .navgroup-end}
-
-{: .toc subcollection="cloud-pak-multicloud-management" audience="cloud-pak" category="devops" href="/docs/cloud-pak-multicloud-management?topic=cloudforms-getting-started" path="cloud-pak-multicloud-management"}
-IBM Cloud Pak for Multicloud Management
-
-    {: .navgroup id="learn"}
     cf-getting-started.md
     {: .navgroup-end}
+

@@ -63,7 +63,7 @@ Example by using Aspera uploaded file to bucket:
     **Important**: The configuration must be set up as this example or permissions can fail. 
     ![image](images/service_auth_vpc.png)
 
-4. Create a second-generation Virtual Private Cloud (Must be 2nd generation). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
+4. Create a second-generation Virtual Private Cloud (Must be second generation). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
   
     a. Create a VPC - The VPC must be in the same resource group and region as your bucket.
 

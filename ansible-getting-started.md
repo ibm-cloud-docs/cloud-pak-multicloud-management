@@ -4,9 +4,9 @@ copyright:
   years: 2020
 lastupdated: "2020-04-14"
 
-keywords: getting started tutorial, getting started, cloudforms,
+keywords: ansible getting started
 
-subcollection: writing
+subcollection: cloud-pak-multicloud-management
 
 ---
 

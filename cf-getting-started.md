@@ -54,7 +54,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     Example Standard type bucket created:
     ![image](images/buckets.png)
 
-2. Upload the CloudForms installation images to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
+2. Upload the CloudForms installation image (cfme-rhos-5.11.4.x86_64.qcow2) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
 Example by using Aspera uploaded file to bucket:
 ![image](images/upload_images_to_bucket.png)
 
@@ -105,7 +105,7 @@ Example by using Aspera uploaded file to bucket:
     Example: 
 ![image](images/results_vpc_images.png)
 
-7. Create a virtual server from the custom image by selecting "create virtual server".
+7. Create a virtual server from the custom image by selecting "New virtual server".
   
    a. Enter your name.
 
@@ -128,17 +128,15 @@ Example by using Aspera uploaded file to bucket:
 
     g. Select create virtual server instance. 
  
-8. Update the security group that allows inbound and outbound traffic. (Need to harden this -ie 443, 5341...)
+8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
+**(Need to harden this -ie 443, 5341...)**
 
     Example:
   ![image](images/security_inbound_outbound.png)
 
 9. Assign the floating IP address:
 
-    Example 
-
-
-    Final result: 
+    Example:
 ![image](images/floating_ip_vpc.png)
 
 

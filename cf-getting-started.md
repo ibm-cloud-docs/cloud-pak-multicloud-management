@@ -4,9 +4,9 @@ copyright:
   years: 2020
 lastupdated: "2020-04-09"
 
-keywords: getting started tutorial, getting started, cloudforms,
+keywords: getting started tutorial, getting started, cloudforms
 
-subcollection: writing
+subcollection: cloud-pak-multicloud-management
 
 ---
 

@@ -19,7 +19,7 @@ subcollection: cloud-pak-multicloud-management
 {:external: target="_blank" .external}
 
 # Getting started with Ansible Tower in IBM Cloud
-{: #getting-started}
+{: #ansible-getting-started}
 
 To install ansible tower on openshift, log in to OpenShift as admin from your jump server, bastion node etc. Ensure ansible is installed.
 For example, the jump server where this was tested is based on ubuntu 18.04 LTS. To install ansible on this

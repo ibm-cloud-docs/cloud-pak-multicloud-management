@@ -19,7 +19,7 @@ subcollection: cloud-pak-multicloud-management
 {:external: target="_blank" .external}
 
 # Getting started with CloudForms in IBM Cloud
-{: #getting-started}
+{: #cf-getting-started}
 
 CloudForms delivers the insight, control, and automation enterprises need to address the challenges of managing virtual environments. CloudForms enables enterprises with existing virtual infrastructures to improve visibility and control, and those just starting virtualization deployments to build and operate a well-managed virtual infrastructure. For more information, see the [CloudForms product documentation](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/).
 You can install CloudForms as a virtual appliance in IBM Cloud. 

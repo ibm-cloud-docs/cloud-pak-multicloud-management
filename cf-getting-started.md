@@ -27,14 +27,15 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 
 ## Before you begin
 
-- Before you can install CloudForms, you must download the images from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). Download these installation images:
+- Before you can install CloudForms, you must download the images from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). Download these two part numbers:
 
 | Description                                                                      | File name                               | Passport Advantage part number |
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
 | Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2 |   CC5W9EN  |
 | Automation navigation for IBM Cloud Pak® for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN  |
 
-- For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).  
+- For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
+  
 - You must have an IBM Cloud user account with the following roles: 
 ![image](images/required_roles.png)
 
@@ -125,7 +126,6 @@ Example by using Aspera uploaded file to bucket:
     Example:
 ![image](images/data_volumes.png)
 
-
     g. Select create virtual server instance. 
  
 8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
@@ -199,14 +199,14 @@ Example by using Aspera uploaded file to bucket:
     For more information, see: [Configuring CloudForms](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/installing_red_hat_cloudforms_on_red_hat_openstack_platform/configuring-cloudforms)
 
 
-## Step C. Integrating CloudForms with IBM Cloud Pak​ for Multicloud Management
+## Step C. Integrating CloudForms with IBM Cloud Pak​​ for Multicloud Management
 {: #integrate-cloudforms-cp4mcm}
 
 Enable navigation to CloudForms within the IBM Cloud Pak® console.
 
-Complete the following steps on a Linux system. You can use the boot node from the HUB cluster where IBM Cloud Pak​ for Multicloud Management is installed. These steps enable navigation to CloudForms from the IBM Cloud Pak​ console:
+Complete the following steps on a Linux system. You can use the boot node from the HUB cluster where IBM Cloud Pak​​ for Multicloud Management is installed. These steps enable navigation to CloudForms from the IBM Cloud Pak​​ console:
 
-1. Obtain the Automation navigation for IBM Cloud Pak​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, from [IBM Passport Advantage®](https://www-01.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
+1. Obtain the Automation navigation for IBM Cloud Pak​​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, from [IBM Passport Advantage®](https://www-01.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
 
 2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/kubectl/install_kubectl.html).
 
@@ -222,9 +222,9 @@ Complete the following steps on a Linux system. You can use the boot node from t
      
    * `-c` Is a required parameter that refers to the URL for the CloudForms console. For example, `https://vm17-cf-test.ibm.com/#/`
 
-5. Verify that the CloudForms instance is in the IBM Cloud Pak​ console navigation menu. From the IBM Cloud Pak​ navigation menu, click **Automate infrastructure** > **CloudForms**.
+5. Verify that the CloudForms instance is in the IBM Cloud Pak​​ console navigation menu. From the IBM Cloud Pak​​ navigation menu, click **Automate infrastructure** > **CloudForms**.
 
-CloudForms is integrated with the IBM Cloud Pak​ console.
+CloudForms is integrated with the IBM Cloud Pak​​ console.
 
 ![image](images/results_access_CF.png)
 

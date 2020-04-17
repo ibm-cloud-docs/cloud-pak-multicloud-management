@@ -44,6 +44,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 
 ## Step A. Setting up the Custom image for CloudForms in IBM Cloud
 {: #config-image}
+
 Create a custom Linux-based image to deploy CloudForms as a virtual server instance in the IBM Cloud.
 
 1. If you don't already have an instance of IBM Cloud Object Storage, see [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
@@ -132,7 +133,7 @@ Example by using Aspera uploaded file to bucket:
 
     g. Select create virtual server instance. 
  
-1. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
+8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
 
     Example:
   ![image](images/security_inbound_outbound.png)
@@ -159,7 +160,7 @@ Example by using Aspera uploaded file to bucket:
 
     **Note:** Networking is already configured. You can skip this step.
 
-5. Select _5) Configure database_ from the menu.
+4. Select _5) Configure database_ from the menu.
 
     - You are prompted to create or fetch an encryption key.
     If this instance is the first CloudForms appliance, select _1) Create key_.
@@ -168,8 +169,8 @@ Example by using Aspera uploaded file to bucket:
 
     **Note:** All CloudForms appliances in a multi-region deployment must use the same key.
 
-6. Select _1) Create Internal Database_ for the database location.
-7. Choose a disk for the database. This can be either a disk you attached previously, or a partition on the current disk.
+5. Select _1) Create Internal Database_ for the database location.
+6. Choose a disk for the database. This can be either a disk you attached previously, or a partition on the current disk.
 
     **Important:** Best practice is using a separate disk for the database.
     
@@ -182,18 +183,18 @@ Example by using Aspera uploaded file to bucket:
     
     - Enter 2 to continue without partitioning the disk. A second prompt confirms this choice. Selecting this option results in using the root file system for the data directory (not advised in most cases).
 
-8. Enter Y or N for Should this appliance run as a stand-alone database server?
+7. Enter Y or N for Should this appliance run as a stand-alone database server?
     - Select N to configure the appliance with the full administrative user interface.
 
-9. When prompted, enter a unique number (01-99) to create a new region.
+8. When prompted, enter a unique number (01-99) to create a new region.
 
     **Important:** Creating a new region destroys any existing data on the chosen database.
 
-10. Create and confirm a password for the database.
+9. Create and confirm a password for the database.
 
     CloudForms configures the internal database. This takes a few minutes. 
 
-11. Once CloudForms is installed, you can log in and complete administrative tasks.
+10. Once CloudForms is installed, you can log in and complete administrative tasks.
     - Log in to Red Hat CloudForms for the first time by:
     - Navigate to the URL for the login screen. For example,  `https://xx.xx.xx.xx` on the virtual server instance, where `xx.xx.xx.xx` is the floating IP.
     - Enter the default credentials (Username: admin | Password: smartvm) for the initial login.

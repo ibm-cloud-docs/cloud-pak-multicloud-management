@@ -39,7 +39,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - You must have an IBM Cloud user account with the following roles: 
 ![image](images/required_roles.png)
 
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](/getting-started.md)  
+- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 
 
 ## Step A. Setting up the Custom image for CloudForms in IBM Cloud

@@ -107,9 +107,11 @@ Example by using Aspera uploaded file to bucket:
     Example of custom image listing after successful image creation: 
 ![image](images/results_vpc_images.png)
 
-7. Create a virtual server from the custom image by selecting "New virtual server".
+7. Create a virtual server from the custom image by clicking on the "3 dot menu" of that image, then selecting "New virtual server".
+![image](images/select_new_server.png)
   
-   a. Enter your name.
+   a. Enter your name. Select the Virtual private cloud and Resource group.
+![image](images/new_virtual_server.png)
 
    b. Select your region.
 
@@ -131,7 +133,7 @@ Example by using Aspera uploaded file to bucket:
 
     g. Select create virtual server instance. 
  
-8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
+1. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
 
     Example:
   ![image](images/security_inbound_outbound.png)

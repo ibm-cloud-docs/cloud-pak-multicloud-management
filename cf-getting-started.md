@@ -81,28 +81,29 @@ Example by using Aspera uploaded file to bucket:
 
 6. Import the CloudForms installation images from the bucket into the VPC.
   
-    a. From the custom image tab under the result list, select import custom image.
+    a. From **VPC Infrastructure** > **Compute** > **Custom images** select **import custom image**.
 
     b. Enter a name.
 
     c. Select a resource group.
 
-    d. Select region.
+    d. Select the region.
 
     Example:
     ![image](images/import_custom_image.png)
 
     e. Select your Cloud Object Storage and bucket based on your authorization that is created in step 3.
 
-    f. Select your qcow2 image.
+    f. Select your qcow2 image (custom image).
 
-    g. Select the Red Hat operating system.
+    g. Select the Red Hat Enterprise for Operating system.
+
+    h. Click on **Import custom image**.
 
     Example:
 ![image](images/select_qcow2_image.png)
     
-    h. Select import custom image.
-
+    
     Example of custom image listing after successful image creation: 
 ![image](images/results_vpc_images.png)
 
@@ -112,7 +113,7 @@ Example by using Aspera uploaded file to bucket:
 
    b. Select your region.
 
-   c. Select the Red Hat operating system.
+   c. Select the custom image you imported.
 
    d. Use Memory Profile (2 vcpus, 16 gb ram, 4 gps).
 
@@ -123,13 +124,14 @@ Example by using Aspera uploaded file to bucket:
 
     f. Add storage to your virtual service. For example, 100 gigabytes. This volume is needed to configure the CloudForms appliance. 
 
+    **Note:** Make sure the data volume name is unique and not named the same as another volume across your virtual server instances.
+
     Example:
 ![image](images/data_volumes.png)
 
     g. Select create virtual server instance. 
  
 8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
-**(Need to harden this -ie 443, 5341...)**
 
     Example:
   ![image](images/security_inbound_outbound.png)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-09"
+lastupdated: "2020-04-16"
 
 keywords: getting started tutorial, getting started, cloudforms
 
@@ -38,7 +38,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - You must have an IBM Cloud user account with the following roles: 
 ![image](images/required_roles.png)
 
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](getting-started.md)  
+- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](/getting-started.md)  
 
 
 ## Step A. Setting up the Custom image for CloudForms in IBM Cloud
@@ -54,7 +54,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     Example Standard type bucket created:
     ![image](images/buckets.png)
 
-2. Upload the CloudForms installation image (cfme-rhos-5.11.4.x86_64.qcow2) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
+2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
 Example by using Aspera uploaded file to bucket:
 ![image](images/upload_images_to_bucket.png)
 
@@ -63,7 +63,7 @@ Example by using Aspera uploaded file to bucket:
     **Important**: The configuration must be set up as this example or permissions can fail. 
     ![image](images/service_auth_vpc.png)
 
-4. Create a second-generation Virtual Private Cloud (Must be second generation). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
+4. Create a generation 2 Virtual Private Cloud (Must be generation 2). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
   
     a. Create a VPC - The VPC must be in the same resource group and region as your bucket.
 
@@ -102,7 +102,7 @@ Example by using Aspera uploaded file to bucket:
     
     h. Select import custom image.
 
-    Example: 
+    Example of custom image listing after successful image creation: 
 ![image](images/results_vpc_images.png)
 
 7. Create a virtual server from the custom image by selecting "New virtual server".
@@ -143,7 +143,7 @@ Example by using Aspera uploaded file to bucket:
 ## Step B. Setting up the CloudForms appliance
 {: #config-cloudforms-appliance}
 
-1. ssh into your virtual server instance (appliance) by using the floating IP address.  Log in with a user name of `root` and the default password `smartvm`. This displays the Bash prompt for the root user.
+1. Use the `ssh` command to connect to your virtual server instance (appliance) by using the floating IP address. Log in with a username of `root` and the default password `smartvm`. The Bash prompt for the root user is displayed.
   
    Example ssh as root user:
    ```
@@ -151,59 +151,62 @@ Example by using Aspera uploaded file to bucket:
    ```
     ![image](images/setup_appliance.png)
 
-2. Enter the `appliance_console` command. The CloudForms appliance summary screen displays.
+2. Enter the `appliance_console` command. The CloudForms appliance summary screen is displayed.
 3. Press Enter to manually configure settings.
 
     **Note:** Networking is already configured. You can skip this step.
 
-4. Select _5) Configure Database_ from the menu.
+5. Select _5) Configure database_ from the menu.
 
     - You are prompted to create or fetch an encryption key.
-    If this is the first CloudForms appliance, select _1) Create key_.
+    If this instance is the first CloudForms appliance, select _1) Create key_.
     
-    - If this is not the first CloudForms appliance, select _2) Fetch key_ from remote machine to fetch the key from the first appliance. For worker and multi-region setups, use this option to copy key from another appliance.
+    - If this is not the first CloudForms appliance, select _2) Fetch key_ from remote system to fetch the key from the first appliance. For worker and multi-region setups, use this option to copy key from another appliance.
 
     **Note:** All CloudForms appliances in a multi-region deployment must use the same key.
 
-5. Select _1) Create Internal Database_ for the database location.
-6. Choose a disk for the database. This can be either a disk you attached previously, or a partition on the current disk.
+6. Select _1) Create Internal Database_ for the database location.
+7. Choose a disk for the database. This can be either a disk you attached previously, or a partition on the current disk.
 
     **Important:** Best practice is using a separate disk for the database.
     
-    If there is an unpartitioned disk attached to the virtual machine, the dialog will show options similar to the following:
+    If there is an unpartitioned disk that is attached to the virtual machine, the dialog shows options similar to the following:
     ```
     1) /dev/vdb: 20480
     2) Don't partition the disk
     ```
-    - Enter 1 to choose /dev/vdb for the database location. This option creates a logical volume using this device and mounts the volume to the appliance in a location appropriate for storing the database. The default location is /var/lib/pgsql, which can be found in the environment variable $APPLIANCE_PG_MOUNT_POINT.
+    - Enter 1 to choose /dev/vdb for the database location. This option creates a logical volume by using this device and mounts the volume to the appliance in a location appropriate for storing the database. The default location is /var/lib/pgsql, which can be found in the environment variable $APPLIANCE_PG_MOUNT_POINT.
     
-    - Enter 2 to continue without partitioning the disk. A second prompt will confirm this choice. Selecting this option results in using the root filesystem for the data directory (not advised in most cases).
+    - Enter 2 to continue without partitioning the disk. A second prompt confirms this choice. Selecting this option results in using the root file system for the data directory (not advised in most cases).
 
-7. Enter Y or N for Should this appliance run as a standalone database server?
+8. Enter Y or N for Should this appliance run as a stand-alone database server?
     - Select N to configure the appliance with the full administrative user interface.
 
-8. When prompted, enter a unique number (01-99) to create a new region.
+9. When prompted, enter a unique number (01-99) to create a new region.
 
     **Important:** Creating a new region destroys any existing data on the chosen database.
 
-9. Create and confirm a password for the database.
+10. Create and confirm a password for the database.
 
-    CloudForms then configures the internal database. This takes a few minutes. 
+    CloudForms configures the internal database. This takes a few minutes. 
 
-10. Once CloudForms is installed, you can log in and perform administration tasks.
-    - Log in to Red Hat CloudForms for the first time after installing by:
+11. Once CloudForms is installed, you can log in and complete administrative tasks.
+    - Log in to Red Hat CloudForms for the first time by:
     - Navigate to the URL for the login screen. For example,  `https://xx.xx.xx.xx` on the virtual server instance, where `xx.xx.xx.xx` is the floating IP.
     - Enter the default credentials (Username: admin | Password: smartvm) for the initial login.
     - Click Login.
+  
+    For more information, see: [Configuring CloudForms](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/installing_red_hat_cloudforms_on_red_hat_openstack_platform/configuring-cloudforms)
 
-## Step C. Integrating CloudForms with IBM Cloud Pak for Multicloud Management
+
+## Step C. Integrating CloudForms with IBM Cloud Pak​ for Multicloud Management
 {: #integrate-cloudforms-cp4mcm}
 
 Enable navigation to CloudForms within the IBM Cloud Pak® console.
 
-Complete the following steps on a Linux system. You can use the the HUB cluster where IBM Cloud Pak for Multicloud Management is installed. These steps enable navigation to CloudForms from the IBM Cloud Pak console:
+Complete the following steps on a Linux system. You can use the boot node from the HUB cluster where IBM Cloud Pak​ for Multicloud Management is installed. These steps enable navigation to CloudForms from the IBM Cloud Pak​ console:
 
-1. Obtain the Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, from [IBM Passport Advantage®](https://www-01.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
+1. Obtain the Automation navigation for IBM Cloud Pak​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, from [IBM Passport Advantage®](https://www-01.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
 
 2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/kubectl/install_kubectl.html).
 
@@ -219,9 +222,9 @@ Complete the following steps on a Linux system. You can use the the HUB cluster 
      
    * `-c` Is a required parameter that refers to the URL for the CloudForms console. For example, `https://vm17-cf-test.ibm.com/#/`
 
-5. Verify that the CloudForms instance is in the IBM Cloud Pak console navigation menu. From the IBM Cloud Pak navigation menu, click **Automate infrastructure** > **CloudForms**.
+5. Verify that the CloudForms instance is in the IBM Cloud Pak​ console navigation menu. From the IBM Cloud Pak​ navigation menu, click **Automate infrastructure** > **CloudForms**.
 
-CloudForms is integrated with the IBM Cloud Pak console.
+CloudForms is integrated with the IBM Cloud Pak​ console.
 
 ![image](images/results_access_CF.png)
 

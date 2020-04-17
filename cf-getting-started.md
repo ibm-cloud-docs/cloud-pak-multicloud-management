@@ -102,9 +102,8 @@ Example by using Aspera uploaded file to bucket:
 
     Example:
 ![image](images/select_qcow2_image.png)
-    
-    
-    Example of custom image listing after successful image creation: 
+
+    Example of custom image listing after successful image creation:
 ![image](images/results_vpc_images.png)
 
 7. Create a virtual server from the custom image by clicking on the "3 dot menu" of that image, then selecting "New virtual server".

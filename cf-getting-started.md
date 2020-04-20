@@ -31,7 +31,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 
 | Description                                                                      | File name                               | Passport Advantage part number |
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
-| Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2 |   CC5W9EN  |
+| Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2.qcow2 |   CC5W9EN  |
 | Automation navigation for IBM Cloud Pak® for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN  |
 
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
@@ -56,9 +56,9 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     Example Standard type bucket created:
     ![image](images/buckets.png)
 
-2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
+2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
 Example by using Aspera uploaded file to bucket:
-![image](images/upload_images_to_bucket.png)
+![image](images/upload_images_to_bucketv2.png)
 
 3. From IBM Cloud Identity and Access Management (IAM), create an authorization between the Virtual Private Cloud (VPC) Infrastructure (source service) > Image Service for VPC (resource type) and Cloud Object Storage (target service). For more information, see [Create an authorization](https://cloud.ibm.com/docs/iam?topic=iam-serviceauth#serviceauth).
     
@@ -102,7 +102,7 @@ Example by using Aspera uploaded file to bucket:
     h. Click on **Import custom image**.
 
     Example:
-![image](images/select_qcow2_image.png)
+![image](images/select_qcow2_imagev2.png)
 
     Example of custom image listing after successful image creation:
 ![image](images/results_vpc_images.png)
@@ -232,3 +232,205 @@ CloudForms is integrated with the IBM Cloud Pak​​ console.
 
 ![image](images/results_access_CF.png)
 
+
+## Step D. Enable Single Sign-on with CloudForms and IBM Cloud Pak​​ for Multicloud Management
+{: #sso-cloudforms-cp4mcm}
+
+CloudForms enables single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC). Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing the following steps:
+
+### Register CloudForms instance with IAM as an OIDC client 
+{: #register-cf-with-IAM-as-OIDC-client}
+
+In order to enable SSO between IBM Cloud Pak​​ for Multicloud Management and CloudForms using OIDC, the CloudForms instance needs to register as an OIDC client with IAM.
+
+There are two ways to register CloudForms as an OIDC client with IAM. One is through the `cloudctl` command and the other is by calling the IAM API directly.
+
+Example `cloudctl` command:
+```
+cloudctl iam oauth-client-register -f registration.json
+```
+{: codeblock}
+Example `curl` command calling the IAM API:
+```
+curl -i -k -X POST -u oauthadmin:$OAUTH2_CLIENT_REGISTRATION_SECRET -H "Content-Type: application/json" --data @platform-oidc-registration.json https://icp-ip:port/idauth/oidc/endpoint/OP/registration
+```
+{: codeblock}
+
+Both of these methods require the following registration payload:
+
+```
+{
+  "token_endpoint_auth_method":"client_secret_basic",
+  "client_id": "<CLIENT_ID>",
+  "client_secret": "<CLIENT_SECRET>",
+  "scope":"openid profile email",
+  "grant_types":[
+     "authorization_code",
+     "client_credentials",
+     "password",
+     "implicit",
+     "refresh_token",
+     "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ],
+  "response_types":[
+     "code",
+     "token",
+     "id_token token"
+  ],
+  "application_type":"web",
+  "subject_type":"public",
+  "post_logout_redirect_uris":[
+     "https://<ICP_PROXY_IP>:<PORT_WHERE_SERVICE_RUNS>"   ],
+  "preauthorized_scope":"openid profile email general",
+  "introspect_tokens":true,
+  "trusted_uri_prefixes":[
+     "https://<ICP_ENDPOINT>:<port>", "https://<ICP_PROXY_IP>"    ],
+  "redirect_uris":["https://<ICP_PROXY_IP>:<PORT_WHERE_SERVICE_RUNS>/auth/liberty/callback"]
+  }
+  ```
+  {: codeblock}
+
+  **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode and decode. For more information, see: [BASE64](https://www.base64encode.org/). 
+  
+  Example command using base64 to encode a character string:
+  ```
+  #
+  # Generate two encryted streams from some longer-than-32-characters strings
+  #
+  #
+  echo There is a huge white elephant in LA zoo |base64
+  echo 12345678901234567890123456789012345 |base64
+  ```
+
+  If method 2 is used, then the `OAUTH2_CLIENT_REGISTRATION_SECRET` must be used for authentication. It can be retrieved by running the following command:
+
+  ```
+  OAUTH2_CLIENT_REGISTRATION_SECRET=$(kubectl -n kube-system get secret platform-oidc-credentials -o yaml | grep OAUTH2_CLIENT_REGISTRATION_SECRET | awk '{ print $2}' | base64 --decode)
+  ```
+  {: codeblock}
+
+## Configure CloudForms OIDC client to enable single sign on (SSO) 
+{: #enable-single-sign-on}
+
+CloudForms provides support for single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC).
+
+Enable single sign on between {{site.data.keyword.product}} and CloudForms by following these steps.
+
+### Import the Root CA certificate to CloudForms from {{site.data.keyword.product}}
+
+1. Retrieve the cluster ca cert from {{site.data.keyword.product}} by running the command:
+
+  ```
+  kubectl get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}' | base64 --decode
+  ```
+  {: codeblock}
+
+2. Copy and paste the output to a file, for example `ibm_cp_cf.crt`
+
+3. Edit the file, `ibm_cp_cf.crt` and change:
+   - `BEGIN CERTIFICATE` to `BEGIN TRUSTED CERTIFICATE`
+   - `END CERTIFICATE` to `END TRUSTED CERTIFICATE`
+
+4. Copy the updated `ibm_cp_cf.crt` file to the CloudForms appliance and save it in the directory: `/etc/pki/ca-trust/source/anchors`
+
+5. Run the command:
+
+  ```
+  update-ca-trust
+  ```
+  {: codeblock}
+
+6. Restart the evm server by running the command:
+
+   ```
+   systemctl restart evmserverd
+   ```
+   {: codeblock}
+
+
+### Apache Configuration
+
+**Note:** The following steps should be completed by logging into the CloudForms console as root user:
+
+Copy the Apache OIDC template configuration files:
+```
+#TEMPLATE_DIR="/opt/rh/cfme-appliance/TEMPLATE"
+# cp ${TEMPLATE_DIR}/etc/httpd/conf.d/manageiq-remote-user-openidc.conf \
+    /etc/httpd/conf.d/
+# cp ${TEMPLATE_DIR}/etc/httpd/conf.d/manageiq-external-auth-openidc.conf.erb \
+    /etc/httpd/conf.d/manageiq-external-auth-openidc.conf
+```
+
+### OIDC Configuration
+
+The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration files must be updated with installation specific values. 
+Replace the contents of the files with the actual values based on the installation. 
+
+- `cf_hostname` Specifies the hostname of the CloudForms server.
+- `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
+- `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
+- `mcm_console_url` The URL of the MCM console.
+- `OIDCCryptoPassphrase` Can be any arbitrary alphanumeric string.
+- **Note:** The `CLIENT_ID` and `CLIENT_SECRET` values are generated when you register CloudForms as an OIDC client, see: [Register CloudForms instance with IAM as an OIDC client](#register-cloudforms-instance-with-iam-as-an-oidc-client).
+
+Example template for the configuration files:
+```
+LoadModule          auth_openidc_module modules/mod_auth_openidc.so
+ServerName          https://<cf_hostname>
+
+OIDCCLientID                  <CLIENT_ID>
+OIDCClientSecret              <CLIENT_SECRET>  
+OIDCRedirectURI                https://<cf_hostname>/oidc_login/redirect_uri
+OIDCCryptoPassphrase           <passphrase>
+OIDCOAuthRemoteUserClaim       sub
+OIDCRemoteUserClaim            name
+
+OIDCProviderIssuer                  https://127.0.0.1:443/idauth/oidc/endpoint/OP
+OIDCProviderAuthorizationEndpoint   https://<mcm_console_url>/idprovider/v1/auth/authorize
+OIDCProviderTokenEndpoint           https://<mcm_console_url>/idprovider/v1/auth/token
+OIDCOAuthIntrospectionEndpoint      https://<mcm_console_url>/idprovider/v1/auth/introspect
+OIDCProviderJwksUri                 https://<mcm_console_url>/oidc/endpoint/OP/jwk
+OIDCProviderEndSessionEndpoint      https://<mcm_console_url>/idprovider/v1/auth/logout
+
+OIDCScope                        "openid email profile"
+OIDCResponseMode                 "query"
+OIDCProviderTokenEndpointAuth     client_secret_post
+
+OIDCPassUserInfoAs json
+OIDCSSLValidateServer off
+OIDCHTTPTimeoutShort 10
+
+<Location /oidc_login>
+  AuthType  openid-connect
+  Require   valid-user
+  LogLevel   warn
+</Location>
+```
+
+Restart Apache on the CloudForms appliance as follows:
+```
+# systemctl restart httpd
+```
+{: codeblock}
+
+### Configuring the Administrative UI
+
+After configuring Apache for OIDC, the next step is to update the Appliance Administrative UI to be OIDC aware and function accordingly. Complete these steps on each UI-enabled appliance.
+
+1. Log in as `admin`, then select the **Configuration** by clicking the gear icon.
+
+2. Select the **Settings**, then select the **Authentication** tab.
+
+3. In the **Authentication** section, set the **Mode** to `External (httpd)`
+
+4. In the **External Authentication (httpd) Settings** section, set **Provider Type** to `Enable OpenID-Connect`. 
+     - **Note:** This setting enables the OIDC login button on the login screen, that redirects to the OIDC protected page for authentication, and supports the OIDC logout process.
+
+5. Optional: In the **External Authentication (httpd) Settings** section, select **Enable Single Sign-On**.
+     - **Note:** If you select this option, the initial access to the Appliance Administrative UI will redirect to the OIDC Identity Provider authentication screen.
+
+6. In the **Role Settings** section, select the **Get User Groups from External Authentication (httpd)** setting.
+     
+7. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles assigned to those groups.
+
+8. Click Save.

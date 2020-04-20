@@ -470,3 +470,6 @@ After configuring Apache for OIDC, the next step is to update the Appliance Admi
 7. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles assigned to those groups.
 
 8. Click Save.
+
+### Congratulations!
+You've successfully installed and configured CloudForms and integrated CloudForms with IBM Cloud Pak for Multicloud Management in IBM Cloud.

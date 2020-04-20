@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-16"
+lastupdated: "2020-04-20"
 
 keywords: getting started tutorial, getting started, cloudforms
 
@@ -280,23 +280,59 @@ Both of these methods require the following registration payload:
   "application_type":"web",
   "subject_type":"public",
   "post_logout_redirect_uris":[
-     "https://<ICP_PROXY_IP>:<PORT_WHERE_SERVICE_RUNS>"   ],
+     "https://<CP4MCM_CONSOLE_URL>:<PORT_WHERE_SERVICE_RUNS>"   ],
   "preauthorized_scope":"openid profile email general",
   "introspect_tokens":true,
   "trusted_uri_prefixes":[
-     "https://<ICP_ENDPOINT>:<port>", "https://<ICP_PROXY_IP>"    ],
-  "redirect_uris":["https://<ICP_PROXY_IP>:<PORT_WHERE_SERVICE_RUNS>/auth/liberty/callback"]
+     "https://<CP4MCM_CONSOLE_URL>:<port>", "https://<ICP_PROXY_IP>"    ],
+  "redirect_uris":["https://<CP4MCM_CONSOLE_URL>/auth/liberty/callback","https://<CLOUDFORMS_URL>/oidc_login/redirect_uri"]
   }
   ```
   {: codeblock}
+
+  Example registration payload (for reference only):
+  ```
+  {
+ "token_endpoint_auth_method":"client_secret_basic",
+ "client_id": "N3NzNVFsSjlLVkl6Zk5hZ01MRzJVaVdnbFcxNGl5cnQK",
+ "client_secret": "VWNVNzF4ZUxNSVBQUHZHdG1xQmNsTTFOWmNUUGlnYUkK",
+ "scope":"openid profile email",
+ "grant_types":[
+    "authorization_code",
+    "client_credentials",
+    "password",
+    "implicit",
+    "refresh_token",
+    "urn:ietf:params:oauth:grant-type:jwt-bearer"
+ ],
+ "response_types":[
+    "code",
+    "token",
+    "id_token token"
+ ],
+ "application_type":"web",
+ "subject_type":"public",
+ "post_logout_redirect_uris":["https://icp-console.apps.test.ibm.com"],
+ "preauthorized_scope":"openid profile email general",
+ "introspect_tokens":true,
+ "trusted_uri_prefixes":["https://icp-console.apps.test.ibm.com/"],
+ "redirect_uris":["https://icp-console.apps.test.ibm.com/auth/liberty/callback","https://www.cf-dev.test.ibm.com/oidc_login/redirect_uri"]
+ }
+ ```
+
+- `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
+- `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
+- `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
+- `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
+- `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with trailing "forward slash" /.
+- `redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console with path to callback and the URL of the CloudForms host with path to the redirect_uri.
 
   **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode and decode. For more information, see: [BASE64](https://www.base64encode.org/). 
   
   Example command using base64 to encode a character string:
   ```
   #
-  # Generate two encryted streams from some longer-than-32-characters strings
-  #
+  # Generate two encrypted streams from some longer-than-32-characters strings
   #
   echo There is a huge white elephant in LA zoo |base64
   echo 12345678901234567890123456789012345 |base64
@@ -366,10 +402,10 @@ Copy the Apache OIDC template configuration files:
 The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration files must be updated with installation specific values. 
 Replace the contents of the files with the actual values based on the installation. 
 
-- `cf_hostname` Specifies the hostname of the CloudForms server.
+- `CF_HOSTNAME` Specifies the hostname of the CloudForms server.
 - `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
 - `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
-- `mcm_console_url` The URL of the MCM console.
+- `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
 - `OIDCCryptoPassphrase` Can be any arbitrary alphanumeric string.
 - **Note:** The `CLIENT_ID` and `CLIENT_SECRET` values are generated when you register CloudForms as an OIDC client, see: [Register CloudForms instance with IAM as an OIDC client](#register-cloudforms-instance-with-iam-as-an-oidc-client).
 
@@ -380,17 +416,17 @@ ServerName          https://<cf_hostname>
 
 OIDCCLientID                  <CLIENT_ID>
 OIDCClientSecret              <CLIENT_SECRET>  
-OIDCRedirectURI                https://<cf_hostname>/oidc_login/redirect_uri
+OIDCRedirectURI                https://<CF_HOSTNAME>/oidc_login/redirect_uri
 OIDCCryptoPassphrase           <passphrase>
 OIDCOAuthRemoteUserClaim       sub
 OIDCRemoteUserClaim            name
 
 OIDCProviderIssuer                  https://127.0.0.1:443/idauth/oidc/endpoint/OP
-OIDCProviderAuthorizationEndpoint   https://<mcm_console_url>/idprovider/v1/auth/authorize
-OIDCProviderTokenEndpoint           https://<mcm_console_url>/idprovider/v1/auth/token
-OIDCOAuthIntrospectionEndpoint      https://<mcm_console_url>/idprovider/v1/auth/introspect
-OIDCProviderJwksUri                 https://<mcm_console_url>/oidc/endpoint/OP/jwk
-OIDCProviderEndSessionEndpoint      https://<mcm_console_url>/idprovider/v1/auth/logout
+OIDCProviderAuthorizationEndpoint   https://<CP4MCM_CONSOLE_URL>/idprovider/v1/auth/authorize
+OIDCProviderTokenEndpoint           https://<CP4MCM_CONSOLE_URL>/idprovider/v1/auth/token
+OIDCOAuthIntrospectionEndpoint      https://<CP4MCM_CONSOLE_URL>/idprovider/v1/auth/introspect
+OIDCProviderJwksUri                 https://<CP4MCM_CONSOLE_URL>/oidc/endpoint/OP/jwk
+OIDCProviderEndSessionEndpoint      https://<CP4MCM_CONSOLE_URL>/idprovider/v1/auth/logout
 
 OIDCScope                        "openid email profile"
 OIDCResponseMode                 "query"

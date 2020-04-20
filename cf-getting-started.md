@@ -65,7 +65,7 @@ Example by using Aspera uploaded file to bucket:
     **Important**: The configuration must be set up as this example or permissions can fail. 
     ![image](images/service_auth_vpc.png)
 
-4. Create a generation 2 Virtual Private Cloud (Must be generation 2). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
+4. Create a generation 2 Virtual Private Cloud (**Must be generation 2**). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
   
     a. Create a VPC - The VPC must be in the same resource group and region as your bucket.
 
@@ -119,7 +119,7 @@ Example by using Aspera uploaded file to bucket:
 
    d. Use Memory Profile (2 vcpus, 16 gb ram, 4 gps).
 
-   e. Add an ssh key - Use a public key.
+   e. Add an ssh key. You can use a public key. For more information, see: [Locating or generating your SSH key](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-ssh-keys#locating-or-generating-your-ssh-key).
 
    Example:
 ![image](images/ssh_keys.png)
@@ -314,11 +314,11 @@ Both of these methods require the following registration payload:
 
 CloudForms provides support for single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC).
 
-Enable single sign on between {{site.data.keyword.product}} and CloudForms by following these steps.
+Enable single sign on between IBM Cloud Pak​​ for Multicloud Management and CloudForms by following these steps.
 
-### Import the Root CA certificate to CloudForms from {{site.data.keyword.product}}
+### Import the Root CA certificate to CloudForms from IBM Cloud Pak​​ for Multicloud Management
 
-1. Retrieve the cluster ca cert from {{site.data.keyword.product}} by running the command:
+1. Retrieve the cluster ca cert from IBM Cloud Pak​​ for Multicloud Management by running the command:
 
   ```
   kubectl get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}' | base64 --decode

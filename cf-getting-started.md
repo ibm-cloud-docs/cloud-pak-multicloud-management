@@ -237,6 +237,8 @@ CloudForms is integrated with the IBM Cloud Pak​​ console.
 {: #sso-cloudforms-cp4mcm}
 
 CloudForms enables single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC). Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing the following steps:
+1. Register the CloudForms OIDC client with IAM. 
+2. Configure CloudForms to enable OIDC authentication with the same identity provider used for IBM Cloud Pak for Multicloud Management. 
 
 ### Register CloudForms instance with IAM as an OIDC client 
 {: #register-cf-with-IAM-as-OIDC-client}
@@ -252,7 +254,7 @@ cloudctl iam oauth-client-register -f registration.json
 {: codeblock}
 Example `curl` command calling the IAM API:
 ```
-curl -i -k -X POST -u oauthadmin:$OAUTH2_CLIENT_REGISTRATION_SECRET -H "Content-Type: application/json" --data @platform-oidc-registration.json https://icp-ip:port/idauth/oidc/endpoint/OP/registration
+curl -i -k -X POST -u oauthadmin:$OAUTH2_CLIENT_REGISTRATION_SECRET -H "Content-Type: application/json" --data @platform-oidc-registration.json https://<CP4MCM_CONSOLE_URL>:<PORT>/idauth/oidc/endpoint/OP/registration
 ```
 {: codeblock}
 
@@ -284,7 +286,7 @@ Both of these methods require the following registration payload:
   "preauthorized_scope":"openid profile email general",
   "introspect_tokens":true,
   "trusted_uri_prefixes":[
-     "https://<CP4MCM_CONSOLE_URL>:<port>", "https://<ICP_PROXY_IP>"    ],
+     "https://<CP4MCM_CONSOLE_URL>/"    ],
   "redirect_uris":["https://<CP4MCM_CONSOLE_URL>/auth/liberty/callback","https://<CLOUDFORMS_URL>/oidc_login/redirect_uri"]
   }
   ```
@@ -319,15 +321,7 @@ Both of these methods require the following registration payload:
  "redirect_uris":["https://icp-console.apps.test.ibm.com/auth/liberty/callback","https://www.cf-dev.test.ibm.com/oidc_login/redirect_uri"]
  }
  ```
-
-- `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
-- `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
-- `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
-- `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
-- `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with trailing "forward slash" /.
-- `redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console with path to callback and the URL of the CloudForms host with path to the redirect_uri.
-
-  **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode and decode. For more information, see: [BASE64](https://www.base64encode.org/). 
+ **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
   
   Example command using base64 to encode a character string:
   ```
@@ -337,8 +331,16 @@ Both of these methods require the following registration payload:
   echo There is a huge white elephant in LA zoo |base64
   echo 12345678901234567890123456789012345 |base64
   ```
+Replace the values in the example template payload registration with the actual values based on your installation.
 
-  If method 2 is used, then the `OAUTH2_CLIENT_REGISTRATION_SECRET` must be used for authentication. It can be retrieved by running the following command:
+- `CLIENT_ID` Your base64 encoded character string.
+- `CLIENT_SECRET` Your base64 encoded character string.
+- `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
+- `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
+- `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with "forward slash" /.
+- `redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console with the path to callback and the URL of the CloudForms host with the path to the redirect_uri.
+
+If method 2 is used, then the `OAUTH2_CLIENT_REGISTRATION_SECRET` must be used for authentication. It can be retrieved by running the following command:
 
   ```
   OAUTH2_CLIENT_REGISTRATION_SECRET=$(kubectl -n kube-system get secret platform-oidc-credentials -o yaml | grep OAUTH2_CLIENT_REGISTRATION_SECRET | awk '{ print $2}' | base64 --decode)
@@ -406,7 +408,7 @@ Replace the contents of the files with the actual values based on the installati
 - `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
 - `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
 - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
-- `OIDCCryptoPassphrase` Can be any arbitrary alphanumeric string.
+- `OIDCCryptoPassphrase` Can be any arbitrary alpha-numeric string.
 - **Note:** The `CLIENT_ID` and `CLIENT_SECRET` values are generated when you register CloudForms as an OIDC client, see: [Register CloudForms instance with IAM as an OIDC client](#register-cloudforms-instance-with-iam-as-an-oidc-client).
 
 Example template for the configuration files:

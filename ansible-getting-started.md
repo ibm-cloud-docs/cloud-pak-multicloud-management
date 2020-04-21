@@ -18,10 +18,18 @@ subcollection: cloud-pak-multicloud-management
 {:note: .note}
 {:external: target="_blank" .external}
 
+
 # Getting started with Ansible Tower in IBM Cloud
 {: #ansible-getting-started}
 
-To install ansible tower on openshift, log in to OpenShift as admin from your jump server, bastion node etc. Ensure ansible is installed.
+Red Hat® Ansible Tower automates continuous configurations and deployments.
+
+Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. You can configure the optional license to use Red Hat Ansible Tower with the automation capability of the IBM Cloud Pak® for Multicloud Management console.
+
+## Installing Red Hat Ansible Tower
+{: #install-ansible}
+
+To install Ansible Tower on OpenShift, log in to OpenShift as admin from your IBM Cloud Pak​​ for Multicloud Management server. Ensure ansible is installed.
 For example, the jump server where this was tested is based on ubuntu 18.04 LTS. To install ansible on this
 
 ```
@@ -29,7 +37,7 @@ apt -y install ansible
 ```
 
 On your jump server / bastion server download the package for ansible-tower-openshift-setup
-**Note: ** Latest package is 3.6.3 version ( as of 4/3/2020 )
+**Note:** Latest package is 3.6.3 version ( as of 4/3/2020 )
 
 ```
 wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-latest.tar.gz

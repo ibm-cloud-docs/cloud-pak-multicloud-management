@@ -236,7 +236,13 @@ CloudForms is integrated with the IBM Cloud Pak​​ console.
 ## Step D. Enable Single Sign-on with CloudForms and IBM Cloud Pak​​ for Multicloud Management
 {: #sso-cloudforms-cp4mcm}
 
-CloudForms enables single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC). Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing these steps:
+CloudForms enables single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC). 
+
+### Prerequisites
+Single sign-on with CloudForms and IBM Cloud Pak for Multicloud Management requires an LDAP server connection.
+For more information on adding an LDAP connection
+
+Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing these steps:
 1. Register the CloudForms OIDC client with IAM. These steps are completed on the IBM Cloud Pak for Multicloud Management cluster.
 2. Configure CloudForms to enable OIDC authentication with the same identity provider used for IBM Cloud Pak for Multicloud Management. These steps are completed on the CloudForms appliance.
 
@@ -342,7 +348,7 @@ Both of these methods require the following registration payload in a file "regi
     cloudctl iam oauth-client-register -f registration.json
     ```
     {: codeblock}
-    
+
     **Note:** If you receive an error running the `oauth-client-register`, you may need to log back in by following these steps:
     1. Log back in to IBM cloud, https://cloud.ibm.com/
     2. Click the user icon in top right-hand corner

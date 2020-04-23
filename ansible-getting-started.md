@@ -33,10 +33,11 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 - Before you can install Red Hat Ansible Tower, you must download the license key and the `automation-navigation-updates.sh` script from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
   
 Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
-| Description | File name | Passport Advantage part number |
-|-------------|-----------|--------------------------------|
-| Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN |
-Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt | CC5WCEN |
+
+| Description                                                                      | File name                               | Passport Advantage part number |
+|----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
+| Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt |   CC5WCEN  |
+| Automation navigation for IBM Cloud Pak® for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN  |
 
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
   
@@ -107,65 +108,66 @@ Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt | CC5WCEN |
     {: codeblock}
 
 6. Create a pvc named **postgresql**. Sample PVC resource file named postgres-nfs-pvc.yaml
-```
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  annotations:
-  labels:
-  name: postgresql
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-  storageClassName: ibmc-block-gold
-```
-{: codeblock}
+    ```
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      annotations:
+      labels:
+      name: postgresql
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      storageClassName: ibmc-block-gold
+    ```
+    {: codeblock}
 
-**Note:** Change the storage class according to your OpenShift Storage Class listing.
+    **Note:** Change the storage class according to your OpenShift Storage Class listing.
 
-```
-oc create -f postgres-nfs-pvc.yaml
-```
-{: codeblock}
+    ```
+    oc create -f postgres-nfs-pvc.yaml
+    ```
+    {: codeblock}
+    
+  7. Ensure that the pvc is created.
+      ```
+      oc get pvc
+      ```
+      {: codeblock}
 
-7. Ensure that the pvc is created
+   8. Modify the ansible playbook to use insecure login.
 
-```
-oc get pvc
-```
-{: codeblock}
+      ```
+      sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
+      ```
+      {: codeblock}
+    
+   9. Run the installation command:
 
-8. Modify the ansible playbook to use insecure login.
+       ```
+       ./setup_openshift.sh -e openshift_host=https://api.green.coc-ibm.com:6443 -e openshift_project=ansible-tower -e openshift_user=admin -e openshift_token=<YOUR_TOKEN> -e admin_password=rudolph-the-reindeer -e secret_key=mysecret -e pg_username=postgresuser -e pg_password=postgrespwd -e rabbitmq_password=rabbitpwd -e rabbitmq_erlang_cookie=rabbiterlangapwd
+       ```
+       {: codeblock}
+    
+      **Note:** Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.
 
-```
-sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
-```
-{: codeblock}
+      This will complete the setup of ansible tower. Once you log in to the console, you must apply the license. 
 
-9. Run the installation command:
-
-```
-./setup_openshift.sh -e openshift_host=https://api.green.coc-ibm.com:6443 -e openshift_project=ansible-tower -e openshift_user=admin -e openshift_token=<YOUR_TOKEN> -e admin_password=rudolph-the-reindeer -e secret_key=mysecret -e pg_username=postgresuser -e pg_password=postgrespwd -e rabbitmq_password=rabbitpwd -e rabbitmq_erlang_cookie=rabbiterlangapwd
-```
-{: codeblock}
-**Note:** Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.
-
-This will complete the setup of ansible tower. Once you log in to the console, you must apply the license. 
-
-10. Log in to Ansible Tower and import the license from the 
+  10.  Log in to Ansible Tower and import the license from the 
 `temporary-tower-license.txt` downloaded in "Before you begin".
 
-When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
+       When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 
-11. Click Browse and navigate to the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
+  11. Click Browse and navigate to the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
 
-The license is recognized, proceed by checking the End User License Agreement.
+      The license is recognized, proceed by checking the End User License Agreement.
 
-After you specify your tracking and analytics preferences, click Submit.
-The license is accepted, and Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface (which you can access by clicking the Ansible Tower logo).
+       After you specify your tracking and analytics preferences, click Submit.
+        
+      The license is accepted, and Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface (which you can access by clicking the Ansible Tower logo).
 
 Ansible Tower can now be integrated with IBM Cloud Pak for Multicloud Manager.
 

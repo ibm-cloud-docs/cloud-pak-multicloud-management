@@ -132,44 +132,43 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     
-  7. Ensure that the pvc is created.
-      ```
-      oc get pvc
-      ```
-      {: codeblock}
+7. Ensure that the pvc is created.
+    ```
+    oc get pvc
+    ```
+    {: codeblock}
 
-   8. Modify the ansible playbook to use insecure login.
+8. Modify the ansible playbook to use insecure login.
 
-      ```
-      sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
-      ```
-      {: codeblock}
+    ```
+    sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
+    ```
+    {: codeblock}
     
-   9. Run the installation command:
+9. Run the installation command:
 
-       ```
-       ./setup_openshift.sh -e openshift_host=https://api.green.coc-ibm.com:6443 -e openshift_project=ansible-tower -e openshift_user=admin -e openshift_token=<YOUR_TOKEN> -e admin_password=rudolph-the-reindeer -e secret_key=mysecret -e pg_username=postgresuser -e pg_password=postgrespwd -e rabbitmq_password=rabbitpwd -e rabbitmq_erlang_cookie=rabbiterlangapwd
-       ```
-       {: codeblock}
+    ```
+    ./setup_openshift.sh -e openshift_host=https://api.green.coc-ibm.com:6443 -e openshift_project=ansible-tower -e openshift_user=admin -e openshift_token=<YOUR_TOKEN> -e admin_password=rudolph-the-reindeer -e secret_key=mysecret -e pg_username=postgresuser -e pg_password=postgrespwd -e rabbitmq_password=rabbitpwd -e rabbitmq_erlang_cookie=rabbiterlangapwd
+    ```
+    {: codeblock}
     
-      **Note:** Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.
+    **Note:** Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.
 
-      This will complete the setup of ansible tower. Once you log in to the console, you must apply the license. 
+    This will complete the setup of ansible tower. Once you log in to the console, you must apply the license. 
 
-  10.  Log in to Ansible Tower and import the license from the 
+10.  Log in to Ansible Tower and import the license from the 
 `temporary-tower-license.txt` downloaded in "Before you begin".
 
-       When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
+     When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 
-  11. Click Browse and navigate to the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
+11. Click Browse and navigate to the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
 
-      The license is recognized, proceed by checking the End User License Agreement.
-
-       After you specify your tracking and analytics preferences, click Submit.
+    The license is recognized, proceed by checking the End User License Agreement.
+    After you specify your tracking and analytics preferences, click Submit.
         
-      The license is accepted, and Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface (which you can access by clicking the Ansible Tower logo).
-
-Ansible Tower can now be integrated with IBM Cloud Pak for Multicloud Manager.
+    The license is accepted, and Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface (which you can access by clicking the Ansible Tower logo).
+ 
+    Ansible Tower can now be integrated with IBM Cloud Pak for Multicloud Manager.
 
 ## Integrate Ansible Tower with IBM Cloud Pak for Multicloud Management
 

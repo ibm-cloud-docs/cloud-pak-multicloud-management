@@ -82,7 +82,7 @@ Example by using Aspera uploaded file to bucket:
 
 6. Import the CloudForms installation images from the bucket into the VPC.
   
-    a. From **VPC Infrastructure** > **Compute** > **Custom images** select **import custom image**.
+    a. Browse to **VPC Infrastructure** > **Compute** > **Custom images** and select **import custom image**.
 
     b. Enter a name.
 
@@ -99,7 +99,7 @@ Example by using Aspera uploaded file to bucket:
 
     g. Select the Red Hat Enterprise for Operating system.
 
-    h. Click on **Import custom image**.
+    h. Click **Import custom image**.
 
     Example:
 ![image](images/select_qcow2_imagev2.png)
@@ -107,7 +107,7 @@ Example by using Aspera uploaded file to bucket:
     Example of custom image listing after successful image creation:
 ![image](images/results_vpc_images.png)
 
-7. Create a virtual server from the custom image by clicking on the "3 dot menu" of that image, then selecting "New virtual server".
+7. Create a virtual server from the custom image by clicking the "three dot menu" of that image, then selecting "New virtual server".
 ![image](images/select_new_server.png)
   
    a. Enter your name. Select the Virtual private cloud and Resource group.
@@ -115,7 +115,7 @@ Example by using Aspera uploaded file to bucket:
 
    b. Select your region.
 
-   c. Select the custom image you imported.
+   c. Select the custom image that you imported.
 
    d. Use Memory Profile (2 vcpus, 16 gb ram, 4 gps).
 
@@ -126,7 +126,7 @@ Example by using Aspera uploaded file to bucket:
 
     f. Add storage to your virtual service. For example, 100 gigabytes. This volume is needed to configure the CloudForms appliance. 
 
-    **Note:** Make sure the data volume name is unique and not named the same as another volume across your virtual server instances.
+    **Note:** Make sure that the data volume name is unique and not named the same as another volume across your virtual server instances.
 
     Example:
 ![image](images/data_volumes.png)
@@ -312,7 +312,7 @@ Both of these methods require the following registration payload in a file "regi
  ```
  **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
   
-  Example command using base64 to encode a character string:
+  Example command that uses base64 to encode a character string:
   ```
   #
   # Generate two encrypted streams from some longer-than-32-characters strings
@@ -361,7 +361,7 @@ Both of these methods require the following registration payload in a file "regi
 
 CloudForms provides support for single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC).
 
-Complete the configuration of single sign on between IBM Cloud Pak​​ for Multicloud Management and CloudForms by following these steps.
+Complete the configuration of single sign-on between IBM Cloud Pak​​ for Multicloud Management and CloudForms by following these steps.
 
 ### Import the Root CA certificate to CloudForms from IBM Cloud Pak​​ for Multicloud Management
 
@@ -378,7 +378,7 @@ Complete the configuration of single sign on between IBM Cloud Pak​​ for Mul
    - `BEGIN CERTIFICATE` to `BEGIN TRUSTED CERTIFICATE`
    - `END CERTIFICATE` to `END TRUSTED CERTIFICATE`
 
-**Note:** The following steps should be completed by logging into the CloudForms appliance system as root user:
+**Note:** The following steps should be completed by logging in to the CloudForms appliance system as root user:
 
 4. Copy the updated `ibm_cp_cf.crt` file to the CloudForms appliance and save it in the directory: `/etc/pki/ca-trust/source/anchors`
 
@@ -398,7 +398,7 @@ Complete the configuration of single sign on between IBM Cloud Pak​​ for Mul
 
 ### Apache Configuration
 
-**Note:** The following steps should be completed by logging into the CloudForms console as root user:
+**Note:** The following steps should be completed by logging in to the CloudForms console as root user:
 
 Copy the Apache OIDC template configuration files:
 ```
@@ -411,7 +411,7 @@ Copy the Apache OIDC template configuration files:
 
 ### OIDC Configuration
 
-The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration file must be updated with installation specific values. 
+The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration file must be updated with installation-specific values. 
 Replace the contents of the file with the actual values based on the installation. 
 
 Example template for the configuration files:
@@ -448,8 +448,8 @@ OIDCHTTPTimeoutShort 10
 </Location>
 ```
 - `CF_HOSTNAME` Specifies the hostname of the CloudForms server.
-- `CLIENT_ID` The client id used while registering CloudForms as an OIDC client with IAM.
-- `CLIENT_SECRET` The client id used while registering CloudForms as an OIDC client with IAM.
+- `CLIENT_ID` The client ID used while registering CloudForms as an OIDC client with IAM.
+- `CLIENT_SECRET` The client ID used while registering CloudForms as an OIDC client with IAM.
 - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
 - `OIDCCryptoPassphrase` Can be any arbitrary alpha-numeric string.
 - **Note:** The `CLIENT_ID` and `CLIENT_SECRET` values are generated when you register CloudForms as an OIDC client, see: [Register CloudForms instance with IAM as an OIDC client](#register-cloudforms-instance-with-iam-as-an-oidc-client).
@@ -462,7 +462,7 @@ Restart Apache on the CloudForms appliance as follows:
 
 ### Configuring the Administrative UI
 
-After configuring Apache for OIDC, the next step is to update the Appliance Administrative UI to be OIDC aware and function accordingly. Complete these steps on each UI-enabled appliance.
+Accordingly, after configuring Apache for OIDC, the next step is to update the Appliance Administrative UI to be OIDC aware and function . Complete these steps on each UI-enabled CloudForms appliance.
 
 1. Log in as `admin`, then select the **Configuration** by clicking the gear icon.
 
@@ -480,11 +480,11 @@ After configuring Apache for OIDC, the next step is to update the Appliance Admi
 
 7. Click Save.
      
-8. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles assigned to those groups. The user's groups to be added in CloudForms should have the same names as the groups defined in the LDAP server that is configured in the IBM Cloud Pak console. 
+8. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles are assigned to those groups. The user's groups to be added in CloudForms should have the same names as the groups defined in the LDAP server that is configured in the IBM Cloud Pak console. 
 
-    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group does not exist, then access is denied. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use should also be created in CloudForms. Additionally a proper role must be assigned to this group in CloudForms. For more information about roles in CloudForms, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
+    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group does not exist, then access is denied. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use should also be created in CloudForms. Additionally a proper role must be assigned to this group in CloudForms. For more information, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
 
 9. Click Save.
 
 ### Congratulations!
-You've successfully installed and configured CloudForms and integrated CloudForms with IBM Cloud Pak for Multicloud Management in IBM Cloud.
+You successfully installed and configured CloudForms and integrated CloudForms with IBM Cloud Pak for Multicloud Management in IBM Cloud.

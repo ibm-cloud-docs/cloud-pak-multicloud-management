@@ -183,7 +183,7 @@ Example by using Aspera uploaded file to bucket:
     
     - Enter 2 to continue without partitioning the disk. A second prompt confirms this choice. Selecting this option results in using the root file system for the data directory (not advised in most cases).
 
-7. Enter Y or N for Should this appliance run as a stand-alone database server?
+7. Enter N for "Should this appliance run as a stand-alone database server?"
     - Select N to configure the appliance with the full administrative user interface.
 
 8. When prompted, enter a unique number (01-99) to create a new region.
@@ -342,6 +342,21 @@ Both of these methods require the following registration payload in a file "regi
     cloudctl iam oauth-client-register -f registration.json
     ```
     {: codeblock}
+    
+    **Note:** If you receive an error running the `oauth-client-register`, you may need to log back in by following these steps:
+    1. Log back in to IBM cloud, https://cloud.ibm.com/
+    2. Click the user icon in top right-hand corner
+    3. Click **'Login to CLI and API'**
+    4. Run the provided `ibmcloud login ...` CLI command to login to IBM Cloud
+    5. Log in to the OpenShift web console
+    6. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
+    7. Click on Display Token
+    8. Run the provided `oc login ...` CLI command to login to OpenShift console
+    Login to IBM Cloud Pak for Multicloud Management:
+    9. `oc get route -n kube-system`
+    10. `cloudctl login -a https:<icp-console HOST/PORT>` **-n kube-system**
+    
+    **Important**:  Be sure to include the "**-n kube-system**" argument to specify this namespace, or else the `cloudctl iam` command can fail.
 
     Method 2: Example `curl` command calling the IAM API:
     ```
@@ -355,6 +370,7 @@ Both of these methods require the following registration payload in a file "regi
     OAUTH2_CLIENT_REGISTRATION_SECRET=$(kubectl -n kube-system get secret platform-oidc-credentials -o yaml | grep OAUTH2_CLIENT_REGISTRATION_SECRET | awk '{ print $2}' | base64 --decode)
     ```
     {: codeblock}
+    
 
 ### Step 2. Configure CloudForms OIDC client to enable single sign on (SSO) 
 {: #enable-single-sign-on}

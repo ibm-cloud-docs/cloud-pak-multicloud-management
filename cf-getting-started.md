@@ -240,7 +240,7 @@ CloudForms enables single sign-on integration with an enterprise identity provid
 
 ### Prerequisites
 Single sign-on with CloudForms and IBM Cloud Pak for Multicloud Management requires an LDAP server connection.
-For more information on adding an LDAP connection
+For more information on adding an LDAP connection, see: [Configuring LDAP connection](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/iam/3.4.0/configure_ldap.html)
 
 Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing these steps:
 1. Register the CloudForms OIDC client with IAM. These steps are completed on the IBM Cloud Pak for Multicloud Management cluster.

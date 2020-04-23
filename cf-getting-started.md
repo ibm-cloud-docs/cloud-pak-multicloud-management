@@ -356,7 +356,7 @@ Both of these methods require the following registration payload in a file "regi
     ```
     {: codeblock}
 
-## Step 2. Configure CloudForms OIDC client to enable single sign on (SSO) 
+### Step 2. Configure CloudForms OIDC client to enable single sign on (SSO) 
 {: #enable-single-sign-on}
 
 CloudForms provides support for single sign-on integration with an enterprise identity provider through use of the OpenID Connect (OIDC).

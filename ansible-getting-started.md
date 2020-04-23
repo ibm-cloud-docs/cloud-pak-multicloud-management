@@ -42,7 +42,7 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
   
 - You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)
 
-- You must have Admin privileges for the account running the OpenShift installer (`cluster-admin` role is required)
+- You must have Admin privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required)
 
 - **Notes**:
 
@@ -61,42 +61,41 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
    ```
    oc login --token=EtZqGLpwxpL8b6CAjs9Bvx6kxe925a1HlB__AR3gIOs --server=https://c100-e.us-east.containers.cloud.ibm.com:32653
    ```
-   You can find the `oc login` for your OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed by using using these steps:
+   You can find the `oc login` for your OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed by using these steps:
        1. Browse and log in to IBM cloud, https://cloud.ibm.com/
        2. Navigate to **OpenShift**>**Clusters**
        3. Select your cluster where IBM Cloud Pak for Multicloud Management is installed.
        4. Log in to the OpenShift web console
-       5. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
-       6. Click on Display Token link
-       7. Copy the provided `oc login ...` CLI command to login to OpenShift.
+       5. Click **IAM#<yourID>** menu, then select "Copy Login Command"
+       6. Click Display Token link
+       7. Copy the provided `oc login ...` CLI command to log in to OpenShift.
     
 2. Ensure that ansible is installed.  Run the command:
-  ```
-  sudo yum install ansible
-  ```
+    ```
+    sudo yum install ansible
+    ```
 
-3. On your Linux system download the package for ansible-tower-openshift-setup 
+3. On your Linux system, download the package for ansible-tower-openshift-setup 
 
-  Run the command:
-  ```
-  wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-latest.tar.gz
-  ```
+    Run the command:
+    ```
+    wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-latest.tar.gz
+    ```
 4. Extract the package by running the commands:  
-  ```
-  tar xvf ansible-tower-openshift-setup-latest.tar.gz
-  ```
-  ```
-  cd ansible-tower-openshift-setup-3.6.4
-  ```
+    ```
+    tar xvf ansible-tower-openshift-setup-latest.tar.gz
+    ```
+    ```
+    cd ansible-tower-openshift-setup-3.6.4
+    ```
 5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster.
 
-  ```
-  oc new-project ansible-tower
-  oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
-  ```
+    ```
+    oc new-project ansible-tower
+    oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
+    ```
 
 6. Create a pvc named **postgresql**. Sample PVC resource file named postgres-nfs-pvc.yaml
-
 ```
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -112,6 +111,7 @@ spec:
       storage: 10Gi
   storageClassName: ibmc-block-gold
 ```
+
 **Note:** Change the storage class according to your OpenShift Storage Class listing.
 
 ```
@@ -124,7 +124,7 @@ oc create -f postgres-nfs-pvc.yaml
 oc get pvc
 ```
 
-8. Modify the ansible playbook to use insecure login
+8. Modify the ansible playbook to use insecure login.
 
 ```
 sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
@@ -142,14 +142,14 @@ This will completed the setup of ansible tower. Once you log in to the console, 
 10. Log in to Ansible Tower and import the license from the 
 `temporary-tower-license.txt` downloaded in "Before you begin".
 
-When Ansible Tower launches for the first time, the license screen automatically displays. Import the license key you received in `temporary-tower-license.txt`.
+When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 
-11. Click the Browse button and navigate to the location where the license file is saved to upload it. The uploaded license may be a plain text file or a JSON file, and must include properly formatted JSON code.
+11. Click Browse and navigate to the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
 
-Once the license is recognized, proceed by checking the End User License Agreement.
+The license is recognized, proceed by checking the End User License Agreement.
 
-After you have specified your tracking and analytics preferences, click Submit.
-Once your license has been accepted, Tower briefly displays the license screen and navigates you to the Dashboard of the Ansible Tower interface (which you can access by clicking on the Ansible Tower logo at the top left of the screen as well).
+After you specify your tracking and analytics preferences, click Submit.
+The license is accepted, and Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface (which you can access by clicking the Ansible Tower logo).
 
 Ansible Tower can now be integrated with IBM Cloud Pak for Multicloud Manager.
 

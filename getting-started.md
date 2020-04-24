@@ -136,7 +136,7 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
 
 1. Run `kubectl cluster-info` to get the Kubernetes API server address and port. Example output:
    ```
-   [ec2-user@honest-gryphon-master ~]$ kubectl cluster-info
+   kubectl cluster-info
    Kubernetes master is running at https://honest-gryphon-master.purple-chesterfield.com:7443
    ```
    {: pre}

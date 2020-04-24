@@ -37,7 +37,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
   
 - You must have an IBM Cloud user account with the following roles: 
-![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png) "Figure showing an IBM Cloud user account with the required roles"){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
+![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png "Figure showing an IBM Cloud user account with the required roles"){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
 
 - You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 
@@ -49,15 +49,14 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
 1. If you don't already have an instance of IBM Cloud Object Storage, see [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
 
-    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage.png) "Figure showing an example Cloud Object Storage created"){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
+    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage.png "Figure showing an example Cloud Object Storage created"){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
 
     You must also create a bucket in IBM Cloud Object Storage to store your images.
-    ![Figure showing example standard type bucket created.](images/buckets.png) "Figure showing example standard type bucket created"){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
+    ![Figure showing example standard type bucket created.](images/buckets.png "Figure showing example standard type bucket created"){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
 
 
 2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
-Example by using Aspera uploaded file to bucket:
-![image](images/upload_images_to_bucket.png)
+![Figure showing example using Aspera uploaded file to bucket.](images/upload_images_to_bucket.png "Figure showing example using Aspera uploaded file to bucket"){: caption="Figure 4. Example using Aspera uploaded file to bucket" caption-side="bottom"}
 
 3. From IBM Cloud Identity and Access Management (IAM), create an authorization between the Virtual Private Cloud (VPC) Infrastructure (source service) > Image Service for VPC (resource type) and Cloud Object Storage (target service). For more information, see [Create an authorization](https://cloud.ibm.com/docs/iam?topic=iam-serviceauth#serviceauth).
     

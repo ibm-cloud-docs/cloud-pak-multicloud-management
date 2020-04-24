@@ -1,9 +1,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloud-pak-multicloud-management" audience="cloud-pak" category="devops" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started" path="cloud-pak-multicloud-management"}
+{: .toc subcollection="cloud-pak-multicloud-management" audience="cloud-pak" category="cloud_pak" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started" path="cloud-pak-multicloud-management"}
 IBM Cloud Pak for Multicloud Management
 
     {: .navgroup id="learn"}
     getting-started.md
+    cf-getting-started.md
+    ansible-getting-started.md
     {: .navgroup-end}
+

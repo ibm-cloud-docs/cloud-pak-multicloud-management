@@ -2,11 +2,11 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-03-26"
+lastupdated: "2020-04-15"
 
-keywords: getting started tutorial, getting started, cloud-pak-multicloud_management,
+keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
 
-subcollection: writing
+subcollection: cloud-pak-multicloud-management
 
 ---
 
@@ -73,7 +73,7 @@ Optional: 4 PV
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
-Specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
+From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
   2. Enter or select the project where you want to deploy {{site.data.keyword.cp4mcm_full_notm}}.
@@ -141,6 +141,8 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
    ```
    {: pre}
 
+   **Note**: From the `kubectl cluster-info` output, make a note of the host and port for the Kubernetes master. In the example, the host is `honest-gryphon-master.purple-chesterfield.com` and the port is `7443`.
+
 2. Run `kubectl edit cm ibmcloud-cluster-info -n kube-public`. Example output:
    ```
    apiVersion: v1
@@ -148,8 +150,8 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
      cluster_address: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
      cluster_ca_domain: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
      cluster_endpoint: https://icp-management-ingress.kube-system.svc:443
-     cluster_kube_apiserver_host: 172.21.0.1
-     cluster_kube_apiserver_port: "443"
+     cluster_kube_apiserver_host: honest-gryphon-master.purple-chesterfield.com
+     cluster_kube_apiserver_port: "7443"
      cluster_name: mycluster
      cluster_router_http_port: "8080"
      cluster_router_https_port: "443"
@@ -162,14 +164,14 @@ To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the managem
    ```
    {: pre}
 
-3. Edit `cluster_kube_apiserver_host` and `cluster_kube_apiserver_port` with the address from step one and then save the file.
+3. Verify the `cluster_kube_apiserver_host` and `cluster_kube_apiserver_port` are correctly set with the host and port values from step one for the Kubernetes master and then save the file.
 
 ## Next steps
 
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin user name and password that you configured during the installation.
-  2. Optional: Install any optional installable modules for the {{site.data.keyword.cp4mcm_full_notm}}. For instructions, see [Installing, configuring, and upgrading the modules](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/install_modules.html).
+  2. Optional: Install any optional modules for the {{site.data.keyword.cp4mcm_full_notm}}. For instructions, see [Installing, configuring, and upgrading the modules](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/install_modules.html).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}

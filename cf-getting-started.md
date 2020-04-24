@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-20"
+lastupdated: "2020-04-24"
 
 keywords: getting started tutorial, getting started, cloudforms
 
@@ -39,8 +39,6 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - You must have an IBM Cloud user account with the following roles: 
 ![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
 
-![Figure showing the procedure for creating block storage volumes with customer-managed encryption.](/images/vpc_flowchart_volumes_color.png "Figure showing the procedure for creating block storage volumes with customer-managed encryption"){: caption="Figure 1. Creating a block storage volume with customer-managed encryption" caption-side="bottom"}
-
 - You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 
 
@@ -51,19 +49,19 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
 1. If you don't already have an instance of IBM Cloud Object Storage, see [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
 
-    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage.png "Figure showing an example Cloud Object Storage created"){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
+    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage.png){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
 
     You must also create a bucket in IBM Cloud Object Storage to store your images.
-    ![Figure showing example standard type bucket created.](images/buckets.png "Figure showing example standard type bucket created"){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
+    ![Figure showing example standard type bucket created.](images/buckets.png){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
 
 
 2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
-![Figure showing example using Aspera uploaded file to bucket.](images/upload_images_to_bucket.png "Figure showing example using Aspera uploaded file to bucket"){: caption="Figure 4. Example using Aspera uploaded file to bucket" caption-side="bottom"}
+![Figure showing example that uses Aspera uploaded file to bucket.](images/upload_images_to_bucket.png){: caption="Figure 4. Example using Aspera uploaded file to bucket" caption-side="bottom"}
 
 3. From IBM Cloud Identity and Access Management (IAM), create an authorization between the Virtual Private Cloud (VPC) Infrastructure (source service) > Image Service for VPC (resource type) and Cloud Object Storage (target service). For more information, see [Create an authorization](https://cloud.ibm.com/docs/iam?topic=iam-serviceauth#serviceauth).
     
     **Important**: The configuration must be set up as this example or permissions can fail. 
-    ![image](images/service_auth_vpc.png)
+    ![Figure showing example IAM authorization.](images/service_auth_vpc.png){: caption="Figure 5. Example IAM authorization" caption-side="bottom"}
 
 4. Create a generation 2 Virtual Private Cloud (**Must be generation 2**). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
   
@@ -73,12 +71,11 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     c. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 
-    Example VPC: ![image](images/vpc_details.png)
+    ![Figure showing example VPC.](images/service_auth_vpc.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
 
 5. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 
-    Example: 
-![image](images/config_ACL.png)
+    ![Figure showing example ACL.](images/config_ACL.png){: caption="Figure 7. Example ACL" caption-side="bottom"}
 
 6. Import the CloudForms installation images from the bucket into the VPC.
   
@@ -90,8 +87,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     d. Select the region.
 
-    Example:
-    ![image](images/import_custom_image.png)
+    ![Figure showing importing of custom image.](images/import_custom_image.png){: caption="Figure 8. Example import of custom image" caption-side="bottom"}
 
     e. Select your Cloud Object Storage and bucket based on your authorization that is created in step 3.
 
@@ -101,17 +97,15 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     h. Click **Import custom image**.
 
-    Example:
-![image](images/select_qcow2_image.png)
+    ![Figure showing example of custom image imported.](images/select_qcow2_image.png){: caption="Figure 9. Example of custom image imported" caption-side="bottom"}
 
-    Example of custom image listing after successful image creation:
-![image](images/results_vpc_images.png)
+    ![Figure showing example of custom image listing after successful image creation.](images/results_vpc_images.png){: caption="Figure 10. Example of custom image listing after successful image creation" caption-side="bottom"}
 
 7. Create a virtual server from the custom image by clicking the "three dot menu" of that image, then selecting "New virtual server".
-![image](images/select_new_server.png)
+![Figure showing select three dot menu for New virtual server.](images/select_new_server.png){: caption="Figure 11. Select New virtual server from the three dot menu" caption-side="bottom"}
   
    a. Enter your name. Select the Virtual private cloud and Resource group.
-![image](images/new_virtual_server.png)
+   ![Figure showing New virtual server for VPC.](images/new_virtual_server.png){: caption="Figure 12. Enter your name, select the Virtual private cloud and Resource group" caption-side="bottom"}
 
    b. Select your region.
 
@@ -121,27 +115,23 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
    e. Add an ssh key. You can use a public key. For more information, see: [Locating or generating your SSH key](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-ssh-keys#locating-or-generating-your-ssh-key).
 
-   Example:
-![image](images/ssh_keys.png)
+   ![Figure showing add ssh key.](images/ssh_keys.png){: caption="Figure 13. Add an ssh key" caption-side="bottom"}
 
-    f. Add storage to your virtual service. For example, 100 gigabytes. This volume is needed to configure the CloudForms appliance. 
+   f. Add storage to your virtual service. For example, 100 gigabytes. This volume is needed to configure the CloudForms appliance. 
 
-    **Note:** Make sure that the data volume name is unique and not named the same as another volume across your virtual server instances.
+   **Note:** Make sure that the data volume name is unique and not named the same as another volume across your virtual server instances.
 
-    Example:
-![image](images/data_volumes.png)
+   ![Figure showing example Data volumes.](images/data_volumes.png){: caption="Figure 14. Example Data volumes" caption-side="bottom"}
 
     g. Select create virtual server instance. 
  
 8. Update the security group that allows inbound and outbound traffic. Open the server instance, go down to the Network interfaces section, and then modify the security group.
 
-    Example:
-  ![image](images/security_inbound_outbound.png)
+   ![Figure showing example security group that allows inbound and outbound traffic.](images/security_inbound_outbound.png){: caption="Figure 15. Example security group that allows inbound and outbound traffic" caption-side="bottom"}
 
 9. Assign the floating IP address:
 
-    Example:
-![image](images/floating_ip_vpc.png)
+   ![Figure showing example Floating IP address.](images/floating_ip_vpc.png){: caption="Figure 16. Example Floating IP address assigned" caption-side="bottom"}
 
 
 ## Step B. Setting up the CloudForms appliance
@@ -153,9 +143,10 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
    ```
    ssh root@<host_ip_address>
    ```
-    ![image](images/setup_appliance.png)
-
 2. Enter the `appliance_console` command. The CloudForms appliance summary screen is displayed.
+
+   ![Figure showing example appliance_console.](images/setup_appliance.png){: caption="Figure 17. Welcome to the Appliance Console" caption-side="bottom"}
+
 3. Press Enter to manually configure settings.
 
     **Note:** Networking is already configured. You can skip this step.
@@ -170,11 +161,11 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     **Note:** All CloudForms appliances in a multi-region deployment must use the same key.
 
 5. Select _1) Create Internal Database_ for the database location.
-6. Choose a disk for the database. This can be either a disk you attached previously, or a partition on the current disk.
+6. Choose a disk for the database. The disk can be either a disk you attached previously, or a partition on the current disk.
 
     **Important:** Best practice is using a separate disk for the database.
     
-    If there is an unpartitioned disk that is attached to the virtual machine, the dialog shows options similar to the following:
+    If an unpartitioned disk is attached to the virtual machine, the dialog shows options similar to the following:
     ```
     1) /dev/vdb: 20480
     2) Don't partition the disk
@@ -190,13 +181,13 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     **Important:** Creating a new region destroys any existing data on the chosen database.
 
-9. Create and confirm a password for the database.
+9.  Create and confirm a password for the database.
 
     CloudForms configures the internal database. This takes a few minutes. 
 
 10. Once CloudForms is installed, you can log in and complete administrative tasks.
     - Log in to Red Hat CloudForms for the first time by:
-    - Navigate to the URL for the login screen. For example,  `https://xx.xx.xx.xx` on the virtual server instance, where `xx.xx.xx.xx` is the floating IP.
+    - Select the URL for the login screen. For example,  `https://xx.xx.xx.xx` on the virtual server instance, where `xx.xx.xx.xx` is the floating IP.
     - Enter the default credentials (Username: admin | Password: smartvm) for the initial login.
     - Click Login.
   
@@ -230,7 +221,7 @@ Complete the following steps on a Linux system. You can use the boot node from t
 
 CloudForms is integrated with the IBM Cloud Pak​​ console.
 
-![image](images/results_access_CF.png)
+![Figure showing CloudForms integration in IBM Cloud Pak console.](images/results_access_CF.png){: caption="Figure 18. CloudForms integration in IBM Cloud Pak console" caption-side="bottom"}
 
 
 ## Step D. Enable Single Sign-on with CloudForms and IBM Cloud Pak​​ for Multicloud Management
@@ -249,7 +240,7 @@ Complete the single sign-on integration between IBM Cloud Pak​​ for Multiclo
 ### Step 1. Register CloudForms instance with IAM as an OIDC client 
 {: #register-cf-with-IAM-as-OIDC-client}
 
-In order to enable SSO between IBM Cloud Pak​​ for Multicloud Management and CloudForms using OIDC, the CloudForms instance needs to register as an OIDC client with Identity and Access Management (IAM). Complete these steps on the IBM Cloud Pak for Multicloud Management cluster.
+In order to enable single sign-on (SSO) between IBM Cloud Pak​​ for Multicloud Management and CloudForms using OIDC, the CloudForms instance needs to register as an OIDC client with Identity and Access Management (IAM). Complete these steps on the IBM Cloud Pak for Multicloud Management cluster.
 
 There are two ways to register CloudForms as an OIDC client with IAM. One is through the `cloudctl` command and the other is by calling the IAM API directly.
 
@@ -316,7 +307,7 @@ Both of these methods require the following registration payload in a file "regi
  "redirect_uris":["https://icp-console.apps.test.ibm.com/auth/liberty/callback","https://www.cf-dev.test.ibm.com/oidc_login/redirect_uri"]
  }
  ```
- **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` should be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
+ **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
   
   Example command that uses base64 to encode a character string:
   ```
@@ -349,7 +340,7 @@ Both of these methods require the following registration payload in a file "regi
     ```
     {: codeblock}
 
-    **Note:** If you receive an error running the `oauth-client-register`, you may need to log back in by following these steps:
+    **Note:** If you receive an error from the `oauth-client-register` command, you can log back in by following these steps:
     1. Log back in to IBM cloud, https://cloud.ibm.com/
     2. Click the user icon in top right-hand corner
     3. Click **'Login to CLI and API'**
@@ -420,7 +411,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 
 ### Apache Configuration
 
-**Note:** The following steps should be completed by logging in to the CloudForms console as root user:
+**Note:** Complete these steps by logging in to the CloudForms console as root user:
 
 Copy the Apache OIDC template configuration files:
 ```
@@ -484,7 +475,7 @@ Restart Apache on the CloudForms appliance as follows:
 
 ### Configuring the Administrative UI
 
-Accordingly, after configuring Apache for OIDC, the next step is to update the Appliance Administrative UI to be OIDC aware and function . Complete these steps on each UI-enabled CloudForms appliance.
+Update the Appliance Administrative UI to be OIDC aware and function. Complete these steps on each UI-enabled CloudForms appliance.
 
 1. Log in as `admin`, then select the **Configuration** by clicking the gear icon.
 
@@ -492,13 +483,13 @@ Accordingly, after configuring Apache for OIDC, the next step is to update the A
 
 3. In the **Authentication** section, set the **Mode** to `External (httpd)`
 
-4. In the **External Authentication (httpd) Settings** section, set **Provider Type** to `Enable OpenID-Connect`. 
-     - **Note:** This setting enables the OIDC login button on the login screen, that redirects to the OIDC protected page for authentication, and supports the OIDC logout process.
+4. In the **External Authentication (HTTPd) Settings** section, set **Provider Type** to `Enable OpenID-Connect`. 
+     - **Note:** This setting enables the OIDC login button on the login screen that redirects to the OIDC protected page for authentication, and supports the OIDC logout process.
 
-5. Optional: In the **External Authentication (httpd) Settings** section, select **Enable Single Sign-On**.
+5. Optional: In the **External Authentication (HTTPd) Settings** section, select **Enable Single Sign-On**.
      - **Note:** If you select this option, the initial access to the Appliance Administrative UI will redirect to the OIDC Identity Provider authentication screen.
 
-6. In the **Role Settings** section, select the **Get User Groups from External Authentication (httpd)** setting.
+6. In the **Role Settings** section, select the **Get User Groups from External Authentication (HTTPd)** setting.
 
 7. Click Save.
      

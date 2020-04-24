@@ -37,7 +37,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
   
 - You must have an IBM Cloud user account with the following roles: 
-![image](images/required_roles.png)
+![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png) "Figure showing an IBM Cloud user account with the required roles"){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
 
 - You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 
@@ -45,7 +45,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 ## Step A. Setting up the Custom image for CloudForms in IBM Cloud
 {: #config-image}
 
-Create a custom Linux-based image to deploy CloudForms as a virtual server instance in the IBM Cloud.
+Create a custom Linux-based image to deploy CloudForms as a virtual server instance in IBM Cloud.
 
 1. If you don't already have an instance of IBM Cloud Object Storage, see [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
 
@@ -55,6 +55,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     You must also create a bucket in IBM Cloud Object Storage to store your images.
     Example Standard type bucket created:
     ![image](images/buckets.png)
+
 
 2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
 Example by using Aspera uploaded file to bucket:

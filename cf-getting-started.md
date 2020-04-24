@@ -31,7 +31,7 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 
 | Description                                                                      | File name                               | Passport Advantage part number |
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
-| Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2.qcow2 |   CC5W9EN  |
+| Red Hat CloudForms 5 for Red Hat OpenStack Platform | cfme-rhos-5.11.4.x86_64.qcow2 |   CC5W9EN  |
 | Automation navigation for IBM Cloud Pak® for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN  |
 
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
@@ -56,9 +56,9 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     Example Standard type bucket created:
     ![image](images/buckets.png)
 
-2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
+2. Upload the CloudForms installation image (file name: `cfme-rhos-5.11.4.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
 Example by using Aspera uploaded file to bucket:
-![image](images/upload_images_to_bucketv2.png)
+![image](images/upload_images_to_bucket.png)
 
 3. From IBM Cloud Identity and Access Management (IAM), create an authorization between the Virtual Private Cloud (VPC) Infrastructure (source service) > Image Service for VPC (resource type) and Cloud Object Storage (target service). For more information, see [Create an authorization](https://cloud.ibm.com/docs/iam?topic=iam-serviceauth#serviceauth).
     
@@ -102,7 +102,7 @@ Example by using Aspera uploaded file to bucket:
     h. Click **Import custom image**.
 
     Example:
-![image](images/select_qcow2_imagev2.png)
+![image](images/select_qcow2_image.png)
 
     Example of custom image listing after successful image creation:
 ![image](images/results_vpc_images.png)

@@ -37,7 +37,9 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 - For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
   
 - You must have an IBM Cloud user account with the following roles: 
-![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png "Figure showing an IBM Cloud user account with the required roles"){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
+![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
+
+![Figure showing the procedure for creating block storage volumes with customer-managed encryption.](/images/vpc_flowchart_volumes_color.png "Figure showing the procedure for creating block storage volumes with customer-managed encryption"){: caption="Figure 1. Creating a block storage volume with customer-managed encryption" caption-side="bottom"}
 
 - You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 

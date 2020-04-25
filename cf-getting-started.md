@@ -161,6 +161,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
     **Note:** All CloudForms appliances in a multi-region deployment must use the same key.
 
 5. Select _1) Create Internal Database_ for the database location.
+
 6. Choose a disk for the database. The disk can be either a disk you attached previously, or a partition on the current disk.
 
     **Important:** Best practice is using a separate disk for the database.
@@ -320,12 +321,12 @@ Both of these methods require the following registration payload in a file "regi
 
 1. Create a file named: 'registration.json` based on the example template. Replace the values in the example template payload registration with the actual values based on your installation. 
 
-- `CLIENT_ID` Your base64 encoded character string.
-- `CLIENT_SECRET` Your base64 encoded character string.
-- `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
-- `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
-- `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with "forward slash" /.
-- `redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console with the path to callback and the URL of the CloudForms host with the path to the redirect_uri.
+    - `CLIENT_ID` Your base64 encoded character string.
+    - `CLIENT_SECRET` Your base64 encoded character string.
+    - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
+    - `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
+    - `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with "forward slash" /.
+    - `redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console with the path to callback and the URL of the CloudForms host with the path to the redirect_uri.
 
     **Note:** You can run the following command on the IBM Cloud Pak for Multicloud Management cluster to determine the URL of the IBM Cloud Pak for Multicloud Management console:
     ```
@@ -341,6 +342,7 @@ Both of these methods require the following registration payload in a file "regi
     {: codeblock}
 
     **Note:** If you receive an error from the `oauth-client-register` command, you can log back in by following these steps:
+
     1. Log back in to IBM cloud, https://cloud.ibm.com/
     2. Click the user icon in top right-hand corner
     3. Click **'Login to CLI and API'**
@@ -391,7 +393,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
    - `BEGIN CERTIFICATE` to `BEGIN TRUSTED CERTIFICATE`
    - `END CERTIFICATE` to `END TRUSTED CERTIFICATE`
 
-**Note:** The following steps should be completed by logging in to the CloudForms appliance system as root user:
+    **Note:** The following steps should be completed by logging in to the CloudForms appliance system as root user:
 
 4. Copy the updated `ibm_cp_cf.crt` file to the CloudForms appliance and save it in the directory: `/etc/pki/ca-trust/source/anchors`
 

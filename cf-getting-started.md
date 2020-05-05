@@ -245,7 +245,7 @@ In order to enable single sign-on (SSO) between IBM Cloud Pak​​ for Multiclo
 
 You can register CloudForms as an OIDC client with IAM using the `cloudctl` command.
 
-The method require the following registration payload in a file "registration.json":
+The registration method requires the following registration payload in a file "registration.json":
 
 ```
 {

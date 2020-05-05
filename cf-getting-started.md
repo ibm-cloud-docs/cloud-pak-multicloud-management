@@ -243,9 +243,9 @@ Complete the single sign-on integration between IBM Cloud Pak​​ for Multiclo
 
 In order to enable single sign-on (SSO) between IBM Cloud Pak​​ for Multicloud Management and CloudForms using OIDC, the CloudForms instance needs to register as an OIDC client with Identity and Access Management (IAM). Complete these steps on the IBM Cloud Pak for Multicloud Management cluster.
 
-There are two ways to register CloudForms as an OIDC client with IAM. One is through the `cloudctl` command and the other is by calling the IAM API directly.
+You can register CloudForms as an OIDC client with IAM using the `cloudctl` command.
 
-Both of these methods require the following registration payload in a file "registration.json":
+The method require the following registration payload in a file "registration.json":
 
 ```
 {
@@ -308,21 +308,23 @@ Both of these methods require the following registration payload in a file "regi
  "redirect_uris":["https://icp-console.apps.test.ibm.com/auth/liberty/callback","https://www.cf-dev.test.ibm.com/oidc_login/redirect_uri"]
  }
  ```
- **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
-  
-  Example command that uses base64 to encode a character string:
-  ```
-  #
-  # Generate two encrypted streams from some longer-than-32-characters strings
-  #
-  echo There is a huge white elephant in LA zoo |base64
-  echo 12345678901234567890123456789012345 |base64
-  ```
 
 1. Create a file named: 'registration.json` based on the example template. Replace the values in the example template payload registration with the actual values based on your installation. 
 
     - `CLIENT_ID` Your base64 encoded character string.
     - `CLIENT_SECRET` Your base64 encoded character string.
+      
+      **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
+  
+      Example command that uses base64 to encode a character string:
+      ```
+      #
+      # Generate two encrypted streams from some longer-than-32-characters strings
+      #
+      echo There is a huge white elephant in LA zoo |base64
+      echo 12345678901234567890123456789012345 |base64
+      ```
+
     - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
     - `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
     - `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with "forward slash" /.
@@ -333,7 +335,7 @@ Both of these methods require the following registration payload in a file "regi
     oc get routes icp-console -o=jsonpath='{.spec.host}' -n kube-system
     ```
 
-2. Run the command to register CloudForms as an OIDC client.
+2. After the file 'registration.json' is completed, run the command to register CloudForms as an OIDC client.
 
     Method 1: Example `cloudctl` command:
     ```
@@ -357,19 +359,6 @@ Both of these methods require the following registration payload in a file "regi
     
     **Important**:  Be sure to include the "**-n kube-system**" argument to specify this namespace, or else the `cloudctl iam` command can fail.
 
-    Method 2: Example `curl` command calling the IAM API:
-    ```
-    curl -i -k -X POST -u oauthadmin:$OAUTH2_CLIENT_REGISTRATION_SECRET -H "Content-Type: application/json" --data @registration.json https://<CP4MCM_CONSOLE_URL>:<PORT>/idauth/oidc/endpoint/OP/registration
-    ```
-    {: codeblock}
-
-    If method 2 is used, then the `OAUTH2_CLIENT_REGISTRATION_SECRET` must be used for authentication. It can be retrieved by running the following command:
-
-    ```
-    OAUTH2_CLIENT_REGISTRATION_SECRET=$(kubectl -n kube-system get secret platform-oidc-credentials -o yaml | grep OAUTH2_CLIENT_REGISTRATION_SECRET | awk '{ print $2}' | base64 --decode)
-    ```
-    {: codeblock}
-    
 
 ### Step 2. Configure CloudForms OIDC client to enable single sign on (SSO) 
 {: #enable-single-sign-on}
@@ -383,7 +372,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 1. Retrieve the cluster ca cert from IBM Cloud Pak​​ for Multicloud Management by running this command on the cluster:
 
   ```
-  kubectl get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}' | base64 --decode
+  oc get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}'| base64 --decode
   ```
   {: codeblock}
 
@@ -413,7 +402,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 
 ### Apache Configuration
 
-**Note:** Complete these steps by logging in to the CloudForms console as root user:
+**Note:** Complete these steps by logging in to the CloudForms appliance as root user:
 
 Copy the Apache OIDC template configuration files:
 ```
@@ -432,7 +421,7 @@ Replace the contents of the file with the actual values based on the installatio
 Example template for the configuration files:
 ```
 LoadModule          auth_openidc_module modules/mod_auth_openidc.so
-ServerName          https://<cf_hostname>
+ServerName          https://<CF_HOSTNAME>
 
 OIDCCLientID                  <CLIENT_ID>
 OIDCClientSecret              <CLIENT_SECRET>  

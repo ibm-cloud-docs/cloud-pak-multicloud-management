@@ -314,7 +314,7 @@ The method require the following registration payload in a file "registration.js
     - `CLIENT_ID` Your base64 encoded character string.
     - `CLIENT_SECRET` Your base64 encoded character string.
       
-      **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
+      **Note:** The `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
   
       Example command that uses base64 to encode a character string:
       ```
@@ -337,25 +337,24 @@ The method require the following registration payload in a file "registration.js
 
 2. After the file 'registration.json' is completed, run the command to register CloudForms as an OIDC client.
 
-    Method 1: Example `cloudctl` command:
+    Example `cloudctl` command:
     ```
     cloudctl iam oauth-client-register -f registration.json
     ```
     {: codeblock}
 
     **Note:** If you receive an error from the `oauth-client-register` command, you can log back in by following these steps:
-
-    1. Log back in to IBM cloud, https://cloud.ibm.com/
-    2. Click the user icon in top right-hand corner
-    3. Click **'Login to CLI and API'**
-    4. Run the provided `ibmcloud login ...` CLI command to login to IBM Cloud
-    5. Log in to the OpenShift web console
-    6. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
-    7. Click on Display Token
-    8. Run the provided `oc login ...` CLI command to login to OpenShift console
-    Login to IBM Cloud Pak for Multicloud Management:
-    9. `oc get route -n kube-system`
-    10. `cloudctl login -a https:<icp-console HOST/PORT>` **-n kube-system**
+     1. Log back in to IBM cloud, https://cloud.ibm.com/
+     2. Click the user icon in top right-hand corner
+     3. Click **'Login to CLI and API'**
+     4. Run the provided `ibmcloud login ...` CLI command to login to IBM Cloud
+     5. Log in to the OpenShift web console
+     6. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
+     7. Click on Display Token
+     8. Run the provided `oc login ...` CLI command to login to OpenShift console
+     Login to IBM Cloud Pak for Multicloud Management:
+     9. `oc get route -n kube-system`
+     10. `cloudctl login -a https:<icp-console HOST/PORT>` **-n kube-system**
     
     **Important**:  Be sure to include the "**-n kube-system**" argument to specify this namespace, or else the `cloudctl iam` command can fail.
 
@@ -404,7 +403,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 
 **Note:** Complete these steps by logging in to the CloudForms appliance as root user:
 
-Copy the Apache OIDC template configuration files:
+Copy the Apache OIDC template configuration file:
 ```
 #TEMPLATE_DIR="/opt/rh/cfme-appliance/TEMPLATE"
 # cp ${TEMPLATE_DIR}/etc/httpd/conf.d/manageiq-remote-user-openidc.conf \

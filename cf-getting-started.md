@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-24"
+lastupdated: "2020-05-05"
 
 keywords: getting started tutorial, getting started, cloudforms
 

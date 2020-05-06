@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-04-24"
+lastupdated: "2020-05-05"
 
 keywords: getting started tutorial, getting started, cloudforms
 
@@ -166,7 +166,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     **Important:** Best practice is using a separate disk for the database.
     
-    If an unpartitioned disk is attached to the virtual machine, the dialog shows options similar to the following:
+    If an unpartitioned disk is attached to the virtual machine, the dialog shows the options. For example,
     ```
     1) /dev/vdb: 20480
     2) Don't partition the disk
@@ -180,7 +180,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
 8. When prompted, enter a unique number (01-99) to create a new region.
 
-    **Important:** Creating a new region destroys any existing data on the chosen database.
+    **Important:** Creating a new region deletes any existing data on the chosen database.
 
 9.  Create and confirm a password for the database.
 
@@ -232,7 +232,7 @@ CloudForms enables single sign-on integration with an enterprise identity provid
 
 ### Prerequisites
 Single sign-on with CloudForms and IBM Cloud Pak for Multicloud Management requires an LDAP server connection.
-For more information on adding an LDAP connection, see: [Configuring LDAP connection](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/iam/3.4.0/configure_ldap.html)
+For more information about adding an LDAP connection, see: [Configuring LDAP connection](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/iam/3.4.0/configure_ldap.html)
 
 Complete the single sign-on integration between IBM Cloud Pak​​ for Multicloud Management and CloudForms by completing these steps:
 1. Register the CloudForms OIDC client with IAM. These steps are completed on the IBM Cloud Pak for Multicloud Management cluster.
@@ -243,9 +243,9 @@ Complete the single sign-on integration between IBM Cloud Pak​​ for Multiclo
 
 In order to enable single sign-on (SSO) between IBM Cloud Pak​​ for Multicloud Management and CloudForms using OIDC, the CloudForms instance needs to register as an OIDC client with Identity and Access Management (IAM). Complete these steps on the IBM Cloud Pak for Multicloud Management cluster.
 
-There are two ways to register CloudForms as an OIDC client with IAM. One is through the `cloudctl` command and the other is by calling the IAM API directly.
+You can register CloudForms as an OIDC client with IAM using the `cloudctl` command.
 
-Both of these methods require the following registration payload in a file "registration.json":
+The registration method requires the following registration payload in a file "registration.json":
 
 ```
 {
@@ -308,21 +308,23 @@ Both of these methods require the following registration payload in a file "regi
  "redirect_uris":["https://icp-console.apps.test.ibm.com/auth/liberty/callback","https://www.cf-dev.test.ibm.com/oidc_login/redirect_uri"]
  }
  ```
- **Note:** For both of the methods the `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
-  
-  Example command that uses base64 to encode a character string:
-  ```
-  #
-  # Generate two encrypted streams from some longer-than-32-characters strings
-  #
-  echo There is a huge white elephant in LA zoo |base64
-  echo 12345678901234567890123456789012345 |base64
-  ```
 
 1. Create a file named: 'registration.json` based on the example template. Replace the values in the example template payload registration with the actual values based on your installation. 
 
     - `CLIENT_ID` Your base64 encoded character string.
     - `CLIENT_SECRET` Your base64 encoded character string.
+      
+      **Note:** The `<CLIENT_ID>` and `<CLIENT_SECRET>` need to be generated. The values can be any string, but normally a 32 character string that is base64 encoded is used. You can use BASE64 to encode your character string. For more information, see: [BASE64](https://www.base64encode.org/). 
+  
+      Example command that uses base64 to encode a character string:
+      ```
+      #
+      # Generate two encrypted streams from some longer-than-32-characters strings
+      #
+      echo There is a huge white elephant in LA zoo |base64
+      echo 12345678901234567890123456789012345 |base64
+      ```
+
     - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
     - `post_logout_redirect_uris` The URL of the IBM Cloud Pak for Multicloud Management console.
     - `trusted_uri_prefixes` The URL of the IBM Cloud Pak for Multicloud Management console with "forward slash" /.
@@ -333,43 +335,29 @@ Both of these methods require the following registration payload in a file "regi
     oc get routes icp-console -o=jsonpath='{.spec.host}' -n kube-system
     ```
 
-2. Run the command to register CloudForms as an OIDC client.
+2. After the file 'registration.json' is completed, run the command to register CloudForms as an OIDC client.
 
-    Method 1: Example `cloudctl` command:
+    Example `cloudctl` command:
     ```
     cloudctl iam oauth-client-register -f registration.json
     ```
     {: codeblock}
 
     **Note:** If you receive an error from the `oauth-client-register` command, you can log back in by following these steps:
-
-    1. Log back in to IBM cloud, https://cloud.ibm.com/
-    2. Click the user icon in top right-hand corner
-    3. Click **'Login to CLI and API'**
-    4. Run the provided `ibmcloud login ...` CLI command to login to IBM Cloud
-    5. Log in to the OpenShift web console
-    6. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
-    7. Click on Display Token
-    8. Run the provided `oc login ...` CLI command to login to OpenShift console
-    Login to IBM Cloud Pak for Multicloud Management:
-    9. `oc get route -n kube-system`
-    10. `cloudctl login -a https:<icp-console HOST/PORT>` **-n kube-system**
+     1. Log back in to IBM cloud, https://cloud.ibm.com/
+     2. Click the user icon in top right-hand corner
+     3. Click **'Login to CLI and API'**
+     4. Run the provided `ibmcloud login ...` CLI command to login to IBM Cloud
+     5. Log in to the OpenShift web console
+     6. Click **IAM#<yourID>** dropdown menu, then select "Copy Login Command"
+     7. Click on Display Token
+     8. Run the provided `oc login ...` CLI command to login to OpenShift console
+     Login to IBM Cloud Pak for Multicloud Management:
+     9. `oc get route -n kube-system`
+     10. `cloudctl login -a https:<icp-console HOST/PORT>` **-n kube-system**
     
     **Important**:  Be sure to include the "**-n kube-system**" argument to specify this namespace, or else the `cloudctl iam` command can fail.
 
-    Method 2: Example `curl` command calling the IAM API:
-    ```
-    curl -i -k -X POST -u oauthadmin:$OAUTH2_CLIENT_REGISTRATION_SECRET -H "Content-Type: application/json" --data @registration.json https://<CP4MCM_CONSOLE_URL>:<PORT>/idauth/oidc/endpoint/OP/registration
-    ```
-    {: codeblock}
-
-    If method 2 is used, then the `OAUTH2_CLIENT_REGISTRATION_SECRET` must be used for authentication. It can be retrieved by running the following command:
-
-    ```
-    OAUTH2_CLIENT_REGISTRATION_SECRET=$(kubectl -n kube-system get secret platform-oidc-credentials -o yaml | grep OAUTH2_CLIENT_REGISTRATION_SECRET | awk '{ print $2}' | base64 --decode)
-    ```
-    {: codeblock}
-    
 
 ### Step 2. Configure CloudForms OIDC client to enable single sign on (SSO) 
 {: #enable-single-sign-on}
@@ -383,7 +371,7 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 1. Retrieve the cluster ca cert from IBM Cloud Pak​​ for Multicloud Management by running this command on the cluster:
 
   ```
-  kubectl get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}' | base64 --decode
+  oc get secret -n kube-public ibmcloud-cluster-ca-cert -o jsonpath='{.data.ca\.crt}'| base64 --decode
   ```
   {: codeblock}
 
@@ -413,9 +401,9 @@ Complete the configuration of single sign-on between IBM Cloud Pak​​ for Mul
 
 ### Apache Configuration
 
-**Note:** Complete these steps by logging in to the CloudForms console as root user:
+**Note:** Complete these steps by logging in to the CloudForms appliance as root user:
 
-Copy the Apache OIDC template configuration files:
+Copy the Apache OIDC template configuration file:
 ```
 #TEMPLATE_DIR="/opt/rh/cfme-appliance/TEMPLATE"
 # cp ${TEMPLATE_DIR}/etc/httpd/conf.d/manageiq-remote-user-openidc.conf \
@@ -429,10 +417,10 @@ Copy the Apache OIDC template configuration files:
 The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration file must be updated with installation-specific values. 
 Replace the contents of the file with the actual values based on the installation. 
 
-Example template for the configuration files:
+Example template for the configuration file:
 ```
 LoadModule          auth_openidc_module modules/mod_auth_openidc.so
-ServerName          https://<cf_hostname>
+ServerName          https://<CF_HOSTNAME>
 
 OIDCCLientID                  <CLIENT_ID>
 OIDCClientSecret              <CLIENT_SECRET>  
@@ -463,8 +451,8 @@ OIDCHTTPTimeoutShort 10
 </Location>
 ```
 - `CF_HOSTNAME` Specifies the hostname of the CloudForms server.
-- `CLIENT_ID` The client ID used while registering CloudForms as an OIDC client with IAM.
-- `CLIENT_SECRET` The client ID used while registering CloudForms as an OIDC client with IAM.
+- `CLIENT_ID` The client ID used for registering CloudForms as an OIDC client with IAM.
+- `CLIENT_SECRET` The client ID used for registering CloudForms as an OIDC client with IAM.
 - `CP4MCM_CONSOLE_URL` The URL of the IBM Cloud Pak for Multicloud Management console.
 - `OIDCCryptoPassphrase` Can be any arbitrary alpha-numeric string.
 - **Note:** The `CLIENT_ID` and `CLIENT_SECRET` values are generated when you register CloudForms as an OIDC client, see: [Register CloudForms instance with IAM as an OIDC client](#register-cloudforms-instance-with-iam-as-an-oidc-client).
@@ -497,7 +485,14 @@ Update the Appliance Administrative UI to be OIDC aware and function. Complete t
      
 8. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles are assigned to those groups. The user's groups to be added in CloudForms should have the same names as the groups defined in the LDAP server that is configured in the IBM Cloud Pak console. 
 
-    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group does not exist, then access is denied. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use should also be created in CloudForms. Additionally a proper role must be assigned to this group in CloudForms. For more information, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
+    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group doesn't exist, then access is denied. 
+    
+    **Important:** You must create groups in CloudForms that match your existing LDAP groups by name, and assign the groups account roles. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use must also be created in CloudForms. You must assign a proper role to this group in CloudForms. For more information, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
+    
+    The LDAP configuration searches the UID and email attributes. Make sure that all accounts have a defined email attribute.
+
+    Example:
+    In LDAP a group that is named `group100` exists and a user with username `user100` is a member of the group. The user `user100` must have an email attribute defined and the group `group100` must be created in CloudForms.
 
 9. Click Save.
 

@@ -491,7 +491,7 @@ Update the Appliance Administrative UI to be OIDC aware and function. Complete t
     
     The LDAP configuration searches the UID and email attributes. Make sure all accounts have a defined email attribute.
 
-    For example:
+    Example:
     In LDAP a group named `group100` exists and a user with user name `user100` is a member of the group. The user `user100` must have an email attribute defined and the group `group100` must be created in CloudForms.
 
 9. Click Save.

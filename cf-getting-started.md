@@ -417,7 +417,7 @@ Copy the Apache OIDC template configuration file:
 The Apache `/etc/httpd/conf.d/manageiq-external-auth-openidc.conf` configuration file must be updated with installation-specific values. 
 Replace the contents of the file with the actual values based on the installation. 
 
-Example template for the configuration files:
+Example template for the configuration file:
 ```
 LoadModule          auth_openidc_module modules/mod_auth_openidc.so
 ServerName          https://<CF_HOSTNAME>

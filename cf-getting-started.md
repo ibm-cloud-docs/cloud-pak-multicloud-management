@@ -485,7 +485,14 @@ Update the Appliance Administrative UI to be OIDC aware and function. Complete t
      
 8. Select **Access Control** and make sure the user’s groups are created on the Appliance and appropriate roles are assigned to those groups. The user's groups to be added in CloudForms should have the same names as the groups defined in the LDAP server that is configured in the IBM Cloud Pak console. 
 
-    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group does not exist, then access is denied. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use should also be created in CloudForms. Additionally a proper role must be assigned to this group in CloudForms. For more information, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
+    **Note:** Access control in CloudForms is based on group membership as roles are assigned to groups. When CloudForms is integrated with IBM Cloud Pak for Multicloud Management with SSO, it looks at the user’s group membership in the identity token and checks if that group exists in CloudForms. If the group does not exist, then access is denied. 
+    
+    **Important:** You must create groups in CloudForms that match your existing LDAP groups by name, and assign the groups account roles. At least one group to which the user belongs in LDAP that IBM Cloud Pak for Multicloud Management is configured to use should also be created in CloudForms. You must assign a proper role to this group in CloudForms. For more information, see: [CloudForms Roles](https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html-single/general_configuration/index#roles).
+    
+    The LDAP configuration searches the UID and email attributes. Make sure all accounts have a defined email attribute.
+
+    For example:
+    In LDAP a group named `group100` exists and a user with user name `user100` is a member of the group. The user `user100` must have an email attribute defined and the group `group100` must be created in CloudForms.
 
 9. Click Save.
 

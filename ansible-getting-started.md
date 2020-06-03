@@ -103,6 +103,11 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     ```
+        ```
+    oc project ansible-tower 
+    ```
+    {: codeblock}
+    ```
     oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
     ```
     {: codeblock}

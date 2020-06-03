@@ -103,7 +103,6 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     ```
-    ```
     oc project ansible-tower 
     ```
     {: codeblock}

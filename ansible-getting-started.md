@@ -23,7 +23,7 @@ subcollection: cloud-pak-multicloud-management
 
 Red Hat® Ansible Tower automates continuous configurations and deployments.
 
-Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. You can configure the optional license to use Red Hat Ansible Tower with the automation capability of the IBM Cloud Pak® for Multicloud Management console.
+Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. You can configure the optional license to use Red Hat Ansible Tower with the automation capability of the IBM Cloud Pak® for Multicloud Management.
 
 
 ## Before you begin
@@ -103,7 +103,7 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     ```
-        ```
+    ```
     oc project ansible-tower 
     ```
     {: codeblock}

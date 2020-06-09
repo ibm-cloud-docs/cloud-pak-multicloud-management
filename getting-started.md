@@ -50,7 +50,7 @@ In addition to the default features for managing multicloud environments, the IB
 
 | Nodes | Memory | CPU |
 |----|---|----|
-| 1 | 32 GB | 16 cores |
+| 3 | 32 GB | 16 cores |
 
 **Notes:** If you are going to install the Monitoring Module and Terraform & Service Automation Module with the {{site.data.keyword.cp4mcm_full_notm}}, you need another two nodes.
 

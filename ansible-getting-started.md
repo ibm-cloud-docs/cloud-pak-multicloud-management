@@ -23,7 +23,7 @@ subcollection: cloud-pak-multicloud-management
 
 Red Hat® Ansible Tower automates continuous configurations and deployments.
 
-Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. You can configure the optional license to use Red Hat Ansible Tower with the automation capability of the IBM Cloud Pak® for Multicloud Management console.
+Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. You can configure the optional license to use Red Hat Ansible Tower with the automation capability of the IBM Cloud Pak® for Multicloud Management.
 
 
 ## Before you begin
@@ -103,6 +103,10 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     ```
+    oc project ansible-tower 
+    ```
+    {: codeblock}
+    ```
     oc new-app centos/ruby-22-centos7~https://github.com/openshift/ruby-ex.git
     ```
     {: codeblock}
@@ -176,7 +180,7 @@ Enable navigation to Red Hat Ansible Tower within the IBM Cloud Pak console.
 
 Complete the following steps on a Linux system. These steps enable navigation to Ansible from the IBM Cloud Pak​​ console:
 
-1. Obtain the Automation navigation for IBM Cloud Pak​​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, downloaded from [IBM Passport Advantage®](https://www-01.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
+1. Obtain the Automation navigation for IBM Cloud Pak​​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, downloaded from [IBM Passport Advantage®](https://www.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
 
 2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/kubectl/install_kubectl.html).
 

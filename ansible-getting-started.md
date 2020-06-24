@@ -157,8 +157,8 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     {: codeblock}
     
     **Note:**   Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.  
-    **Note**    Find the openshift_host variable by using this command: ``kubectl get configmap -n kube-public -o yaml``  
-                Find the openshift_token variable by using this command: ``$(oc whoami -t)``  
+    Find the openshift_host variable by using this command: ``kubectl get configmap -n kube-public -o yaml``  
+    Find the openshift_token variable by using this command: ``$(oc whoami -t)``  
     This completes the setup of Ansible tower.
 
 10. Log in to Ansible Tower and import the license from the 
@@ -168,7 +168,7 @@ To locate the Ansible Tower url to login and the    default userID and password,
     ```
     oc get route -n ansible-tower
     ```
-    {: codeblock}
+
 
      When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 

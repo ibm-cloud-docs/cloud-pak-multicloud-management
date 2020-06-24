@@ -162,7 +162,13 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     This completes the setup of Ansible tower.
 
 10. Log in to Ansible Tower and import the license from the 
-`temporary-tower-license.txt` downloaded in "Before you begin".
+`temporary-tower-license.txt` downloaded in "Before you begin".  
+To locate the Ansible Tower url to login and the    default userID and password, run the following command:  
+
+    ```
+    oc get route -n ansible-tower
+    ```
+    {: codeblock}
 
      When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 

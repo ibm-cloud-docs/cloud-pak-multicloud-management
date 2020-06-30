@@ -96,7 +96,7 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
 
-5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. Switch to the new project before performing the rest of the steps
+5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. Switch to the new project before performing the rest of the steps.
 
     ```
     oc new-project ansible-tower

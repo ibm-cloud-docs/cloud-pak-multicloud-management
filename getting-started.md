@@ -26,6 +26,8 @@ The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provid
 
 ## What's inside this Cloud Pak
 
+PSTACK - This needs to be updated or removed....
+
 In addition to the default features for managing multicloud environments, the IBM Cloud Pak for Multicloud Management includes the following installable modules that you can add to your cluster to manage applications and infrastructure, and to automate tasks:
 
 - Monitoring Module for monitoring the performance and availability of cloud applications in hybrid cloud environments.
@@ -41,12 +43,14 @@ In addition to the default features for managing multicloud environments, the IB
 
 - You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 
-- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
+QUESTION FOR SETH: I presume this is still valid, please confirm.......- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
   - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 
 ### Minimum hardware requirements
+
+QUESTION FOR SETH: What is the current sizing and storge reqs?? (I will have to verify if we can still include them - I will explain why in our meeting)
 
 | Nodes | Memory | CPU |
 |----|---|----|
@@ -93,7 +97,7 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
-- For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
+QUESTION for SETH: Should this go up to the before you begin section? - For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
 
    1. Find all CSRs for your cluster nodes:
 

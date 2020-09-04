@@ -43,14 +43,14 @@ In addition to the default features for managing multicloud environments, the IB
 
 - You must have a pre-configured StorageClass in {{site.data.keyword.openshiftshort}} that can be used for installing the {{site.data.keyword.cp4mcm_full_notm}}.
 
-QUESTION FOR SETH: I presume this is still valid, please confirm.......- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
+Question FOR SETH: I presume this is still valid, please confirm.......- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
   - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 
 ### Minimum hardware requirements
 
-QUESTION FOR SETH: What is the current sizing and storge reqs?? (I will have to verify if we can still include them - I will explain why in our meeting)
+Question FOR SETH: What is the current sizing and storge reqs?? (I will have to verify if we can still include them - I will explain why in our meeting)
 
 | Nodes | Memory | CPU |
 |----|---|----|

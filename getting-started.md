@@ -86,7 +86,7 @@ Question FOR SETH: I presume this is still valid, please confirm.......- You mus
 
 ### Minimum hardware requirements
 
-SETH - FYI, I LEFT THE CPU CORES AT 16 FOR EACH, PLEASE COMMENT IF YOU WANT ME TO CHANGE. HERE, THEY ARE ONLY 8 BUT READING THE TEXT ABOVE THE TABLE IN THIS TOPIC IT SAYS (The following table provides the minimum hardware requirements for.....): https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/hardware_reqs.html
+SETH - FYI, I LEFT THE CPU CORES AT 16 FOR EACH, PLEASE COMMENT IF YOU WANT ME TO CHANGE. HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/hardware_reqs.html THEY ARE ONLY 8 BUT READING THE TEXT ABOVE THE TABLE IN THIS TOPIC IT SAYS....The following table provides the minimum hardware requirements for.....: 
 
 | Master/Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
 |----|----|---|----|

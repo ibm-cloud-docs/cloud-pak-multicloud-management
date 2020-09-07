@@ -21,13 +21,11 @@ subcollection: cloud-pak-multicloud-management
 # Getting started with {{site.data.keyword.cp4mcm_full_notm}}
 {: #getting-started}
 
-The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat OpenShift, provides consistent visibility, governance, and automation from on-premises to the edge. Enterprises gain capabilities such as multicluster management, event management, application management, and infrastructure management. Enterprises can use this Cloud Pak to help increase operational efficiency that is driven by intelligent data, analysis, and predictive golden signals, and gain built-in support for their compliance management. For more information, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
-
 The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat® OpenShift®, is an open, hybrid Cloud Management platform. This platform helps organizations break down IT silos and move operations to start to codify tasks and processes and manage them as code artifacts.
 
 With {{site.data.keyword.cp4mcm_full_notm}}, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
 
-You can also take advantage of the governance with IBM Cloud Pak for Multicloud Management. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters.
+You can also take advantage of the governance with IBM Cloud Pak for Multicloud Management. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
 {:shortdesc}
 
 ## What's inside this Cloud Pak
@@ -88,12 +86,16 @@ Question FOR SETH: I presume this is still valid, please confirm.......- You mus
 
 ### Minimum hardware requirements
 
+SETH - FYI, I LEFT THE CPU CORES AT 16 FOR EACH, PLEASE COMMENT IF YOU WANT ME TO CHANGE. HERE, THEY ARE ONLY 8 BUT READING THE TEXT ABOVE THE TABLE IN THIS TOPIC IT SAYS (The following table provides the minimum hardware requirements for.....): https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/hardware_reqs.html
+
 | Master/Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
 |----|----|---|----|
 | Master | 3 | 16 | 24 |
 | Worker | 4+ | 16| 32 |
 
 ### Minimum storage requirements
+
+SETH WILL CONFIRM IF ANY CHANGES HERE
 
 Mandatory: 2 PV
 
@@ -112,6 +114,8 @@ Optional: 4 PV
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
+SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
+
 From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
@@ -120,6 +124,8 @@ From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation 
 ## Step 2. Configure your workspace
 {: #config-workspace}
 
+SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
+
 Specify how to track and manage your installation from your {{site.data.keyword.IBM_notm}} Cloud Schematics workspace:
 
   1. In the _Configure your workspace_ section, update the name and tag of the installation workspace.
@@ -127,6 +133,8 @@ Specify how to track and manage your installation from your {{site.data.keyword.
 
 ## Step 3. Complete the pre-installation check
 {: #pre-install-check}
+
+SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME APART FROM 3RD BULLET BELOW
 
 A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
 
@@ -153,7 +161,7 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 ## Step 4. Set the deployment values
 {: #set-deploy-values}
 
-SETH - MAY NEED TO BE UPDATED SO INSTEAD OF SETTING THESE VALUES WE MAY NEED TO RETRIEVE THEM INSTEAD. THE STEPS TO RETRIEVE THEM ARE ALREADY DOCUMENTED HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/online_install.html (see the **Console username and password** section at the end of this topic)
+SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP.....MAY NEED TO BE UPDATED SO INSTEAD OF SETTING THESE VALUES WE MAY NEED TO RETRIEVE THEM INSTEAD. THE STEPS TO RETRIEVE THEM ARE ALREADY DOCUMENTED HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/online_install.html (see the **Console username and password** section at the end of this topic)
 
 Override the default values by configuring the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you installed:
 
@@ -166,11 +174,13 @@ Override the default values by configuring the required deployment values for th
 ## Step 5. Install the {{site.data.keyword.cp4mcm_full_notm}}
 {: #install-cp4mcm}
 
+SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
+
 1. Ensure that you assigned a license for the {{site.data.keyword.cp4mcm_full_notm}} to the deployment.
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
 
-## Postinstallation
+## Post-installation
 
 SETH - TO CHECK IF THIS IS DIFFERENT AND WILL PROVIDE STEPS IF IT IS
 

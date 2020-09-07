@@ -79,8 +79,6 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 - You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform that is installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see [Supported {{site.data.keyword.openshiftshort}} versions and platforms](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/install/supported_os.html).
 
-Question FOR SETH: I presume this is still valid, please confirm.......- You must have the required user and resource group permissions to install the {{site.data.keyword.cp4mcm_full_notm}}:
-
   - You must have permission as an admin user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
   - You must have at least viewer access permission to the resource group that includes the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in IBM Cloud Provider cloud connection has access to this resource group.
 

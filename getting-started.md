@@ -254,48 +254,10 @@ If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and i
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Delete the resources for the custom resource definition (CRD):
-    ```
-    oc -n <project_name> delete IBMServicesPlatform default
-    ```
-    {: pre}
+1. Download the `uninstall.sh` file from [githubRepoHere](www.google.com)
 
-2. Delete the `deployment`:
-    ```
-    oc -n <project_name> delete deployment ibmservices-operator
-    ```
-    {: pre}
-
-3. Delete the custom resource definition:
-    ```
-    oc -n <project_name> delete CustomResourceDefinition IbmServicesPlatforms.operator.ibm.com
-    ```
-    {: pre}
-
-4. Delete the `ClusterRoleBinding`:
-    ```
-    oc -n <project_name> delete clusterrolebinding ibmservices-operator
-    ```
-    {: pre}
-
-5. Delete the pull `secret`:
-    ```
-    oc -n <project_name> delete secret ibmplatform-image-pull-secret
-    ```
-    {: pre}
-
-6. Delete the `admin-credential`:
-    ```
-    oc -n <project_name> delete secret admin-credential
-    ```
-    {: pre}
-
-7. Delete configmap `cloudpak-foundation`:
-    ```
-    oc -n kube-system delete configmap cloudpak-foundation
-    ```
-    {: pre}
-
-8. Verify that the Cloud Pack is uninstalled.
+2. Identify the path to the kubeconfig file for your cluster, e.g.: `/root/.kube/config`
+3. Execute `uninstall.sh` script with as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
+4. Verify that the CloudPak is uninstalled.
 
     Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

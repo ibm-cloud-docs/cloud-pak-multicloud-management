@@ -178,50 +178,12 @@ SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
 
-## Post-installation
-
-SETH - TO CHECK IF THIS IS DIFFERENT AND WILL PROVIDE STEPS IF IT IS
-
-To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the management console from your local machine, perform the following steps:
-
-1. Run `kubectl cluster-info` to get the Kubernetes API server address and port. Example output:
-   ```
-   kubectl cluster-info
-   Kubernetes master is running at https://honest-gryphon-master.purple-chesterfield.com:7443
-   ```
-   {: pre}
-
-   **Note**: From the `kubectl cluster-info` output, make a note of the host and port for the Kubernetes master. In the example, the host is `honest-gryphon-master.purple-chesterfield.com` and the port is `7443`.
-
-2. Run `kubectl edit cm ibmcloud-cluster-info -n kube-public`. Example output:
-   ```
-   apiVersion: v1
-   data:
-     cluster_address: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     cluster_ca_domain: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     cluster_endpoint: https://icp-management-ingress.kube-system.svc:443
-     cluster_kube_apiserver_host: honest-gryphon-master.purple-chesterfield.com
-     cluster_kube_apiserver_port: "7443"
-     cluster_name: mycluster
-     cluster_router_http_port: "8080"
-     cluster_router_https_port: "443"
-     edition: Enterprise Edition
-     openshift_router_base_domain: chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     proxy_address: icp-proxy.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     proxy_ingress_http_port: "80"
-     proxy_ingress_https_port: "443"
-     version: 1.2.0
-   ```
-   {: pre}
-
-3. Verify the `cluster_kube_apiserver_host` and `cluster_kube_apiserver_port` are correctly set with the host and port values from step one for the Kubernetes master and then save the file.
-
 ## Next steps
 
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin and password generated during workspace creation. To obtain the admin username, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`. To obtain the admin password, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`.
-  2. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
+  2. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
@@ -254,10 +216,9 @@ If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and i
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Download the `uninstall.sh` file from [githubRepoHere](www.google.com)
+1. Download the `uninstall.sh` file from [our github repository](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh)
 
 2. Identify the path to the kubeconfig file for your cluster, e.g.: `/root/.kube/config`
-3. Execute `uninstall.sh` script with as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
-4. Verify that the CloudPak is uninstalled.
-
-    Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.
+3. Make the file executable: `chmod 700 uninstall.sh`
+4. Execute `uninstall.sh` script with as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
+5. Verify that the CloudPak is uninstalled. Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

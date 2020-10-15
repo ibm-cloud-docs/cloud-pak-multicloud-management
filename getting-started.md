@@ -143,7 +143,7 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin and password generated during workspace creation. To obtain the admin username, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`. To obtain the admin password, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`.
   2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
-  3. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
+  3. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}

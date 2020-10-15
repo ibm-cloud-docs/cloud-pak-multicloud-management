@@ -84,16 +84,11 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Minimum hardware requirements
 
-SETH - FYI, I LEFT THE CPU CORES AT 16 FOR EACH, PLEASE COMMENT IF YOU WANT ME TO CHANGE. HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/hardware_reqs.html THEY ARE ONLY 8 BUT READING THE TEXT ABOVE THE TABLE IN THIS TOPIC IT SAYS....The following table provides the minimum hardware requirements for.....: 
-
-| Master/Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
+| Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
 |----|----|---|----|
-| Master | 3 | 16 | 24 |
 | Worker | 4+ | 16| 32 |
 
 ### Minimum storage requirements
-
-SETH WILL CONFIRM IF ANY CHANGES HERE
 
 Mandatory: 2 PV
 
@@ -112,8 +107,6 @@ Optional: 4 PV
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
-
 From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
@@ -121,8 +114,6 @@ From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation 
 
 ## Step 2. Configure your workspace
 {: #config-workspace}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 
 Specify how to track and manage your installation from your {{site.data.keyword.IBM_notm}} Cloud Schematics workspace:
 
@@ -138,41 +129,9 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
-- SETH TO CONFIRM IF THIS NEEDS TO BE REMOVED: For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
 
-   1. Find all CSRs for your cluster nodes:
-
-      ```
-      oc get csr
-      ```
-      {: pre}
-
-   2. Approve the CSRs for the cluster nodes:
-
-      ```
-      oc adm certificate approve <CSR name>
-      ```
-      {: pre}
-
-   For more information, see the [Approving the CSRs for your machines](https://docs.openshift.com/container-platform/4.2/machine_management/more-rhel-compute.html#installation-approve-csrs_more-rhel-compute) topic in the OpenShift documentation.
-
-## Step 4. Set the deployment values
-{: #set-deploy-values}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP.....MAY NEED TO BE UPDATED SO INSTEAD OF SETTING THESE VALUES WE MAY NEED TO RETRIEVE THEM INSTEAD. THE STEPS TO RETRIEVE THEM ARE ALREADY DOCUMENTED HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/online_install.html (see the **Console username and password** section at the end of this topic)
-
-Override the default values by configuring the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you installed:
-
-| Parameter | Description | Default |
-| -------- | -------- | -------- |
-| `defaultAdminUser`  |  Configure default admin username.  | `admin` |
-| `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens. <p> **Note:** The password that you set during installation might be available as plain text in some pods and logs. You must change the `default_admin_password` after you successfully install {{site.data.keyword.cp4mcm_full_notm}}. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>|  |
-{: caption="Table 1. Deployment values" caption-side="top"}
-
-## Step 5. Install the {{site.data.keyword.cp4mcm_full_notm}}
+## Step 4. Install the {{site.data.keyword.cp4mcm_full_notm}}
 {: #install-cp4mcm}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 
 1. Ensure that you assigned a license for the {{site.data.keyword.cp4mcm_full_notm}} to the deployment.
 2. Confirm that you have read and agree to the license agreements.
@@ -183,7 +142,8 @@ SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
   1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin and password generated during workspace creation. To obtain the admin username, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`. To obtain the admin password, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`.
-  2. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
+  2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
+  3. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}

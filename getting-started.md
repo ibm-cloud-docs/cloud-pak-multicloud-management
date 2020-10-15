@@ -84,16 +84,11 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Minimum hardware requirements
 
-SETH - FYI, I LEFT THE CPU CORES AT 16 FOR EACH, PLEASE COMMENT IF YOU WANT ME TO CHANGE. HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/hardware_reqs.html THEY ARE ONLY 8 BUT READING THE TEXT ABOVE THE TABLE IN THIS TOPIC IT SAYS....The following table provides the minimum hardware requirements for.....: 
-
-| Master/Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
+| Worker| Nodes | CPU (Cores/Node) | Memory (GB/Node) |
 |----|----|---|----|
-| Master | 3 | 16 | 24 |
 | Worker | 4+ | 16| 32 |
 
 ### Minimum storage requirements
-
-SETH WILL CONFIRM IF ANY CHANGES HERE
 
 Mandatory: 2 PV
 
@@ -112,8 +107,6 @@ Optional: 4 PV
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
-
 From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
@@ -121,8 +114,6 @@ From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation 
 
 ## Step 2. Configure your workspace
 {: #config-workspace}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 
 Specify how to track and manage your installation from your {{site.data.keyword.IBM_notm}} Cloud Schematics workspace:
 
@@ -138,90 +129,21 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
-- SETH TO CONFIRM IF THIS NEEDS TO BE REMOVED: For any certificate signing requests (CSRs) that are generated on your cluster nodes, approve all of the CSRs on your nodes before you install. Run the following commands on each of your cluster nodes to approve your CSRs:
 
-   1. Find all CSRs for your cluster nodes:
-
-      ```
-      oc get csr
-      ```
-      {: pre}
-
-   2. Approve the CSRs for the cluster nodes:
-
-      ```
-      oc adm certificate approve <CSR name>
-      ```
-      {: pre}
-
-   For more information, see the [Approving the CSRs for your machines](https://docs.openshift.com/container-platform/4.2/machine_management/more-rhel-compute.html#installation-approve-csrs_more-rhel-compute) topic in the OpenShift documentation.
-
-## Step 4. Set the deployment values
-{: #set-deploy-values}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP.....MAY NEED TO BE UPDATED SO INSTEAD OF SETTING THESE VALUES WE MAY NEED TO RETRIEVE THEM INSTEAD. THE STEPS TO RETRIEVE THEM ARE ALREADY DOCUMENTED HERE: https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/online_install.html (see the **Console username and password** section at the end of this topic)
-
-Override the default values by configuring the required deployment values for the {{site.data.keyword.openshiftshort}} cluster that you installed:
-
-| Parameter | Description | Default |
-| -------- | -------- | -------- |
-| `defaultAdminUser`  |  Configure default admin username.  | `admin` |
-| `defaultAdminPassword`  | Configure default admin user password. Password must be at least 32 characters by default, and can include only number, letter, and hyphens. <p> **Note:** The password that you set during installation might be available as plain text in some pods and logs. You must change the `default_admin_password` after you successfully install {{site.data.keyword.cp4mcm_full_notm}}. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>|  |
-{: caption="Table 1. Deployment values" caption-side="top"}
-
-## Step 5. Install the {{site.data.keyword.cp4mcm_full_notm}}
+## Step 4. Install the {{site.data.keyword.cp4mcm_full_notm}}
 {: #install-cp4mcm}
-
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME
 
 1. Ensure that you assigned a license for the {{site.data.keyword.cp4mcm_full_notm}} to the deployment.
 2. Confirm that you have read and agree to the license agreements.
 3. Click **Install**.
 
-## Post-installation
-
-SETH - TO CHECK IF THIS IS DIFFERENT AND WILL PROVIDE STEPS IF IT IS
-
-To interact with the {{site.data.keyword.cp4mcm_full_notm}} by using the management console from your local machine, perform the following steps:
-
-1. Run `kubectl cluster-info` to get the Kubernetes API server address and port. Example output:
-   ```
-   kubectl cluster-info
-   Kubernetes master is running at https://honest-gryphon-master.purple-chesterfield.com:7443
-   ```
-   {: pre}
-
-   **Note**: From the `kubectl cluster-info` output, make a note of the host and port for the Kubernetes master. In the example, the host is `honest-gryphon-master.purple-chesterfield.com` and the port is `7443`.
-
-2. Run `kubectl edit cm ibmcloud-cluster-info -n kube-public`. Example output:
-   ```
-   apiVersion: v1
-   data:
-     cluster_address: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     cluster_ca_domain: icp-console.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     cluster_endpoint: https://icp-management-ingress.kube-system.svc:443
-     cluster_kube_apiserver_host: honest-gryphon-master.purple-chesterfield.com
-     cluster_kube_apiserver_port: "7443"
-     cluster_name: mycluster
-     cluster_router_http_port: "8080"
-     cluster_router_https_port: "443"
-     edition: Enterprise Edition
-     openshift_router_base_domain: chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     proxy_address: icp-proxy.chee-ocp-fae6c235d7a3aed6346697c0e75f4896-0001.us-east.containers.appdomain.cloud
-     proxy_ingress_http_port: "80"
-     proxy_ingress_https_port: "443"
-     version: 1.2.0
-   ```
-   {: pre}
-
-3. Verify the `cluster_kube_apiserver_host` and `cluster_kube_apiserver_port` are correctly set with the host and port values from step one for the Kubernetes master and then save the file.
-
 ## Next steps
 
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
-  1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin username and password that you configured during the installation.
-  2. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html).
+  1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the admin and password generated during workspace creation. To obtain the admin username, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`. To obtain the admin password, execute `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`.
+  2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
+  3. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. First, navigate  For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
@@ -254,48 +176,9 @@ If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and i
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Delete the resources for the custom resource definition (CRD):
-    ```
-    oc -n <project_name> delete IBMServicesPlatform default
-    ```
-    {: pre}
+1. Download the `uninstall.sh` file from [our github repository](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh)
 
-2. Delete the `deployment`:
-    ```
-    oc -n <project_name> delete deployment ibmservices-operator
-    ```
-    {: pre}
-
-3. Delete the custom resource definition:
-    ```
-    oc -n <project_name> delete CustomResourceDefinition IbmServicesPlatforms.operator.ibm.com
-    ```
-    {: pre}
-
-4. Delete the `ClusterRoleBinding`:
-    ```
-    oc -n <project_name> delete clusterrolebinding ibmservices-operator
-    ```
-    {: pre}
-
-5. Delete the pull `secret`:
-    ```
-    oc -n <project_name> delete secret ibmplatform-image-pull-secret
-    ```
-    {: pre}
-
-6. Delete the `admin-credential`:
-    ```
-    oc -n <project_name> delete secret admin-credential
-    ```
-    {: pre}
-
-7. Delete configmap `cloudpak-foundation`:
-    ```
-    oc -n kube-system delete configmap cloudpak-foundation
-    ```
-    {: pre}
-
-8. Verify that the Cloud Pack is uninstalled.
-
-    Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.
+2. Identify the path to the kubeconfig file for your cluster, e.g.: `/root/.kube/config`
+3. Make the file executable: `chmod 700 uninstall.sh`
+4. Execute `uninstall.sh` script with as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
+5. Verify that the CloudPak is uninstalled. Access the {{site.data.keyword.openshiftshort}} web console and verify that the components that are related to the {{site.data.keyword.cp4mcm_full_notm}}, such as any related pods, are no longer installed.

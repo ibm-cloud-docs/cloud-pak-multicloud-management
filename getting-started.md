@@ -166,7 +166,7 @@ Click the delete to delete the workspace.
 
    Access the {{site.data.keyword.open_s}} web console and verify that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
 
-### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} on with command line
+### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} using the command line
 
 If the delete operation failed from the console or you want to use command line, you can use the `oc` command-line interface to complete the steps to uninstall. When you use the command line, you need to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
 

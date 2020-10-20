@@ -152,7 +152,6 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data.keyword.cp4mcm_full_notm}} console or the command-line interface (CLI).
 
 ### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} from the console
-SETH - THESE STEPS SHOULD BE THE SAME BUT SETH WILL TEST AND CONFIRM IF ANY CHANGES ARE REQUIRED
 
 1. Enter the workspace of your installed {{site.data.keyword.cp4mcm_full_notm}}.
 
@@ -169,15 +168,13 @@ Click the delete to delete the workspace.
 
 ### Uninstalling the {{site.data.keyword.cp4mcm_full_notm}} on with command line
 
-THE FOLLOWING STEPS WILL BE DIFFERENT - SETH TO TEST AND PROVIDE CHANGES
-
 If the delete operation failed from the console or you want to use command line, you can use the `oc` command-line interface to complete the steps to uninstall. When you use the command line, you need to remove the resources on your {{site.data.keyword.openshiftshort}} Container Platform cluster that are associated with the {{site.data.keyword.cp4mcm_full_notm}}.
 
 If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and install the CLI from the Red Hat Customer Portal.
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Download the `uninstall.sh` file from the [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh)
+1. Download the `uninstall.sh` file from [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh)
 
 2. Identify the path to the kubeconfig file for your cluster, for example: `/root/.kube/config`
 3. Change the file permissions on the `uninstall.sh`script so you can run it: `chmod 700 uninstall.sh`

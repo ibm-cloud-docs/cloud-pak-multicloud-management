@@ -174,7 +174,7 @@ If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and i
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Download the `uninstall.sh` file from [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh).
+1. Download the `uninstall.sh` script from [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh).
 
 2. Identify the path to the kubeconfig file for your cluster, for example: `/root/.kube/config`
 3. Change the file permissions on the `uninstall.sh`script so you can run it: `chmod 700 uninstall.sh`

@@ -108,7 +108,7 @@ Optional: 4 PV
 ## Step 1. Configure your installation environment
 {: #config-enviro}
 
-From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
+From the _Create_ tab on the `Cloud Pak for Multicloud Management` installation page in the IBM Catalog on IBM Cloud, specify where you want to install the {{site.data.keyword.cp4mcm_full_notm}}:
 
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy the {{site.data.keyword.cp4mcm_full_notm}}.
   2. Enter or select the project where you want to deploy {{site.data.keyword.cp4mcm_full_notm}}.

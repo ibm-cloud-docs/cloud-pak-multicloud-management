@@ -25,7 +25,8 @@ The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat® OpenShift®, is
 
 With {{site.data.keyword.cp4mcm_full_notm}}, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
 
-You can also take advantage of the governance with IBM Cloud Pak for Multicloud Management. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, see the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
+You can also take advantage of the governance with IBM Cloud Pak for Multicloud Management. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, 
+the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F/product_welcome_cloud_pak.html).
 {:shortdesc}
 
 ## What's inside this Cloud Pak
@@ -123,8 +124,6 @@ Specify how to track and manage your installation from your {{site.data.keyword.
 ## Step 3. Complete the pre-installation check
 {: #pre-install-check}
 
-SETH WILL CONFIRM IF ANY CHANGES TO THIS STEP - SHOULD STAY THE SAME APART FROM 3RD BULLET BELOW
-
 A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
 
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
@@ -145,7 +144,7 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
    - To get the administrator username, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`. 
    - To get the administrator password, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`.
   2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} installation, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
-  3. Optional:  After installation, you can choose to enable or disable additional modules and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, see [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
+  3. Optional:  After installation, you can choose to enable or disable additional operators and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, refer to [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
 
 ## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}

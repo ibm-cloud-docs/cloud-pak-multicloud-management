@@ -175,3 +175,32 @@ When you are running the commands to remove the associated resources, use the pr
 3. Change the file permissions on the `uninstall.sh`script so you can run it: `chmod 700 uninstall.sh`
 4. Run the `uninstall.sh` script as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
 5. Verify that {{site.data.keyword.cp4mcm_full_notm}} is uninstalled by accessing the {{site.data.keyword.openshiftshort}} web console and verifying that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
+
+## Troubleshooting 
+
+### Mutation Advisor minio pod is not working correctly 
+
+## Problem
+When the Mutation Advisor (`ibm-management-mutation-advisor`) operator is enabled, the minio pod is not working correctly.
+  
+## Solution
+
+If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator when you installed {{site.data.keyword.cp4mcm_full_notm}}, you must complete the following steps to ensure the minio pod works correctly: 
+
+1. Run: 
+  ```
+  oc edit csv ibm-management-mutation-advisor.v2.0.0 -n management-security-services
+  ```
+  {: codeblock}
+
+2. Update the following section for `minio`. Change the value for `region` to the actual region where you deployed your cluster and change `zone` to either the zone where you deployed your cluster or the zone where you want Mutation Advisor to be scheduled. 
+  ```
+  volumeClaimTemplates:
+  - metadata:
+      creationTimestamp: null
+      labels:
+        billingType: hourly
+        region: us-south
+        zone: dal12
+      name: datadir
+  ```

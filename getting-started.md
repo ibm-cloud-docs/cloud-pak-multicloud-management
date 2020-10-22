@@ -156,9 +156,9 @@ To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data
 
 2. Select the workspace where {{site.data.keyword.cp4mcm_full_notm}} is installed, click the button at the end of the row and click **Delete**.
 
-3. Select the **Delete workspace** and **Delete all associated resources** check boxes and input the name of the workspace to confirm, then click **delete** to delete the workspace.
+3. Select the **Delete workspace** and **Delete all associated resources** check boxes and enter the name of the workspace in the field. The workspace name is provided for you, just copy or type it in. click **Delete** to delete the workspace.
 
-4. Waiting for the uninstall finish.
+4. Wait for the uninstall to finish.
 
 5. Verify that the Cloud Pak is uninstalled by accessing the {{site.data.keyword.openshiftshort}} web console and verifying that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
 
@@ -170,8 +170,7 @@ If the {{site.data.keyword.openshiftshort}} CLI is not installed, download and i
 
 When you are running the commands to remove the associated resources, use the project that you selected during the installation of your OpenShift Container Platform cluster. Replace the `<project_name>` parameter in the following commands with your project name.
 
-1. Download the `uninstall.sh` script from [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh).
-
+1. Download the `uninstall.sh` script from [github](https://github.com/IBM/cp4mcm-samples/blob/master/scripts/uninstall.sh). Run: `curl https://raw.githubusercontent.com/IBM/cp4mcm-samples/master/scripts/cp4mcm-cleanup-utility.sh -o uninstall.sh`
 2. Identify the path to the kubeconfig file for your cluster, for example: `/root/.kube/config`
 3. Change the file permissions on the `uninstall.sh`script so you can run it: `chmod 700 uninstall.sh`
 4. Run the `uninstall.sh` script as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`

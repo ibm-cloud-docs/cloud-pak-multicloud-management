@@ -156,7 +156,7 @@ To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data
 
 2. Select the workspace where {{site.data.keyword.cp4mcm_full_notm}} is installed, click the button at the end of the row and click **Delete**.
 
-3. Select the **Delete workspace** and **Delete all associated resources** check boxes and enter the name of the workspace in the field. The workspace name is provided for you, just copy or type it in. click **Delete** to delete the workspace.
+3. Select the **Delete workspace** and **Delete all associated resources** check boxes and enter the name of the workspace in the field. The workspace name is provided for you, just copy or type it in. Click **Delete** to delete the workspace.
 
 4. Wait for the uninstall to finish.
 

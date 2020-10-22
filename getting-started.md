@@ -90,7 +90,7 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Minimum storage requirements
 
-Mandatory: 240Gi of persistent storage.
+Mandatory: 240GB of persistent storage.
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}

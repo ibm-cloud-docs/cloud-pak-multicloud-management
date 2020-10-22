@@ -150,9 +150,9 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
 To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data.keyword.cp4mcm_full_notm}} console or the command-line interface (CLI).
 
-### Uninstalling {{site.data.keyword.cp4mcm_full_notm}} from the console
+### Uninstalling {{site.data.keyword.cp4mcm_full_notm}} from the IBM Cloud console
 
-1. Enter the workspace where you installed {{site.data.keyword.cp4mcm_full_notm}}.
+1. Access https://cloud.ibm.com/schematics/workspaces to take you to the schematic workspaces for your {{site.data.keyword.cp4mcm_full_notm}} installation on the IBM Cloud console.
 
 2. Click the **Actions**, then click **delete** to trigger a delete.
 

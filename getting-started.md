@@ -204,3 +204,6 @@ If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator
         zone: dal12
       name: datadir
   ```
+  ### Take action page is not displaying data.
+  
+  To solve this issue, complete the instructions in [Take Action pages show no data](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/mcm/troubleshoot/troubleshoot_takeactions.html) 

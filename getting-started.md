@@ -90,19 +90,7 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Minimum storage requirements
 
-Mandatory: 2 PV
-
-| Component | PV |
-|-----|-----|
-| MongoDB | 1 |
-| {{site.data.keyword.IBM_notm}} Multicloud Manager etcd | 1 |
-
-Optional: 4 PV
-
-| Component | PV |
-|------|------|
-| Logging | 1 |
-| VA | 3 |
+Mandatory: 240Gi of persistent storage.
 
 ## Step 1. Configure your installation environment
 {: #config-enviro}

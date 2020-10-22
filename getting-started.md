@@ -145,7 +145,7 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
   2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} is installed, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
   3. Optional:  After installation, you can choose to enable or disable additional operators and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, refer to [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
 
-## Uninstalling the {{site.data.keyword.cp4mcm_full_notm}}
+## Uninstalling {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
 
 To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data.keyword.cp4mcm_full_notm}} console or the command-line interface (CLI).
@@ -154,16 +154,13 @@ To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data
 
 1. Access https://cloud.ibm.com/schematics/workspaces to go to the schematic workspaces for your {{site.data.keyword.cp4mcm_full_notm}} installation on the IBM Cloud console.
 
-2. Click the **Actions**, then click **delete** to trigger a delete.
+2. Select the workspace where {{site.data.keyword.cp4mcm_full_notm}} is installed, click the button at the end of the row and click **Delete**.
 
-3. Choose **Delete workspace** and Delete all associated resources and input the name of the workspace to confirm.
-Click **delete** to delete the workspace.
+3. Select the **Delete workspace** and **Delete all associated resources** check boxes and input the name of the workspace to confirm, then click **delete** to delete the workspace.
 
 4. Waiting for the uninstall finish.
 
-5. Verify that the Cloud Pak is uninstalled:
-
-   Access the {{site.data.keyword.openshiftshort}} web console and verify that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
+5. Verify that the Cloud Pak is uninstalled by accessing the {{site.data.keyword.openshiftshort}} web console and verifying that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
 
 ### Uninstalling {{site.data.keyword.cp4mcm_full_notm}} using the command line
 
@@ -178,4 +175,4 @@ When you are running the commands to remove the associated resources, use the pr
 2. Identify the path to the kubeconfig file for your cluster, for example: `/root/.kube/config`
 3. Change the file permissions on the `uninstall.sh`script so you can run it: `chmod 700 uninstall.sh`
 4. Run the `uninstall.sh` script as follows: `./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>`
-5. Verify that {{site.data.keyword.cp4mcm_full_notm}} is uninstalled. Access the {{site.data.keyword.openshiftshort}} web console and verify that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
+5. Verify that {{site.data.keyword.cp4mcm_full_notm}} is uninstalled by accessing the {{site.data.keyword.openshiftshort}} web console and verifying that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.

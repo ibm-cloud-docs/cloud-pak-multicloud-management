@@ -168,7 +168,7 @@ When you are running the commands to remove the associated resources, use the pr
   {: codeblock}
 
 2. Identify the path to the kubeconfig file for your cluster, for example: `/root/.kube/config`
-3. Change the file permissions on the `uninstall.sh`script so you can run it:
+3. Change the file permissions on the `uninstall.sh` script so you can run it:
   ```
   chmod 700 uninstall.sh
   ```

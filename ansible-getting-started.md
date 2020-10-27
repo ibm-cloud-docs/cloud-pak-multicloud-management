@@ -96,7 +96,7 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
 
-5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster.
+5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. Switch to the new project before performing the rest of the steps.
 
     ```
     oc new-project ansible-tower
@@ -156,12 +156,19 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     
-    **Note:** Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.
-
+    **Note:**   Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.  
+    Find the openshift_host variable by using this command: ``kubectl get configmap -n kube-public -o yaml``  
+    Find the openshift_token variable by using this command: ``$(oc whoami -t)``  
     This completes the setup of Ansible tower.
 
 10. Log in to Ansible Tower and import the license from the 
-`temporary-tower-license.txt` downloaded in "Before you begin".
+`temporary-tower-license.txt` downloaded in "Before you begin".  
+To locate the Ansible Tower url to login and the    default userID and password, run the following command:  
+
+    ```
+    oc get route -n ansible-tower
+    ```
+
 
      When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
 

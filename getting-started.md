@@ -25,7 +25,7 @@ The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat® OpenShift®, is
 
 With {{site.data.keyword.cp4mcm_full_notm}}, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
 
-You can also take advantage of the governance with IBM Cloud Pak for Multicloud Management. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/kc_welcome_cloud_pak.html).
+You can also take advantage of the governance with {{site.data.keyword.cp4mcm_full_notm}}. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/kc_welcome_cloud_pak.html).
 {:shortdesc}
 
 ## What's inside this Cloud Pak

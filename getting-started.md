@@ -21,16 +21,17 @@ subcollection: cloud-pak-multicloud-management
 # Getting started with {{site.data.keyword.cp4mcm_full_notm}}
 {: #getting-started}
 
-The {{site.data.keyword.cp4mcm_full_notm}}, running on Red Hat® OpenShift®, is an open, hybrid Cloud Management platform. This platform helps organizations break down IT silos and move operations to start to codify tasks and processes and manage them as code artifacts.
+The IBM Cloud Pak® for Multicloud Management, running on Red Hat® OpenShift®, is an open, hybrid Cloud Management platform. This platform helps organizations break down IT silos and move operations to start to codify tasks and processes and manage them as code artifacts.
 
-With {{site.data.keyword.cp4mcm_full_notm}}, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
+With this IBM Cloud Pak®, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
 
-You can also take advantage of the governance with {{site.data.keyword.cp4mcm_full_notm}}. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/kc_welcome_cloud_pak.html).
+You can also take advantage of the governance with the {{site.data.keyword.cp4mcm_full_notm}}. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/kc_welcome_cloud_pak.html).
 {:shortdesc}
 
-## What's inside this Cloud Pak
+## What's inside this IBM Cloud Pak
 
 ### Operator-based installation
+
 The {{site.data.keyword.cp4mcm_full_notm}} installation is now operator-based. You can choose either a simple or advanced installation method. When you choose the simple installation, the following default services are installed.
 
 - Console
@@ -50,9 +51,11 @@ With the advanced installation mode, you can choose to enable or disable these m
 - Runtime (ibm-management-manage-runtime) operator, which is a technology preview code.
 
 ### Self-service capabilities
+
 Additional self-service capabilities enable developers to provision infrastructure and application components from a predefined service flow. This means providing a full-service library feature for developers to access on-demand.
 
 ### SRE tools for hybrid applications
+
 The {{site.data.keyword.cp4mcm_full_notm}} supports the implementation of an SRE operating model. Some of these tools are:
 
 - Bastion control - A new single point of access terminal supports secure remote access to managed systems. This centralized bastion host simplifies the troubleshooting process across regions and deployment models with increased visualization and remediation tools, such as audit and replay.

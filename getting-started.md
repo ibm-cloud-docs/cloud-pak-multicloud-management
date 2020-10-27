@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-20"
+lastupdated: "2020-10-27"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
 
@@ -31,7 +31,7 @@ You can also take advantage of the governance with IBM Cloud Pak for Multicloud 
 ## What's inside this Cloud Pak
 
 ### Operator-based installation
-The {{site.data.keyword.cp4mcm_full_notm}} installation is now operator-based. You can choose either a simple or advanced installation method. When you choose the simple installation, the following default services are installed. 
+The {{site.data.keyword.cp4mcm_full_notm}} installation is now operator-based. You can choose either a simple or advanced installation method. When you choose the simple installation, the following default services are installed.
 
 - Console
 - Governance, risk, and compliance
@@ -65,7 +65,7 @@ The {{site.data.keyword.cp4mcm_full_notm}} supports the implementation of an SRE
 
 The updates to Governance, Risk, and Compliance policies allow for a faster, more flexible solution for both VMs and containers. This hybrid approach to policy applications allows operators to apply a policy that is enforced, even as applications are edited and moved by development teams. These enhancements also include templated policy-as-code for industry standards such as HIPAA, FISMA, NIST, and PCI. This policy-based Governance and Risk dashboard is ready out of the box and is versatile and adaptable for your unique compliance and governance requirements.
 
-### Cost and license management 
+### Cost and license management
 
 Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4mcm_full_notm}} cost modeling and asset management now provide a more seamless experience. The capabilities that are included are:
 
@@ -73,7 +73,9 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 - Chargeback generation steps are simplified to three key steps: Define rate cards, assign rate cards, and generate the chargeback report.
 
-## Before you begin
+## Install {{site.data.keyword.cp4mcm_full_notm}}
+
+### Before you begin
 
 - Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.0.0/about/part_numbers.html).
 
@@ -81,6 +83,16 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
   - You must have permission as an administrator user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
   - You must have at least viewer access permission to the resource group that includes the cluster where you are installing  {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in the IBM Cloud Provider cloud connection has access to this resource group.
+
+### Supported upgrade paths
+
+The {{site.data.keyword.cp4mcm_full_notm}} supports the following upgrade paths:
+
+- {{site.data.keyword.cp4mcm_full_notm}} Version 1.2.0 to Version 1.3.0
+- {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.0 to Version 1.3.1, 1.3.2
+- {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.1 to Version 1.3.2
+
+The {{site.data.keyword.cp4mcm_full_notm}}  does not support upgrading from Version 1.x to Version 2.x.
 
 ### Minimum hardware requirements
 
@@ -92,7 +104,9 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 Mandatory: 240GB of persistent storage.
 
-## Step 1. Configure your installation environment
+### Procedure
+
+#### Step 1. Configure your installation environment
 {: #config-enviro}
 
 From the _Create_ tab on the **Cloud Pak for Multicloud Management** installation page in the IBM Catalog on IBM Cloud, specify where you want to install {{site.data.keyword.cp4mcm_full_notm}}:
@@ -100,7 +114,7 @@ From the _Create_ tab on the **Cloud Pak for Multicloud Management** installatio
   1. Select the Red Hat {{site.data.keyword.openshiftshort}} cluster where you want to deploy {{site.data.keyword.cp4mcm_full_notm}}.
   2. Enter or select the project where you want to deploy {{site.data.keyword.cp4mcm_full_notm}}.
 
-## Step 2. Configure your workspace
+#### Step 2. Configure your workspace
 {: #config-workspace}
 
 Specify how to track and manage your installation from your {{site.data.keyword.IBM_notm}} Cloud Schematics workspace:
@@ -108,7 +122,7 @@ Specify how to track and manage your installation from your {{site.data.keyword.
   1. In the **Configure your workspace** section, update the name and tag of the installation workspace.
   2. Specify any tags that you want to use for the installation. Specify multiple tags as a comma-separated list.
 
-## Step 3. Complete the pre-installation check
+#### Step 3. Complete the pre-installation check
 {: #pre-install-check}
 
 A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must complete this step.
@@ -116,27 +130,28 @@ A Red Hat {{site.data.keyword.openshiftshort}} cluster administrator must comple
 - If you are not an administrator, use the Share link to share the script with your cluster administrator.
 - If you are a cluster administrator, click **Run script** to run the pre-installation check. Confirm that the script completes successfully.
 
-## Step 4. Install {{site.data.keyword.cp4mcm_full_notm}}
+#### Step 4. Install {{site.data.keyword.cp4mcm_full_notm}}
 {: #install-cp4mcm}
 
 1. Ensure that you assigned a license for {{site.data.keyword.cp4mcm_full_notm}} to the deployment.
 2. Confirm that you read and agree to the license agreements.
 3. Click **Install**.
 
-## Next steps
+### Next steps
 
 When the installation completes, you can access your {{site.data.keyword.cp4mcm_full_notm}} deployment with the provided URL.
 
-1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the administrator username and password which were generated when the workspace was created. 
+1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the administrator username and password which were generated when the workspace was created.
 
   - To get the administrator username, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`
-  
+
   - To get the administrator password, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`
-   
+
 2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} is installed, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
+
 3. Optional:  After installation, you can choose to enable or disable additional operators and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, refer to [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
 
-## Uninstalling {{site.data.keyword.cp4mcm_full_notm}}
+## Uninstall {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
 
 To uninstall {{site.data.keyword.cp4mcm_full_notm}}, you can use the {{site.data.keyword.cp4mcm_full_notm}} console or the command-line interface (CLI).
@@ -173,25 +188,26 @@ When you are running the commands to remove the associated resources, use the pr
   chmod 700 uninstall.sh
   ```
   {: codeblock}
-  
+
 4. Run the `uninstall.sh` script as follows:
   ```
   ./uninstall.sh --mode uninstallEverything --kubeconfigPath ~/.kube/config --cloudpakNamespace <project_name>
   ```
 5. Verify that {{site.data.keyword.cp4mcm_full_notm}} is uninstalled by accessing the {{site.data.keyword.openshiftshort}} web console and verifying that the {{site.data.keyword.cp4mcm_full_notm}} components such as the pods and resources are no longer available.
 
-## Troubleshooting 
+## Troubleshooting
 
-### 1. Mutation Advisor minio pod is not working correctly 
+### 1. Mutation Advisor minio pod is not working correctly
 
-## Problem
+#### Problem
+
 When the Mutation Advisor (`ibm-management-mutation-advisor`) operator is enabled, the minio pod is not working correctly.
-  
-## Solution
 
-If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator when you installed {{site.data.keyword.cp4mcm_full_notm}}, you must complete the following steps to ensure the minio pod works correctly: 
+#### Solution
 
-1. Run: 
+If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator when you installed {{site.data.keyword.cp4mcm_full_notm}}, you must complete the following steps to ensure the minio pod works correctly:
+
+1. Run:
   ```
   oc edit csv ibm-management-mutation-advisor.v2.0.0 -n management-security-services
   ```
@@ -210,5 +226,5 @@ If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator
   ```
 
 ### 2. Take action page is not displaying data.
-  
+
   To solve this issue, complete the instructions in [Take Action pages show no data](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/mcm/troubleshoot/troubleshoot_takeactions.html).

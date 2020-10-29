@@ -146,9 +146,9 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
 1. Log in the {{site.data.keyword.cp4mcm_full_notm}} management console by using the administrator username and password which were generated when the workspace was created.
 
-  - To get the administrator username, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 -d; echo ""`
+  - To get the administrator username, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_username}' | base64 --decode; echo ""`
 
-  - To get the administrator password, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`
+  - To get the administrator password, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 --decode; echo ""`
 
 2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} is installed, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
 

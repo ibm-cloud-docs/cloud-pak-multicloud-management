@@ -55,20 +55,18 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
    You can find the `oc login` for your OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed by using these steps:
    1. Log in to IBM Cloud: https://cloud.ibm.com/
    2. Select **OpenShift**>**Clusters** and select the cluster where IBM Cloud Pak for Multicloud Management is installed.
-   4. Log in to the OpenShift web console and select the  **IAM &lt;yourID&gt;** menu, then select "Copy Login Command"
-   6. Click Display Token link.
-   7. Copy the provided `oc login ...` CLI command to log in to OpenShift.
+   3. Log in to the OpenShift web console and select the  **IAM &lt;yourID&gt;** menu, then select "Copy Login Command"
+   4. Click Display Token link.
+   5. Copy the provided `oc login ...` CLI command to log in to OpenShift.
     
-2. On your Linux system, download the package for ansible-tower-openshift-setup 
+2. On your Linux system, download the installation package by running the following command: 
 
-    Run the command:
     ```
     wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-latest.tar.gz
     ```
     {: codeblock}
 
-
-3. Extract the package by running the commands:  
+3. Extract the package by running the following commands:  
     ```
     tar xvf ansible-tower-openshift-setup-latest.tar.gz
     ```
@@ -142,7 +140,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     ```
     {: codeblock}
     
-10. Run the installation command to complete the setup of {{site.data.keyword.ansible_tower_notm}}:
+10. Run the installation command to complete the setup:
 
       ```
     ./setup_openshift.sh -e openshift_host=https://<host>:<port> -e openshift_project=ansible-tower -e openshift_user=<openshift_user> -e openshift_token=<openshift-token>  
@@ -151,11 +149,11 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     ```
     {: codeblock}
 
-    - Modify the values for the following parameters: `openshift_host, openshift_user, openshift_token, admin_password, secret_key, pg_username, pg_password, rabbitmq_password, and rabbitmq_erlang_cookie`.
-     Where
-     - ``<host>`` is the cluster_kube_apiserver_host, for example ``https://api.green.coc-ibm.com:6443 ``.
-    - ``<port>`` is the cluster_kube_apiserver_port.
-    To find the ``<host>`` and ``<port>`` variables, run this command:  `kubectl get configmap -n kube-public -o yaml`.
+    - Modify the values for the following parameters: `openshift_host, openshift_user, openshift_token, admin_password, secret_key, pg_username, pg_password, rabbitmq_password, and rabbitmq_erlang_cookie`.  
+     Where  
+    - ``<host>`` is the cluster_kube_apiserver_host, for example ``https://api.green.coc-ibm.com:6443 ``.
+    - ``<port>`` is the cluster_kube_apiserver_port. 
+    - To find the ``<host>`` and ``<port>`` variables, run this command: `kubectl get configmap -n kube-public -o yaml`.
     - ``<openshift_user>`` is the OpenShift admin user.
     - ``<openshift-token>`` is the token that you obtain by running this command ``oc whoami -t`` or login to the OpenShift console and click the user's Copy Login Command.
     - ``<admin-pass>`` is the password that you want to set for Ansible Tower admin user.

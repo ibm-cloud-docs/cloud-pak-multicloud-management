@@ -211,4 +211,4 @@ Complete the following steps on a Linux system. These steps enable navigation to
    
 5. Verify that the Ansible Tower instance is in the IBM Cloud Pak​​ console navigation menu. From the IBM Cloud Pak​​ navigation menu, click **Automate infrastructure** > **Ansible automation**.
 
-You have now successfully installed Red Hat Ansible Tower and integrated with IBM Cloud Pak console in IBM Cloud.
+You have now successfully installed Red Hat Ansible Tower and integrated with IBM Cloud Pak console in IBM Cloud..

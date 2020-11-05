@@ -30,19 +30,15 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 
 - You must have a Linux system with OpenShift command-line tool (oc) installed to run the installer.
 
-- Download the license key and the `automation-navigation-updates.sh` script from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+- Download the following from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+    - Red Hat Ansible Tower 3.6 key - CC737EN  (temporary-tower-license.txt)  
+    - Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 - CC734EN (automation-navigation-updates.sh)
+
+    (For the list of all part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html) {: new_window}.)
   
-| Description                                                                      | File name                               | Passport Advantage part number |
-|----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
-| Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt |   CC737EN  |
-| Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 | automation-navigation-updates.sh | CC734EN  |
+- Your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed.. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
 
-
-- For the list of all part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html) {: new_window}.
-  
-- Your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed.. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)
-
-- You must have Admin privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required)
+- You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
 
 
 ## Installing Red Hat Ansible Tower
@@ -209,10 +205,11 @@ Complete the following steps on a Linux system. These steps enable navigation to
    ```
    chmod 755 ./automation-navigation-updates.sh
 
-   ./automation-navigation-updates.sh -a ansible-tower
+   ./automation-navigation-updates.sh -a <name>
    ```
 
-    **Note:** Make sure the `-a <name>` matches the name that is used for the `openshift_project` from Step 10. For example, `./setup_openshift.sh -e openshift_project=ansible-tower`. In this example, `ansible-tower` is the name that is used.
+    where <name> is the name that is used for the `openshift_project` paramater in step 10.   
+    For example, `./setup_openshift.sh -e openshift_project=ansible-tower`. In this example, `ansible-tower` is the name that is used.
    
 5. Verify that the Ansible Tower instance is in the IBM Cloud Pak​​ console navigation menu. From the IBM Cloud Pak​​ navigation menu, click **Automate infrastructure** > **Ansible automation**.
 

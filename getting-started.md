@@ -89,7 +89,7 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Supported upgrade paths
 
-{{site.data.keyword.cp4mcm_full_notm}} supports upgrading within the the main version. It does not support upgrading between main versions. For example, you cannot upgrade from Version 1.x to Version 2.x. The {{site.data.keyword.cp4mcm_full_notm}} supports the following upgrade paths within the main version.
+{{site.data.keyword.cp4mcm_full_notm}} supports upgrading within the the main version. It does not support upgrading between main versions. For example, you cannot upgrade from Version 1.x to Version 2.x.  The {{site.data.keyword.cp4mcm_full_notm}} supported upgrade paths within the main version are:
 
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.2.0 to Version 1.3.0
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.0 to Version 1.3.1, 1.3.2

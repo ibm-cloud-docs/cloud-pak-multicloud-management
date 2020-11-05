@@ -94,8 +94,9 @@ The {{site.data.keyword.cp4mcm_full_notm}} supports the following upgrade paths:
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.2.0 to Version 1.3.0
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.0 to Version 1.3.1, 1.3.2
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.1 to Version 1.3.2
+- {{site.data.keyword.cp4mcm_full_notm}} Version 2.1.0 to Version 2.1.5
 
-The {{site.data.keyword.cp4mcm_full_notm}}  does not support upgrading from Version 1.x to Version 2.x.
+The {{site.data.keyword.cp4mcm_full_notm}}  does not support upgrading between versions i.e. from 1.x to 2.x. 
 
 ### Minimum hardware requirements
 

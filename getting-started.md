@@ -18,7 +18,7 @@ subcollection: cloud-pak-multicloud-management
 {:note: .note}
 {:external: target="_blank" .external}
 
-# Getting started with {{site.data.keyword.cp4mcm_full_notm}}
+# Getting started with {{site.data.keyword.cp4mcm_full_notm}} V2.0
 {: #getting-started}
 
 The IBM Cloud Pak® for Multicloud Management, running on Red Hat® OpenShift®, is an open, hybrid Cloud Management platform. This platform helps organizations break down IT silos and move operations to start to codify tasks and processes and manage them as code artifacts.

@@ -30,26 +30,20 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 
 - You must have a Linux system with OpenShift command-line tool (oc) installed to run the installer.
 
-- Before you can install Red Hat Ansible Tower, you must download the license key and the `automation-navigation-updates.sh` script from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+- Download the license key and the `automation-navigation-updates.sh` script from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
   
-Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
-
 | Description                                                                      | File name                               | Passport Advantage part number |
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
 | Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt |   CC737EN  |
 | Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 | automation-navigation-updates.sh | CC734EN  |
 
+
 - For the list of all part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html) {: new_window}.
   
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)
+- Your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed.. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)
 
 - You must have Admin privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required)
 
-- **Notes**:
-
-   * When you install Red Hat Ansible Tower, your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed.
-
-   * Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster.
 
 ## Installing Red Hat Ansible Tower
 {: #install-ansible}

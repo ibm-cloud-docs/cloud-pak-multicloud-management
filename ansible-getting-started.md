@@ -89,7 +89,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) {: new_window} in the Ansible Tower documentation.  
     Run this command to check ansible version: ``<ansible --version>``.
 
-5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. Switch to the new project before performing the rest of the steps.
+5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. 
 
     ```
     oc new-project ansible-tower
@@ -156,7 +156,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     - ``<host>`` is the cluster_kube_apiserver_host, for example ``https://api.green.coc-ibm.com:6443 ``.
     - ``<port>`` is the cluster_kube_apiserver_port.
 
-    To find the ``<host>`` and ``<port>`` variables, run this command:  `kubectl get configmap -n kube-public -o yaml`.
+        To find the ``<host>`` and ``<port>`` variables, run this command:  `kubectl get configmap -n kube-public -o yaml`.
     - ``<openshift_user>`` is the OpenShift admin user.
     - ``<openshift-token>`` is the token that you obtain by running this command ``oc whoami -t`` or login to the OpenShift console and click the user's Copy Login Command.
     - ``<admin-pass>`` is the password that you want to set for Ansible Tower admin user.

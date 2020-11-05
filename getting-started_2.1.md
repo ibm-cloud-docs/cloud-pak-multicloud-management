@@ -25,7 +25,7 @@ The IBM Cloud Pak® for Multicloud Management, running on Red Hat® OpenShift®,
 
 With this IBM Cloud Pak®, you get more application and cluster visibility across the enterprise to any public or private cloud. You can improve automation by simplifying your IT and application operations management with increased flexibility and cost savings, and intelligent data analysis driven by predictive signals.
 
-You can also take advantage of the governance with the {{site.data.keyword.cp4mcm_full_notm}}. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/kc_welcome_cloud_pak.html).
+You can also take advantage of the governance with the {{site.data.keyword.cp4mcm_full_notm}}. You can manage your multicloud environments with a consistent and automated set of configuration and security policies across all applications and clusters. For more information, go to the [documentation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/kc_welcome_cloud_pak.html).
 {:shortdesc}
 
 ## What's inside this IBM Cloud Pak
@@ -80,9 +80,9 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 
 ### Before you begin
 
-- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.0.0/about/part_numbers.html).
+- Before you can install the Cloud Pak, you must purchase a license through [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). For part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html).
 
-- You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform that is installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see [Supported {{site.data.keyword.openshiftshort}} versions and platforms](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.0.0/install/supported_os.html).
+- You must have a supported version of {{site.data.keyword.openshiftshort}} Container Platform that is installed by using {{site.data.keyword.IBM_notm}} Cloud Kubernetes Service so that the managed {{site.data.keyword.openshiftshort}} service is supported. For the list of supported versions, see [Supported {{site.data.keyword.openshiftshort}} versions and platforms](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/install/supported_os.html).
 
   - You must have permission as an administrator user on the cluster where you are installing the {{site.data.keyword.cp4mcm_full_notm}}.
   - You must have at least viewer access permission to the resource group that includes the cluster where you are installing  {{site.data.keyword.cp4mcm_full_notm}}. Ensure that this resource group exists in IBM Cloud and that the user ID that is used in the IBM Cloud Provider cloud connection has access to this resource group.
@@ -150,9 +150,9 @@ When the installation completes, you can access your {{site.data.keyword.cp4mcm_
 
   - To get the administrator password, run `oc get secret platform-auth-idp-credentials -n ibm-common-services -o jsonpath='{.data.admin_password}' | base64 -d; echo ""`
 
-2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} is installed, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/iam/3.4.0/change_admin_passwd.html).</p>
+2. For more information about changing the password after {{site.data.keyword.cp4mcm_full_notm}} is installed, see [Changing the cluster administrator password](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/iam/3.4.0/change_admin_passwd.html).</p>
 
-3. Optional:  After installation, you can choose to enable or disable additional operators and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, refer to [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/install/config_adv.html#edit).
+3. Optional:  After installation, you can choose to enable or disable additional operators and services such Infrastructure Management, Operations, Monitoring, and other services. For instructions, refer to [Advanced configuration](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/config_adv.html#edit).
 
 ## Uninstall {{site.data.keyword.cp4mcm_full_notm}}
 {: #uninstalling}
@@ -212,7 +212,7 @@ If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator
 
 1. Run:
   ```
-  oc edit csv ibm-management-mutation-advisor.v2.0.0 -n management-security-services
+  oc edit csv ibm-management-mutation-advisor.v2.1.0 -n management-security-services
   ```
   {: codeblock}
 
@@ -230,4 +230,4 @@ If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator
 
 ### 2. Take action page is not displaying data.
 
-  To solve this issue, complete the instructions in [Take Action pages show no data](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.0.0/mcm/troubleshoot/troubleshoot_takeactions.html).
+  To solve this issue, complete the instructions in [Take Action pages show no data](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/mcm/troubleshoot/troubleshoot_takeactions.html).

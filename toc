@@ -5,6 +5,7 @@
 IBM Cloud Pak for Multicloud Management
 
     {: .navgroup id="learn"}
+    getting-started_1.3.md
     getting-started.md
     getting-started_2.1.md
     cf-getting-started.md

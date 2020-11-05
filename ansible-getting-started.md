@@ -53,10 +53,11 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
    oc login --token=EtZqGLpwxpL8b6CAjs9Bvx6kxe925a1HlB__AR3gIOs --server=https://c100-e.us-east.containers.cloud.ibm.com:32653
    ```
    You can find the `oc login` for your OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed by using these steps:
+   
    1. Log in to IBM Cloud: https://cloud.ibm.com/
    2. Select **OpenShift**>**Clusters** and select the cluster where IBM Cloud Pak for Multicloud Management is installed.
    3. Log in to the OpenShift web console and select the  **IAM &lt;yourID&gt;** menu, then select "Copy Login Command"
-   4. Click Display Token link.
+   4. Click the Display Token link.
    5. Copy the provided `oc login ...` CLI command to log in to OpenShift.
     
 2. On your Linux system, download the installation package by running the following command: 

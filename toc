@@ -9,8 +9,6 @@ IBM Cloud Pak for Multicloud Management
       getting-started-13.md
       getting-started-20.md
       getting-started-21.md
-    cf-getting-started.md
-    ansible-getting-started.md
     {: .navgroup-end}
     
 {: .toc subcollection="cloud-pak-multicloud-management-cf-ans" audience="cloud-pak" category="cloud_pak" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-cf-getting-started" path="cloud-pak-multicloud-management"}

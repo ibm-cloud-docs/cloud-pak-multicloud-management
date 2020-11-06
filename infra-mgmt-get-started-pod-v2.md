@@ -408,7 +408,7 @@ Download the part number: CC7X4EN
 
    mv jq /usr/bin
    ```
-   For more information, see [Download jq ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://stedolan.github.io/jq/download/){: new_window}.
+   For more information, see [Download jq](https://stedolan.github.io/jq/download/).
 
 4. Run the following commands to enable navigation to your Infrastructure management instance:
 
@@ -419,11 +419,14 @@ Download the part number: CC7X4EN
    ```
    {: codeblock}
 
-   * The `automation-navigation-updates.sh` expects the default namespace `management-infrastructure-management`. If you use a different namespace to install Infrastructure management, you must pass the namespace as a parameter when you run the command. Example:
+   - The `automation-navigation-updates.sh` expects the default namespace `management-infrastructure-management`. If you use a different namespace to install Infrastructure management, you must pass the namespace as a parameter when you run the command. Example:
    ```
    ./automation-navigation-updates.sh -p <namespace>
    ```
    {: codeblock}
 
 5. Verify that the Infrastructure management instance is in the IBM Cloud Pak console navigation menu. From the IBM Cloud Pak for Multicloud Management menu, click **Automate infrastructure** > **Infrastructure management**.
+
+### Results
+You successfully installed and configured Infrastructure management and integrated Infrastructure management with IBM Cloud Pak for Multicloud Management in IBM Cloud.
 

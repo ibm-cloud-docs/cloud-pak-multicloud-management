@@ -5,14 +5,9 @@
 IBM Cloud Pak for Multicloud Management
 
     {: .navgroup id="learn"}
+    getting-started.md
     getting-started-13.md
-      getting-started-13.md
-      getting-started-20.md
-      getting-started-21.md
-    {: .navgroup-end}
-    
-    {: .navgroup id="learncfansible"}
+    getting-started-20.md
     cf-getting-started.md
     ansible-getting-started.md
     {: .navgroup-end}
-

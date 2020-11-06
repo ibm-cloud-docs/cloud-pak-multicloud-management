@@ -33,14 +33,14 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 - You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
 - Download the  IBM Cloud Pak® for Multicloud Management 2.1 part numbers from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html) (earlier versions are also available). 
 
-    |Version|Description| Filename| Passport Advantage number |
-    |-----|-----|-----|-----|
-    |IBM Cloud Pak® for Multicloud Management 2.1|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
-    |IBM Cloud Pak® for Multicloud Management 2.1|Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1|automation-navigation-updates.sh|CC734EN|
-    |IBM Cloud Pak® for Multicloud Management 2.0|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
-    |IBM Cloud Pak® for Multicloud Management 2.0|Automation navigation for IBM Cloud Pak for Multicloud Management 2.0|automation-navigation-updates.sh|CC734EN|
-    |IBM Cloud Pak® for Multicloud Management 1.3|Red Hat Ansible Tower key|temporary-tower-license.txt|CC7X6EN|
-    |IBM Cloud Pak® for Multicloud Management 1.3|Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 |automation-navigation-updates.sh|CC737EN|
+|Version|Description|Filename|Passport Advantage number|
+|-----|-----|-----|-----|
+|IBM Cloud Pak® for Multicloud Management 2.1|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
+|IBM Cloud Pak® for Multicloud Management 2.1|Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1|automation-navigation-updates.sh|CC734EN|
+|IBM Cloud Pak® for Multicloud Management 2.0|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
+|IBM Cloud Pak® for Multicloud Management 2.0|Automation navigation for IBM Cloud Pak for Multicloud Management 2.0|automation-navigation-updates.sh|CC734EN|
+|IBM Cloud Pak® for Multicloud Management 1.3|Red Hat Ansible Tower key|temporary-tower-license.txt|CC7X6EN|
+|IBM Cloud Pak® for Multicloud Management 1.3|Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 |automation-navigation-updates.sh|CC737EN|
 
 
 ## Installing Red Hat Ansible Tower

@@ -71,7 +71,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     c. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 
-    ![Figure showing example VPC.](images/service_auth_vpc.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
+    ![Figure showing example VPC.](images/vpc_details.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
 
 5. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 

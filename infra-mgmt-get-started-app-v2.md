@@ -55,7 +55,7 @@ Complete these steps to install Infrastructure management as a virtual machine a
 |----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
 |IBM Cloud Pak for Multicloud Management 2.1 Infrastructure management for Red Hat OpenStack Platform |cp4mcm-im-rhos-2.1.x86_64.qcow2|CC7X2EN|
 
-{: caption="Table 1. Infrastructure management Appliance packages" caption-side="top"}
+{: caption="Table 1. Infrastructure management appliance packages" caption-side="top"}
 
 ## Step 2. Setting up the Custom image for Infrastructure management appliance in IBM Cloud
 {: #config-image}
@@ -64,21 +64,21 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
 1. If you don't already have an instance of IBM Cloud Object Storage, see [Getting started with IBM Cloud Object Storage](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-getting-started)
 
-    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage.png){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
+    ![Figure showing example Cloud Object Storage created.](images/cloud_object_storage_v2.png){: caption="Figure 2. Example Cloud Object Storage created" caption-side="bottom"}
 
     You must also create a bucket in IBM Cloud Object Storage to store your images.
-    ![Figure showing example standard type bucket created.](images/buckets.png){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
+    ![Figure showing example standard type bucket created.](images/buckets_v2.png){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
 
 
 2. Upload the Infrastructure management installation image (file name: `cp4mcm-im-rhos-2.1.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). 
 
    **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  
-![Figure showing example that uses Aspera uploaded file to bucket.](images/upload_images_to_bucket.png){: caption="Figure 4. Example using Aspera uploaded file to bucket" caption-side="bottom"}
+![Figure showing example that uses Aspera uploaded file to bucket.](images/upload_images_to_bucket_v2.png){: caption="Figure 4. Example using Aspera uploaded file to bucket" caption-side="bottom"}
 
 3. From IBM Cloud Identity and Access Management (IAM), create an authorization between the Virtual Private Cloud (VPC) Infrastructure (source service) > Image Service for VPC (resource type) and Cloud Object Storage (target service). For more information, see [Create an authorization](https://cloud.ibm.com/docs/iam?topic=iam-serviceauth#serviceauth).
     
     **Important**: The configuration must be set up as this example or permissions can fail. 
-    ![Figure showing example IAM authorization.](images/service_auth_vpc.png){: caption="Figure 5. Example IAM authorization" caption-side="bottom"}
+    ![Figure showing example IAM authorization.](images/service_auth_vpc_v2.png){: caption="Figure 5. Example IAM authorization" caption-side="bottom"}
 
 4. Create a generation 2 Virtual Private Cloud (**Must be generation 2**). For more information, see [Create a VPC](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started#create-and-configure-vpc)
   
@@ -88,7 +88,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
     c. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 
-    ![Figure showing example VPC.](images/service_auth_vpc.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
+    ![Figure showing example VPC.](images/vpc_details_v2.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
 
 5. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 
@@ -104,7 +104,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
     d. Select the region.
 
-    ![Figure showing importing of custom image.](images/import_custom_image.png){: caption="Figure 8. Example import of custom image" caption-side="bottom"}
+    ![Figure showing importing of custom image.](images/import_custom_image_v2.png){: caption="Figure 8. Example import of custom image" caption-side="bottom"}
 
     e. Select your Cloud Object Storage and bucket based on your authorization that is created in step 3.
 
@@ -114,7 +114,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
     h. Click **Import custom image**.
 
-    ![Figure showing example of custom image imported.](images/select_qcow2_image.png){: caption="Figure 9. Example of custom image imported" caption-side="bottom"}
+    ![Figure showing example of custom image imported.](images/select_qcow2_image_v2.png){: caption="Figure 9. Example of custom image imported" caption-side="bottom"}
 
     ![Figure showing example of custom image listing after successful image creation.](images/results_vpc_images.png){: caption="Figure 10. Example of custom image listing after successful image creation" caption-side="bottom"}
 
@@ -132,7 +132,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
    e. Add an ssh key. You can use a public key. For more information, see: [Locating or generating your SSH key](https://cloud.ibm.com/docs/vpc-on-classic-vsi?topic=vpc-on-classic-vsi-ssh-keys#locating-or-generating-your-ssh-key).
 
-   ![Figure showing add ssh key.](images/ssh_keys.png){: caption="Figure 13. Add an ssh key" caption-side="bottom"}
+   ![Figure showing add ssh key.](images/ssh_keys_v2.png){: caption="Figure 13. Add an ssh key" caption-side="bottom"}
 
    f. Add storage to your virtual service. For example, 100 gigabytes. This volume is needed to configure the Infrastructure management appliance. 
 
@@ -148,7 +148,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
 9. Assign the floating IP address:
 
-   ![Figure showing example Floating IP address.](images/floating_ip_vpc.png){: caption="Figure 16. Example Floating IP address assigned" caption-side="bottom"}
+   ![Figure showing example Floating IP address.](images/floating_ip_vpc_v2.png){: caption="Figure 16. Example Floating IP address assigned" caption-side="bottom"}
 
 
 ## Step 3. Setting up the Infrastructure management appliance

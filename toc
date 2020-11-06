@@ -13,8 +13,8 @@ IBM Cloud Pak for Multicloud Management
     ansible-getting-started.md
     {: .navgroup-end}
     
-{: .toc subcollection="cloud-pak-multicloud-management" audience="cloud-pak" category="cloud_pak" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-cf-getting-started" path="cloud-pak-multicloud-management"}
-IBM Cloud Pak for Multicloud Management
+{: .toc subcollection="cloud-pak-multicloud-management-cf-ans" audience="cloud-pak" category="cloud_pak" href="/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-cf-getting-started" path="cloud-pak-multicloud-management"}
+IBM Cloud Pak for Multicloud Management Cloud Forms and Ansible
 
     {: .navgroup id="learn"}
     cf-getting-started.md

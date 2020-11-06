@@ -85,7 +85,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     sudo yum install ansible
     ```
     {: codeblock}
-    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
+    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
     Run this command to check ansible version: ``<ansible --version>``.
 
 5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. 
@@ -185,7 +185,7 @@ Enable navigation to Red Hat Ansible Tower within the IBM Cloud Pak console.
 
 Complete the following steps on a Linux system. These steps enable navigation to Ansible from the IBM Cloud Pak​​ console:
 
-1. Obtain the menu customization script, `automation-navigation-updates.sh`, from [IBM Passport Advantage® ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www-01.ibm.com/software/passportadvantage/){: new_window} website. You must run the script on a Linux operating system.
+1. Obtain the menu customization script, `automation-navigation-updates.sh`, from [IBM Passport Advantage](https://www-01.ibm.com/software/passportadvantage/)website. You must run the script on a Linux operating system.
 
 2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")]((https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/kubectl/install_kubectl.html)).
 
@@ -197,7 +197,7 @@ Complete the following steps on a Linux system. These steps enable navigation to
 
    mv jq /usr/bin
    ```
-   For more information, see [Download jq ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://stedolan.github.io/jq/download/){: new_window}.
+   For more information, see [Download jq](https://stedolan.github.io/jq/download/).
 
 4. Copy the `automation-navigation-updates.sh` script to a directory location. Set the file permissions on the script and run the script to enable navigation to your Ansible instance:
 

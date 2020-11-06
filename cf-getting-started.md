@@ -27,6 +27,8 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
 
 ## Before you begin
 
+- You must have {{site.data.keyword.cp4mcm_full_notm}} V1.3 installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
+
 - Before you can install CloudForms, you must download the images from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). Download these two part numbers:
   
 | Description                                                                      | File name                               | Passport Advantage part number |
@@ -38,8 +40,6 @@ You can install CloudForms as a virtual appliance in IBM Cloud.
   
 - You must have an IBM Cloud user account with the following roles: 
 ![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
-
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)  
 
 
 ## Step A. Setting up the Custom image for CloudForms in IBM Cloud
@@ -71,7 +71,7 @@ Create a custom Linux-based image to deploy CloudForms as a virtual server insta
 
     c. Attach a public gateway if you want to allow all resources in a subnet to communicate with the public internet.
 
-    ![Figure showing example VPC.](images/service_auth_vpc.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
+    ![Figure showing example VPC.](images/vpc_details.png){: caption="Figure 6. Example VPC" caption-side="bottom"}
 
 5. Configure an access control list (ACL) to limit the subnet's inbound and outbound traffic.
 

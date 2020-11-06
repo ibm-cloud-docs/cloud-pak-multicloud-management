@@ -188,7 +188,7 @@ Complete the following steps on a Linux system. These steps enable navigation to
 
 1. Obtain the menu customization script, `automation-navigation-updates.sh`, from [IBM Passport Advantage® ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www-01.ibm.com/software/passportadvantage/){: new_window} website. You must run the script on a Linux operating system.
 
-2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](../kubectl/install_kubectl.md).
+2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")]((https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/kubectl/install_kubectl.html)).
 
 3. Download and configure the JQ tool by using the following commands:
    ```

@@ -22,7 +22,7 @@ subcollection: cloud-pak-multicloud-management
 Infrastructure management was previously named IBM Red Hat CloudForms. Infrastructure management delivers the insight, control, and automation enterprises need to address the challenges of managing virtual environments. This technology enables enterprises to improve visibility and control with virtual infrastructures.
 
 ## Overview
-The instructions for deploying Infrastructure management with IBM Cloud Pak for Multicloud Management are identical for versions 2.0.0 and 2.1.0. If you are installing v2.0.0, download and use the v2.0.0 part numbers. If you are installing v2.1.0, download and use the v2.1.0 part numbers. You must use the same version for Infrastructure management that match with your IBM Cloud Pak for Multicloud Management version.
+The instructions for deploying Infrastructure management with IBM Cloud Pak for Multicloud Management are identical for versions 2.0.0 and 2.1.0. If you are installing 2.0.0, download and use the 2.0 part numbers. If you are installing 2.1.0, download and use the 2.1 part numbers. You must use the same version for Infrastructure management that match with your IBM Cloud Pak for Multicloud Management version.
 
 ## Passport Advantage part numbers
 Use these tables to find the files that you need from IBM Passport Advantage and the corresponding part numbers.

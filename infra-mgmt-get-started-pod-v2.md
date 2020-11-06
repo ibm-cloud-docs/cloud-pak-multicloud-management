@@ -37,9 +37,9 @@ Complete these steps to install Infrastructure management as a containerized dep
 
   For more information, see [Enabling operators after IBM Cloud Pak for Multicloud Management installation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/enable_operator.html).
 
-- You must configure and connect an LDAP directory with {{site.data.keyword.cp4mcm_full_notm}}. You must have an LDAP group in your configuration for {{site.data.keyword.cp4mcm_full_notm}} with users defined who will access Infrastructure management. For more information, see the [IAM Guide](../../iam/3.x.x/iam_guide.md){: new_window}.
+- You must configure and connect an LDAP directory with {{site.data.keyword.cp4mcm_full_notm}}. You must have an LDAP group in your configuration for {{site.data.keyword.cp4mcm_full_notm}} with users defined who will access Infrastructure management. For more information, see the [IAM Guide](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/iam/3.x.x/iam_guide.html){: new_window}.
 
-- ***cloudctl*** must be installed and authenticated to your cluster. You must install the IBM Cloud Pak CLI, `cloudctl`. For more information, see [Installing the IBM Cloud Pak CLI ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](../../cloudctl/install_cli.md){: new_window}.
+- ***cloudctl*** must be installed and authenticated to your cluster. You must install the IBM Cloud Pak CLI, `cloudctl`. For more information, see [Installing the IBM Cloud Pak CLI ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/cloudctl/install_cli.html){: new_window}.
 
   **Note:** Download the installation file for CLI tools from the console.
 
@@ -308,7 +308,7 @@ After the OIDC configuration is completed for Infrastructure management, you can
 * Add the image pull secret `imagePullSecret` to access the Infrastructure management images required by the installer.
     *  imagePullSecret: *my-pull-secret*
      
-       **Note:** `imagePullSecret` is the same secret that was created for entitled registry. For more information, see [Create the entitled registry secret](../../install/prep_online.md#er)
+       **Note:** `imagePullSecret` is the same secret that was created for entitled registry. For more information, see [Create the entitled registry secret](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/prep_online.html#er)
 
 Example CR:
 
@@ -399,7 +399,7 @@ Download the part number: CC7X4EN
 
 1. Obtain the menu customization script, `automation-navigation-updates.sh`, from [IBM Passport Advantage® ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/software/passportadvantage/){: new_window} website. You must run the script on a Linux operating system. 
 
-2. Install and authenticate `kubectl`. For more information, see [Managing your clusters with {{site.data.keyword.cp4mcm_full_notm}} ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](../../kubectl/install_kubectl.md).
+2. Install and authenticate `kubectl`. For more information, see [Managing your clusters with {{site.data.keyword.cp4mcm_full_notm}} ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/kubectl/install_kubectl.html).
 
 3. Download and configure the JQ tool by using the following commands:
    ```

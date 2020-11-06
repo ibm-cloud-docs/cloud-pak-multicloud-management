@@ -14,7 +14,7 @@ lastupdated: "2020-11-05"
 {:child: .link .ulchildlink}
 {:childlinks: .ullinks}
 
-# Deploying Infrastructure management
+# Getting started with Infrastructure management
 Infrastructure management was previously named IBM Red Hat CloudForms. Infrastructure management delivers the insight, control, and automation enterprises need to address the challenges of managing virtual environments. This technology enables enterprises to improve visibility and control with virtual infrastructures.
 
 ## Overview
@@ -27,14 +27,14 @@ Two options are available to install and deploy operands for Infrastructure mana
       2. Deploy the ibm-management-im-install operand.
       3. Create a connection for the functional operators.
       4. Download and run the automation script to enable navigation to Infrastructure management with {{site.data.keyword.cloud_pak}}.
-   - To install Infrastructure management as a containerized deployment, see [Deploying Infrastructure management as a containerized deployment (podified)](../cloud-pak-multicloud-management/infra-mgmt-get-started-pod-v2.md)
+   - To install Infrastructure management as a containerized deployment, see [Deploying Infrastructure management as a containerized deployment (podified)](infra-mgmt-get-started-pod-v2.md)
 
 ### Option 2. Install Infrastructure management as a virtual machine appliance.
    - Installing Infrastructure management as a virtual machine appliance consists of these steps.
       1. Download the Infrastructure management appliance package for your environment.
       2. Install and configure the Infrastructure management appliance.
       3. Configure OIDC integration between IBM Cloud Pak for Multicloud Management and the Infrastructure management appliance.      
-   - To install Infrastructure management as a virtual machine appliance, see [Deploying Infrastructure management as a virtual machine appliance](../cloud-pak-multicloud-management/infra-mgmt-get-started-app-v2.md). 
+   - To install Infrastructure management as a virtual machine appliance, see [Deploying Infrastructure management as a virtual machine appliance](infra-mgmt-get-started-app-v2.md). 
 
 The Infrastructure management-related operators.
 

@@ -32,13 +32,13 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 - Your target cluster must be an OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed. For more information, see [Getting started with IBM Cloud Pak for Multicloud Management](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
 - You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
 - Download the  IBM Cloud Pak® for Multicloud Management 2.1 part numbers from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
-  - Red Hat Ansible Tower key  - CC737ENS (temporary-tower-license.txt)
-  - Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 - CC734EN (automation-navigation-updates.sh)
+  - Red Hat Ansible Tower key  - CC7X6EN (temporary-tower-license.txt)
+  - Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 - CC7X4EN (automation-navigation-updates.sh)
 - (Optional) Earlier part numbers are also available
   - IBM Cloud Pak® for Multicloud Management 2.0 - Red Hat Ansible Tower key - CC737EN
   - IBM Cloud Pak® for Multicloud Management 2.0 - Automation navigation for IBM Cloud Pak for Multicloud Management 2.0 - CC734EN
-  - IBM Cloud Pak® for Multicloud Management 1.3 - Red Hat Ansible Tower key - CC7X6EN
-  - IBM Cloud Pak® for Multicloud Management 1.3 - Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 - CC737EN
+  - IBM Cloud Pak® for Multicloud Management 1.3 - Red Hat Ansible Tower key - CC79QEN
+  - IBM Cloud Pak® for Multicloud Management 1.3 - Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 - CC66KEN
 
 
 
@@ -85,7 +85,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     sudo yum install ansible
     ```
     {: codeblock}
-    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
+    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
     Run this command to check ansible version: ``<ansible --version>``.
 
 5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. 

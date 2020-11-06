@@ -197,7 +197,7 @@ Complete the following steps on a Linux system. These steps enable navigation to
 
    mv jq /usr/bin
    ```
-   For more information, see [Download jq ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://stedolan.github.io/jq/download/){: new_window}.
+   For more information, see [Download jq](https://stedolan.github.io/jq/download/).
 
 4. Copy the `automation-navigation-updates.sh` script to a directory location. Set the file permissions on the script and run the script to enable navigation to your Ansible instance:
 

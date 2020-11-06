@@ -69,7 +69,6 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
     You must also create a bucket in IBM Cloud Object Storage to store your images.
     ![Figure showing example standard type bucket created.](images/buckets_v2.png){: caption="Figure 3. Example Standard type bucket created" caption-side="bottom"}
 
-
 2. Upload the Infrastructure management installation image (file name: `cp4mcm-im-rhos-2.1.x86_64.qcow2`) to your IBM Cloud Object Storage. Select your bucket and click Add Objects to upload the images. For more information, see [Uploading data by using the console](https://cloud.ibm.com/docs/services/cloud-object-storage?topic=cloud-object-storage-upload#upload-console). 
 
    **Note:** You can use the Aspera high-speed transfer plug-in to upload images larger than 200 MB.  

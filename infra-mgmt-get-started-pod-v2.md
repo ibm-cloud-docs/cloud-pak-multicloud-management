@@ -37,14 +37,13 @@ Complete these steps to install Infrastructure management as a containerized dep
 
   For more information, see [Enabling operators after IBM Cloud Pak for Multicloud Management installation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/enable_operator.html).
 
-- You must configure and connect an LDAP directory with {{site.data.keyword.cp4mcm_full_notm}}. You must have an LDAP group in your configuration for {{site.data.keyword.cp4mcm_full_notm}} with users defined who will access Infrastructure management. For more information, see the [IAM Guide](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/iam/3.x.x/iam_guide.html){: new_window}.
+- You must configure and connect an LDAP directory with {{site.data.keyword.cp4mcm_full_notm}}. You must have an LDAP group in your configuration for {{site.data.keyword.cp4mcm_full_notm}} with users defined who will access Infrastructure management. For more information, see the [IAM Guide](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/iam/3.x.x/iam_guide.html).
 
-- ***cloudctl*** must be installed and authenticated to your cluster. You must install the IBM Cloud Pak CLI, `cloudctl`. For more information, see [Installing the IBM Cloud Pak CLI ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/cloudctl/install_cli.html){: new_window}.
+- ***cloudctl*** must be installed and authenticated to your cluster. You must install the IBM Cloud Pak CLI, `cloudctl`. For more information, see [Installing the IBM Cloud Pak CLI ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/cloudctl/install_cli.html).
 
   **Note:** Download the installation file for CLI tools from the console.
 
-- ***oc*** must be installed and authenticated to your cluster. If OpenShift Container Platform CLI tools are not installed on the system, you need to download, decompress, and install the OpenShift Container Platform CLI tools `oc` from
-[ OpenShift Container Platform client binary files ![Opens in a new tab](../../images/icons/launch-glyph.svg "Opens in a new tab")](https://mirror.openshift.com/pub/openshift-v4/clients/){: new_window}.
+- ***oc*** must be installed and authenticated to your cluster. If OpenShift Container Platform CLI tools are not installed on the system, you need to download, decompress, and install the OpenShift Container Platform CLI tools `oc` from [OpenShift Container Platform client binary files](https://mirror.openshift.com/pub/openshift-v4/clients/).
 
 ## Step 1. Generate client ID and client secret
 {: #gen-client-id-and-client-secret}

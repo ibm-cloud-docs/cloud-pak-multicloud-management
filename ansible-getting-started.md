@@ -37,8 +37,8 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 - (Optional) Earlier part numbers are also available
   - IBM Cloud Pak® for Multicloud Management 2.0 - Red Hat Ansible Tower key - CC737EN
   - IBM Cloud Pak® for Multicloud Management 2.0 - Automation navigation for IBM Cloud Pak for Multicloud Management 2.0 - CC734EN
-  - IBM Cloud Pak® for Multicloud Management 1.3 - Red Hat Ansible Tower key - CC7X6EN
-  - IBM Cloud Pak® for Multicloud Management 1.3 - Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 - CC737EN
+  - IBM Cloud Pak® for Multicloud Management 1.3 - Red Hat Ansible Tower key - CC79QEN
+  - IBM Cloud Pak® for Multicloud Management 1.3 - Automation navigation for IBM Cloud Pak for Multicloud Management 1.3 - CC66KEN
 
 
 

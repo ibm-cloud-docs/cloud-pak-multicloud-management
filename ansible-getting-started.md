@@ -29,11 +29,10 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 ## Before you begin
 
 - You must have a Linux system with OpenShift command-line tool (oc) installed to run the installer.
-- Your target cluster must be an OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed. For more information, see [Getting started with IBM Cloud Pak for Multicloud Management](https://.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
+- Your target cluster must be an OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed. For more information, see [Getting started with IBM Cloud Pak for Multicloud Management](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
 - You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
 - Download the  IBM Cloud Pak® for Multicloud Management 2.1 part numbers from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html) (earlier versions are also available). 
 
-   
     |Version|Description| Filename| Passport Advantage number |
     |-----|-----|-----|-----|
     |IBM Cloud Pak® for Multicloud Management 2.1|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|

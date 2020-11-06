@@ -9,8 +9,6 @@ IBM Cloud Pak for Multicloud Management
     getting-started-13.md
     getting-started-20.md
     cf-getting-started.md
-    infra-mgmt-get-started-ov.md
-    infra-mgmt-get-started-pod-v2.md
-    infra-mgmt-get-started-app-v2.md
+    infra-mgmt-get-started-ov.md    
     ansible-getting-started.md
     {: .navgroup-end}

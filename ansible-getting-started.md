@@ -30,78 +30,70 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 
 - You must have a Linux system with OpenShift command-line tool (oc) installed to run the installer.
 
-- Before you can install Red Hat Ansible Tower, you must download the license key and the `automation-navigation-updates.sh` script from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+- Download the following from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+    - Red Hat Ansible Tower 3.6 key - CC737EN  (temporary-tower-license.txt)  
+    - Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 - CC734EN (automation-navigation-updates.sh)
+
+    (For the list of all part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html).)
   
-Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
+- Your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
 
-| Description                                                                      | File name                               | Passport Advantage part number |
-|----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
-| Red Hat Ansible Tower 3.6 key | temporary-tower-license.txt |   CC5WCEN  |
-| Automation navigation for IBM Cloud Pak® for Multicloud Management 1.3 | automation-navigation-updates.sh | CC66KEN  |
+- You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
 
-- For the list of all part numbers, see [Passport Advantage part numbers](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_1.3.0/about/part_numbers.html).
-  
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started)
-
-- You must have Admin privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required)
-
-- **Notes**:
-
-   * When you install Red Hat Ansible Tower, your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed.
-
-   * Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster.
 
 ## Installing Red Hat Ansible Tower
 {: #install-ansible}
 
-1. To install Ansible Tower on OpenShift, log in to OpenShift as admin from your Linux system.
+1. Log in to OpenShift as an administrator from your Linux system.
    ```
    oc login --token=<token> --server=<URL>
    ```
-   Following is an example login command:
+   For example:
    ```
    oc login --token=EtZqGLpwxpL8b6CAjs9Bvx6kxe925a1HlB__AR3gIOs --server=https://c100-e.us-east.containers.cloud.ibm.com:32653
    ```
    You can find the `oc login` for your OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed by using these steps:
-   1. Browse and log in to IBM cloud, https://cloud.ibm.com/
-   2. Browse to **OpenShift**>**Clusters**
-   3. Select your cluster where IBM Cloud Pak for Multicloud Management is installed.
-   4. Log in to the OpenShift web console
-   5. Click **IAM#<yourID>** menu, then select "Copy Login Command"
-   6. Click Display Token link
-   7. Copy the provided `oc login ...` CLI command to log in to OpenShift.
+
+      a. Log in to IBM Cloud: https://cloud.ibm.com/  
+      b. Select **OpenShift**>**Clusters** and select the cluster where IBM Cloud Pak for Multicloud Management is installed.  
+      c. Log in to the OpenShift web console and select the  **IAM &lt;yourID&gt;** menu, then select "Copy Login Command".  
+      d. Click the Display Token link.  
+      e. Copy the provided `oc login ...` CLI command to log in to OpenShift.  
     
-2. Ensure that Ansible is installed. Run the command:
-    ```
-    sudo yum install ansible
-    ```
-    {: codeblock}
+2. On your Linux system, download the installation package by running the following command: 
 
-3. On your Linux system, download the package for ansible-tower-openshift-setup 
-
-    Run the command:
     ```
     wget https://releases.ansible.com/ansible-tower/setup_openshift/ansible-tower-openshift-setup-latest.tar.gz
     ```
     {: codeblock}
 
-4. Extract the package by running the commands:  
+3. Extract the package by running the following commands:  
     ```
     tar xvf ansible-tower-openshift-setup-latest.tar.gz
     ```
     {: codeblock}
 
     ```
-    cd ansible-tower-openshift-setup-3.6.4
+    cd ansible-tower-openshift-<version_from_step2>
     ```
     {: codeblock}
 
-5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. Switch to the new project before performing the rest of the steps.
+4. To install Ansible, run the following command:
+    ```
+    sudo yum install ansible
+    ```
+    {: codeblock}
+    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
+    Run this command to check ansible version: ``<ansible --version>``.
+
+5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. 
 
     ```
     oc new-project ansible-tower
     ```
     {: codeblock}
+
+6. (Optional) Switch to the new project/namespace and add an application: 
     ```
     oc project ansible-tower 
     ```
@@ -111,7 +103,7 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
 
-6. Create a pvc named **postgresql**. Sample PVC resource file named postgres-nfs-pvc.yaml
+7. Create a pvc named **postgresql**. Sample PVC resource file named postgres-nfs-pvc.yaml
     ```
     apiVersion: v1
     kind: PersistentVolumeClaim
@@ -136,50 +128,54 @@ Download the part numbers CC66KEN and CC5WCEN from IBM Passport Advantage.
     ```
     {: codeblock}
     
-7. Ensure that the pvc is created.
+8. Ensure that the pvc is created.
     ```
     oc get pvc
     ```
     {: codeblock}
 
-8. Modify the Ansible playbook to use insecure login.
+9. Modify the Ansible playbook to use insecure login.
 
     ```
     sed -i "s/{{ openshift_skip_tls_verify | default(false)/{{ openshift_skip_tls_verify | default(true)/g" roles/kubernetes/tasks/openshift_auth.yml
     ```
     {: codeblock}
     
-9. Run the installation command:
+10. Run the installation command to complete the setup:
 
-    ```
-    ./setup_openshift.sh -e openshift_host=https://api.green.coc-ibm.com:6443 -e openshift_project=ansible-tower -e openshift_user=admin -e openshift_token=<YOUR_TOKEN> -e admin_password=rudolph-the-reindeer -e secret_key=mysecret -e pg_username=postgresuser -e pg_password=postgrespwd -e rabbitmq_password=rabbitpwd -e rabbitmq_erlang_cookie=rabbiterlangapwd
+      ```
+    ./setup_openshift.sh -e openshift_host=https://<host>:<port> -e openshift_project=ansible-tower -e openshift_user=<openshift_user> -e openshift_token=<openshift-token>  
+     -e admin_password=<admin-pass> -e secret_key=<my-secret> -e pg_username=<pg_username> -e pg_password=<pg_password> -e rabbitmq_password=<rabbitmq-pass> -e 
+    rabbitmq_erlang_cookie=<rabbiterlangapwd>
     ```
     {: codeblock}
-    
-    **Note:**   Modify the values for OpenShift API URL, admin user, admin token, and the passwords you want to set for Ansible Tower.  
-    Find the openshift_host variable by using this command: ``kubectl get configmap -n kube-public -o yaml``  
-    Find the openshift_token variable by using this command: ``$(oc whoami -t)``  
-    This completes the setup of Ansible tower.
 
-10. Log in to Ansible Tower and import the license from the 
-`temporary-tower-license.txt` downloaded in "Before you begin".  
-To locate the Ansible Tower url to login and the    default userID and password, run the following command:  
+    - Modify the values for the following parameters: `openshift_host, openshift_user, openshift_token, admin_password, secret_key, pg_username, pg_password, rabbitmq_password, and rabbitmq_erlang_cookie`.  
+     Where  
+    - ``<host>`` is the cluster_kube_apiserver_host, for example ``https://api.green.coc-ibm.com:6443 ``.
+    - ``<port>`` is the cluster_kube_apiserver_port. 
+    - To find the ``<host>`` and ``<port>`` variables, run this command: `kubectl get configmap -n kube-public -o yaml`.
+    - ``<openshift_user>`` is the OpenShift admin user.
+    - ``<openshift-token>`` is the token that you obtain by running this command ``oc whoami -t`` or login to the OpenShift console and click the user's Copy Login Command.
+    - ``<admin-pass>`` is the password that you want to set for Ansible Tower admin user.
+    - ``<my-secret>`` is the secret that you want to set. It can be a base64 encoded string.
+    - ``<pg_username>`` is the username for postgresql.
+    - ``<pg_password``> is the password for postgresql.
+    - ``<rabbitmq_pass>`` is the password for Rabbit MQ.
+    - ``<rabbiterlangapwd>`` is the Rabbit MQ erlang cookie.  
 
+11. Log in to Ansible Tower and import the license from the ``temporary-tower-license.txt`` downloaded in *Before you begin* section. The first time you log in to Ansible Tower, the license screen is automatically displayed:
+	```
+    http://<ansible-tower-host>
+    ```
+
+    Run this command to locate the <ansible-tower-host> value:
     ```
     oc get route -n ansible-tower
     ```
+    {: codeblock}
+    The default admin-username is ``admin`` and password is the password you set for the ``admin_password`` parameter during installation, in the ``setup_openshift.sh`` command.
 
-
-     When Ansible Tower starts for the first time, the license screen is automatically displayed. Import the license key that you received in `temporary-tower-license.txt`.
-
-11. Click Browse and select the location where the license file is saved to upload it. The uploaded license can be a plain text file or a JSON file, and must include properly formatted JSON code.
-
-    The license is recognized, continue by checking the End-User license Agreement.
-    After you specify your tracking and analytics preferences, click Submit.
-        
-    The license is accepted, and Ansible Tower briefly displays the license screen and takes you to the Dashboard of the Ansible Tower interface. You can access the license screen by clicking the Ansible Tower logo.
- 
-    Ansible Tower can now be integrated with IBM Cloud Pak for Multicloud Manager.
 
 ## Integrate Ansible Tower with IBM Cloud Pak for Multicloud Management
 
@@ -187,21 +183,30 @@ Enable navigation to Red Hat Ansible Tower within the IBM Cloud Pak console.
 
 Complete the following steps on a Linux system. These steps enable navigation to Ansible from the IBM Cloud Pak​​ console:
 
-1. Obtain the Automation navigation for IBM Cloud Pak​​ for Multicloud Management 1.3 script, `automation-navigation-updates.sh`, downloaded from [IBM Passport Advantage®](https://www.ibm.com/software/passportadvantage/) website. This script was downloaded from IBM Passport Advantage in the "Before you begin" section.
+1. Obtain the menu customization script, `automation-navigation-updates.sh`, from [IBM Passport Advantage® ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www-01.ibm.com/software/passportadvantage/){: new_window} website. You must run the script on a Linux operating system.
 
-2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](https://www.ibm.com/support/knowledgecenter/SSFC4F_1.3.0/kubectl/install_kubectl.html).
+2. Install and authenticate `kubectl`. For more information, see [Installing the Kubernetes CLI (kubectl)](../kubectl/install_kubectl.md).
 
-3. Install JQ. For more information, see [Download jq](https://stedolan.github.io/jq/download/).
+3. Download and configure the JQ tool by using the following commands:
+   ```
+   wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+
+   chmod +x ./jq
+
+   mv jq /usr/bin
+   ```
+   For more information, see [Download jq ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://stedolan.github.io/jq/download/){: new_window}.
 
 4. Copy the `automation-navigation-updates.sh` script to a directory location. Set the file permissions on the script and run the script to enable navigation to your Ansible instance:
 
    ```
    chmod 755 ./automation-navigation-updates.sh
 
-   ./automation-navigation-updates.sh -t ansible-tower
+   ./automation-navigation-updates.sh -a <name>
    ```
 
-    **Note:** Make sure the `-t <name>` matches the name that is used for the `openshift_project` from Step 9. For example, `./setup_openshift.sh -e openshift_project=ansible-tower`. In this example, `ansible-tower` is the name that is used.
+    where &lt;name&gt; is the name that is used for the `openshift_project` paramater in step 10.   
+    For example, `./setup_openshift.sh -e openshift_project=ansible-tower`. In this example, `ansible-tower` is the name that is used.
    
 5. Verify that the Ansible Tower instance is in the IBM Cloud Pak​​ console navigation menu. From the IBM Cloud Pak​​ navigation menu, click **Automate infrastructure** > **Ansible automation**.
 

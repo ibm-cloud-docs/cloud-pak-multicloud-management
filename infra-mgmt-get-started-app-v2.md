@@ -2,18 +2,21 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-27"
+lastupdated: "2020-11-05"
+
+keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
+
+subcollection: cloud-pak-multicloud-management
 
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:child: .link .ulchildlink}
-{:childlinks: .ullinks}
-
+{:tip: .tip}
+{:note: .note}
+{:external: target="_blank" .external}
 
 # Option 2. Deploying Infrastructure management as a virtual machine appliance
 

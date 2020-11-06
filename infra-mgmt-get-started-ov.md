@@ -4,15 +4,19 @@ copyright:
   years: 2020
 lastupdated: "2020-11-05"
 
+keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
+
+subcollection: cloud-pak-multicloud-management
+
 ---
 
-{:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:child: .link .ulchildlink}
-{:childlinks: .ullinks}
+{:tip: .tip}
+{:note: .note}
+{:external: target="_blank" .external}
 
 # Getting started with Infrastructure management
 Infrastructure management was previously named IBM Red Hat CloudForms. Infrastructure management delivers the insight, control, and automation enterprises need to address the challenges of managing virtual environments. This technology enables enterprises to improve visibility and control with virtual infrastructures.

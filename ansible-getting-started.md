@@ -85,7 +85,7 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
     sudo yum install ansible
     ```
     {: codeblock}
-    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
+    Note: Ensure the ansible version installed is the required version for the setup bundle you downloaded, see the [Ansible Software Requirements](https://docs.ansible.com/ansible-tower/3.7.1/html/installandreference/requirements_refguide.html#ansible-software-requirements) in the Ansible Tower documentation.  
     Run this command to check ansible version: ``<ansible --version>``.
 
 5. Create an `ansible-tower` namespace for your Red Hat Ansible installation in your OpenShift cluster. 

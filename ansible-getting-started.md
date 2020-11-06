@@ -29,16 +29,29 @@ Red Hat Ansible Tower is an Internet-based hub that runs your automation tasks. 
 ## Before you begin
 
 - You must have a Linux system with OpenShift command-line tool (oc) installed to run the installer.
-
-- Download the following from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
-    - Red Hat Ansible Tower 3.6 key - CC737EN  (temporary-tower-license.txt)  
-    - Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1 - CC734EN (automation-navigation-updates.sh)
-
-    (For the list of all part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html).)
-  
-- Your target cluster must be an OpenShift cluster where {{site.data.keyword.cp4mcm_full_notm}} is installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}}](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
-
+- Your target cluster must be an OpenShift cluster where IBM Cloud Pak for Multicloud Management is installed. For more information, see [Getting started with IBM Cloud Pak for Multicloud Management](https://.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started).
 - You must have administrator privileges for the account that is used to run the OpenShift installer (`cluster-admin` role is required).
+- Download the following IBM Cloud Pak® for Multicloud Management 2.1 part numbers from [IBM Passport Advantage](https://www.ibm.com/software/passportadvantage/index.html). 
+
+    |Description| Filename| Passport Advantage number |  
+    |-----|-----|-----|
+    |Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
+    Automation navigation for IBM Cloud Pak® for Multicloud Management 2.1|automation-navigation-updates.sh|CC734EN|
+
+    For the list of all IBM Cloud Pak® for Multicloud Management 2.1 part numbers, see [Passport Advantage part numbers![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/support/knowledgecenter/en/SSFC4F_2.1.0/about/part_numbers.html).
+    <br>
+
+    Earlier versions are also available:
+    |Version|Description| Filename| Passport Advantage number |
+    |-----|-----|-----|-----|
+    |IBM Cloud Pak® for Multicloud Management 2.0|Red Hat Ansible Tower key|temporary-tower-license.txt|CC737EN|
+    |IBM Cloud Pak® for Multicloud Management 2.0|Automation navigation for IBM Cloud Pak for Multicloud Management 2.1|automation-navigation-updates.sh|CC734EN|
+    |IBM Cloud Pak® for Multicloud Management 1.3|Red Hat Ansible Tower key|temporary-tower-license.txt|CC7X6EN|
+    |IBM Cloud Pak® for Multicloud Management 1.3|Automation navigation for IBM Cloud Pak for Multicloud Management 2.1|automation-navigation-updates.sh|CC737EN|
+
+
+    
+  
 
 
 ## Installing Red Hat Ansible Tower

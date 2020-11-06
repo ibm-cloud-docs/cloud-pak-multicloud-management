@@ -38,7 +38,7 @@ Two options are available to install and deploy operands for Infrastructure mana
       1. Download the Infrastructure management appliance package for your environment.
       2. Install and configure the Infrastructure management appliance.
       3. Configure OIDC integration between IBM Cloud Pak for Multicloud Management and the Infrastructure management appliance.      
-   - To install Infrastructure management as a virtual machine appliance, see [Deploying Infrastructure management as a virtual machine appliance](infra-mgmt-get-started-app-v2.md). 
+   - To install Infrastructure management as a virtual machine appliance, see [Deploying Infrastructure management as a virtual machine appliance](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-option-2-deploying-infrastructure-management-as-a-virtual-machine-appliance). 
 
 The Infrastructure management-related operators.
 

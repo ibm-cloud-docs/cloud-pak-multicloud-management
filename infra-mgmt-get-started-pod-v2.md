@@ -18,7 +18,7 @@ subcollection: cloud-pak-multicloud-management
 {:note: .note}
 {:external: target="_blank" .external}
 
-# Option 1. Deploying Infrastructure management as a containerized deployment (podified).
+# Getting started deploying Infrastructure management as a containerized deployment (podified).
 
 Complete these steps to install Infrastructure management as a containerized deployment.
 {: shortdesc}

@@ -18,7 +18,7 @@ subcollection: cloud-pak-multicloud-management
 {:note: .note}
 {:external: target="_blank" .external}
 
-# Option 2. Deploying Infrastructure management as a virtual machine appliance
+# Getting started deploying Infrastructure management as a virtual machine appliance
 
 Complete these steps to install Infrastructure management as a virtual machine appliance.
 {: shortdesc}

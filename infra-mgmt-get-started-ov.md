@@ -33,7 +33,7 @@ Use these tables to find the files that you need from IBM Passport Advantage and
 
 Complete the following procedure to download your packages:
 
-1. Go to the {{site.data.keyword.ippa}} Online tab at [{{site.data.keyword.ppa_notm}} ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/software/passportadvantage/pao_customer.html){: new_window} and log in with your {{site.data.keyword.IBM_notm}} ID.
+1. Browse to [Passport Advantage Online ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/software/passportadvantage/pao_customer.html){: new_window} and log in with your IBM ID.
 2. Find your part number.
 3. Search for your files by using the part numbers that are listed in the tables.
 4. Download the files to a directory on your computer.
@@ -56,8 +56,8 @@ Two options are available to install and deploy operands for Infrastructure mana
       1. Configure OIDC integration between IBM Cloud Pak for Multicloud Management and Infrastructure management.
       2. Deploy the ibm-management-im-install operand.
       3. Create a connection for the functional operators.
-      4. Download and run the automation script to enable navigation to Infrastructure management with {{site.data.keyword.cloud_pak}}.
-   - To install Infrastructure management as a containerized deployment, see [Deploying Infrastructure management as a containerized deployment (podified)]((https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-option-2-deploying-infrastructure-management-as-a-containerized-deployment).
+      4. Download and run the automation script to enable navigation to Infrastructure management with IBM Cloud Pak for Multicloud Management.
+   - To install Infrastructure management as a containerized deployment, see [Deploying Infrastructure management as a containerized deployment (podified)](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-option-2-deploying-infrastructure-management-as-a-containerized-deployment).
 
 ### Option 2. Install Infrastructure management as a virtual machine appliance.
    - Installing Infrastructure management as a virtual machine appliance consists of these steps.

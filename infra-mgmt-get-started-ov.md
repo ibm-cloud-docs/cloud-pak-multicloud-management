@@ -22,6 +22,32 @@ subcollection: cloud-pak-multicloud-management
 Infrastructure management was previously named IBM Red Hat CloudForms. Infrastructure management delivers the insight, control, and automation enterprises need to address the challenges of managing virtual environments. This technology enables enterprises to improve visibility and control with virtual infrastructures.
 
 ## Overview
+The instructions for deploying Infrastructure management with IBM Cloud Pak for Multicloud Management are identical for versions 2.0.0 and 2.1.0. If you are installing v2.0.0, download and use the v2.0.0 part numbers. If you are installing v2.1.0, download and use the v2.1.0 part numbers. You must use the same version for Infrastructure management that match with your IBM Cloud Pak for Multicloud Management version.
+
+## Passport Advantage part numbers
+Use these tables to find the files that you need from IBM Passport Advantage and the corresponding part numbers.
+{: shortdesc}
+
+## Downloading packages
+{: #download}
+
+Complete the following procedure to download your packages:
+
+1. Go to the {{site.data.keyword.ippa}} Online tab at [{{site.data.keyword.ppa_notm}} ![Opens in a new tab](../images/icons/launch-glyph.svg "Opens in a new tab")](https://www.ibm.com/software/passportadvantage/pao_customer.html){: new_window} and log in with your {{site.data.keyword.IBM_notm}} ID.
+2. Find your part number.
+3. Search for your files by using the part numbers that are listed in the tables.
+4. Download the files to a directory on your computer.
+
+## Infrastructure management packages
+| Description                                                                      | File name                               | Passport Advantage part number |
+|----------------------------------------------------------------------------------|-----------------------------------------|--------------------------------|
+|IBM Cloud Pak for Multicloud Management 2.1 Infrastructure management for Red Hat OpenStack Platform |cp4mcm-im-rhos-2.1.x86_64.qcow2|CC7X2EN|
+|Automation navigation for IBM Cloud Pak for Multicloud Management 2.1|automation-navigation-updates.sh|CC7X4EN|
+|IBM Cloud Pak for Multicloud Management 2.0 Infrastructure management for Red Hat OpenStack Platform |cp4mcm-im-rhos-2.0.x86_64.qcow2|CC732EN|
+|Automation navigation for IBM Cloud Pak for Multicloud Management 2.0|automation-navigation-updates.sh|CC734EN|
+{: caption="Table 1. Infrastructure managment packages" caption-side="top"}
+
+## Installing Infrastructure management - the options
 
 Two options are available to install and deploy operands for Infrastructure management.
 

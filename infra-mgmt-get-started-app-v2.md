@@ -296,6 +296,7 @@ Example registration payload (for reference only):
       # Generate two encrypted streams from some longer-than-32-characters strings
       #
       echo There is a huge white elephant in LA zoo |base64
+      
       echo 12345678901234567890123456789012345 |base64
       ```
 

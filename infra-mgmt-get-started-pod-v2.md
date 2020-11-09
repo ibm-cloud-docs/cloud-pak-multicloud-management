@@ -50,8 +50,8 @@ Complete these steps to install Infrastructure management as a containerized dep
 
 Create unique strings to use for **client ID** and **client secret**. You can generate base64-encoded 32 character strings. Examples:
 
-    $ echo There is a huge white elephant in LA zoo | base64 > client_id.txt
-    $ echo 12345678901234567890123456789012345 | base64 > client_secret.txt
+    echo There is a huge white elephant in LA zoo | base64 > client_id.txt
+    echo 12345678901234567890123456789012345 | base64 > client_secret.txt
 
 Retain these values as you need them for subsequent steps. You can use the examples and the values are available in the files client_id.txt and client_secret.txt for later reference.
 
@@ -62,7 +62,7 @@ Retain these values as you need them for subsequent steps. You can use the examp
 
 Determine the main console URL for {{site.data.keyword.cp4mcm_full_notm}} by using the cp-console route. Run the following command:
 
-    $ oc -n ibm-common-services get route cp-console --template '{{.spec.host}}'
+    oc -n ibm-common-services get route cp-console --template '{{.spec.host}}'
 
 Example command output: `cp-console.apps.mycluster.os.fyre.ibm.com`
 
@@ -353,7 +353,7 @@ Apply the CR by using the Red Hat® OpenShift console or the CLI.
 3. Update the YAML file.
 4. Create an instance to deploy Infrastructure management by running the command:
     ~~~
-    $ oc apply -f infra.management.ibm.com_v1alpha1_iminstall_cr.yaml
+    oc apply -f infra.management.ibm.com_v1alpha1_iminstall_cr.yaml
     ~~~
     {: codeblock}
 5. Verify that pods are running (it can take up to 15 minutes for pods to start).

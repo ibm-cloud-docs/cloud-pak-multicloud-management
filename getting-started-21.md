@@ -199,34 +199,6 @@ When you are running the commands to remove the associated resources, use the pr
 
 ## Troubleshooting
 
-### 1. Mutation Advisor minio pod is not working correctly
-
-#### Problem
-
-When the Mutation Advisor (`ibm-management-mutation-advisor`) operator is enabled, the minio pod is not working correctly.
-
-#### Solution
-
-If you enabled the Mutation Advisor (`ibm-management-mutation-advisor`) operator when you installed {{site.data.keyword.cp4mcm_full_notm}}, you must complete the following steps to ensure the minio pod works correctly:
-
-1. Run:
-  ```
-  oc edit csv ibm-management-mutation-advisor.v2.1.0 -n management-security-services
-  ```
-  {: codeblock}
-
-2. Update the following section for `minio`. Change the value for `region` to the actual region where you deployed your cluster and change `zone` to either the zone where you deployed your cluster or the zone where you want Mutation Advisor to be scheduled. 
-  ```
-  volumeClaimTemplates:
-  - metadata:
-      creationTimestamp: null
-      labels:
-        billingType: hourly
-        region: us-south
-        zone: dal12
-      name: datadir
-  ```
-
-### 2. Take action page is not displaying data.
+### Take action page is not displaying data.
 
   To solve this issue, complete the instructions in [Take Action pages show no data](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/mcm/troubleshoot/troubleshoot_takeactions.html).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-05"
+  years: 2020, 2021
+lastupdated: "2021-04-07"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
 
@@ -25,7 +25,7 @@ Complete these steps to install Infrastructure management as a containerized dep
 
 ## Prerequisites
 {: #pre-requisites}
-- You must have {{site.data.keyword.cp4mcm_full_notm}} V2.1 installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}} V2.1](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-21)  
+- You must have {{site.data.keyword.cp4mcm_full_notm}} V2.1 installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}} V2.1](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-21)  
 
 - Ensure you enable the operators for `Infrastructure management` by opening the {{site.data.keyword.cp4mcm_full_notm}} installation YAML file. Locate the `pakModules` section, and change `enabled: false` to `enabled: true`. Enable these Infrastructure management-related operators:
 

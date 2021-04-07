@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-05"
+  years: 2020, 2021
+lastupdated: "2021-04-07"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
 
@@ -57,14 +57,14 @@ Two options are available to install and deploy operands for Infrastructure mana
       2. Deploy the ibm-management-im-install operand.
       3. Create a connection for the functional operators.
       4. Download and run the automation script to enable navigation to Infrastructure management with IBM Cloud Pak for Multicloud Management.
-   - To install Infrastructure management as a containerized deployment, see [Getting started deploying Infrastructure management as a containerized deployment (podified)](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-deploying-infrastructure-management-as-a-containerized-deployment-podified-).
+   - To install Infrastructure management as a containerized deployment, see [Getting started deploying Infrastructure management as a containerized deployment (podified)](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-deploying-infrastructure-management-as-a-containerized-deployment-podified-).
 
 ### Option 2. Install Infrastructure management as a virtual machine appliance.
    - Installing Infrastructure management as a virtual machine appliance consists of these steps.
       1. Download the Infrastructure management appliance package for your environment.
       2. Install and configure the Infrastructure management appliance.
       3. Configure OIDC integration between IBM Cloud Pak for Multicloud Management and the Infrastructure management appliance.      
-   - To install Infrastructure management as a virtual machine appliance, see [Getting started deploying Infrastructure management as a virtual machine appliance](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-deploying-infrastructure-management-as-a-virtual-machine-appliance). 
+   - To install Infrastructure management as a virtual machine appliance, see [Getting started deploying Infrastructure management as a virtual machine appliance](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-deploying-infrastructure-management-as-a-virtual-machine-appliance). 
 
 The Infrastructure management-related operators.
 

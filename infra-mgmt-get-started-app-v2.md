@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-05"
+  years: 2020, 2021
+lastupdated: "2021-04-07"
 
 keywords: getting started tutorial, getting started, cloud-pak-multicloud_management
 
@@ -28,7 +28,7 @@ Complete these steps to install Infrastructure management as a virtual machine a
 - You must have an IBM Cloud user account with the following roles: 
 ![Figure showing the required roles for an IBM Cloud user account.](images/required_roles.png){: caption="Figure 1. Required roles for IBM Cloud user account" caption-side="bottom"}
 
-- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}} V2.1](https://test.cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-21)  
+- You must have {{site.data.keyword.cp4mcm_full_notm}} installed. For more information, see [Getting started with {{site.data.keyword.cp4mcm_full_notm}} V2.1](https://cloud.ibm.com/docs/cloud-pak-multicloud-management?topic=cloud-pak-multicloud-management-getting-started-21)  
 
 - Ensure you enable the operators for `Infrastructure management` by opening the {{site.data.keyword.mcm}} installation YAML file. Locate the `pakModules` section, and change `enabled: false` to `enabled: true`. Enable these Infrastructure management-related operators:
 
@@ -38,7 +38,7 @@ Complete these steps to install Infrastructure management as a virtual machine a
 
   - `ibm-management-infra-grc` for Infrastructure management. For more information, see [Governance, risk, and compliance](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/mcm/compliance/compliance_intro.html).
 
-  For more information, see [Enabling operators after IBM Cloud Pak for Multicloud Management installation](https://www-03preprod.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/enable_operator.html).
+  For more information, see [Enabling operators after IBM Cloud Pak for Multicloud Management installation](https://www.ibm.com/support/knowledgecenter/SSFC4F_2.1.0/install/enable_operator.html).
 
 - You must configure and connect an LDAP directory with {{site.data.keyword.cp4mcm_full_notm}}. You must have an LDAP group in your configuration for {{site.data.keyword.cp4mcm_full_notm}} with users defined who will access Infrastructure management.      
 

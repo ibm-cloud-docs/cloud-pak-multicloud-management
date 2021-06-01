@@ -107,9 +107,9 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
     e. Select your Cloud Object Storage and bucket based on your authorization that is created in step 3.
 
-    f. Select your qcow2 image (custom image).
+    f. Select your qcow2 image (your custom image).
 
-    g. Select the Red Hat Enterprise for Operating system.
+    g. Select the CentOS for Operating system.
 
     h. Click **Import custom image**.
 
@@ -125,7 +125,7 @@ Create a custom Linux-based image to deploy Infrastructure management as a virtu
 
    b. Select your region.
 
-   c. Select the custom image that you imported.
+   c. Select your own custom image (.qcow2 file)that you imported, not an OS image.
 
    d. Use Memory Profile (2 vcpus, 16 gb ram, 4 gps).
 

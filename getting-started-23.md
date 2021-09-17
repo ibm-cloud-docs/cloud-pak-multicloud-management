@@ -132,7 +132,7 @@ If you plan to import Kubernetes clusters that were not created by OpenShift Con
 
   1. Using a CLI that has access to your cluster, create the `open-cluster-management` namespace by running the following command: `oc create namespace open-cluster-management`
   2. Download your Openshift Container Platform pull secret file from https://cloud.redhat.com/openshift/install/pull-secret by selecting **Download pull secret**; save the pull secret to a filepath you have read and write access to, like `/root/rhacm-pull-secret`.
-  3. Run the following command to create your secret, substituting in the filepath to the pull-secret: `oc create secret generic rhacm-pull-secret -n oppen-cluster-management --from-file=.dockerconfigjson=/root/rhacm-pull-secret --type=kubernetes.io/dockerconfigjson`
+  3. Run the following command to create your secret, substituting in the filepath to the pull-secret: `oc create secret generic rhacm-pull-secret -n open-cluster-management --from-file=.dockerconfigjson=/root/rhacm-pull-secret --type=kubernetes.io/dockerconfigjson`
 
 For additional information, see the Red Hat Advanced Cluster Management documention [here](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.2/html/install/installing#installing-red-hat-advanced-cluster-management-from-the-cli).
 

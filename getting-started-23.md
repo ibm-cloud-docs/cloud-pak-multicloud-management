@@ -96,6 +96,7 @@ Managing cloud costs is a priority in any organization. {{site.data.keyword.cp4m
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.0 to Version 1.3.1, 1.3.2
 - {{site.data.keyword.cp4mcm_full_notm}} Version 1.3.1 to Version 1.3.2
 - {{site.data.keyword.cp4mcm_full_notm}} Version 2.1.0 to Version 2.1.5
+- {{site.data.keyword.cp4mcm_full_notm}} Version 2.3.2 to Version 2.3.21
 
 ### Minimum hardware requirements
 
